@@ -56,10 +56,13 @@
             overflow-wrap: break-word;
         }
 
+
         header {
             width: 100%;
             height: 75px;
             display: flex;
+            background: transparent;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
             justify-content: space-between;
             align-items: center;
             position: fixed;
@@ -214,6 +217,7 @@
             margin-bottom: 30px;
         }
 
+
         #left h1 {
             font-size: 70px;
             font-weight: 400;
@@ -312,6 +316,7 @@
             margin-bottom: 30px;
         }
 
+
         #sec_4 div h1 {
             font-size: 60px;
             font-weight: 400;
@@ -327,6 +332,8 @@
             color: #666;
             font-weight: 300;
         }
+
+
 
         /* Updated Values Section - Dark Theme */
         #sec_5 {
@@ -1314,20 +1321,11 @@
             <nav id="nav_2">
                 <ul>
                     <li><a href="#">Newsroom</a></li>
-                    <li><a href="#">Careers</a></li>
+                    <!-- <li><a href="#">Careers</a></li> -->
                 </ul>
             </nav>
         </header>
-        <div class="mobile-menu">
-            <ul>
-                <li><a href="#sec_3">Mission</a></li>
-                <li><a href="#sec_4">Impact</a></li>
-                <li><a href="#sec_5">Values</a></li>
-                <li><a href="#sec_6">Principles</a></li>
-                <li><a href="#sec_7">Newsroom</a></li>
-                <li><a href="#sec_8">Careers</a></li>
-            </ul>
-        </div>
+
     </section>
 
     <section id="sec_2">
@@ -1380,16 +1378,16 @@
 
                 <div class="core-values">
                     <div class="value-item">
-                        <h3>Authenticity</h3>
+                        <h3>AUTHENTICITY</h3>
                         <p>We share — never hide — our words, actions, and intentions.</p>
                     </div>
                     <div class="value-item">
-                        <h3>Synergy</h3>
+                        <h3>SYNERGY</h3>
                         <p>Together, we create something greater than the sum of our individual parts, fostering
                             collaboration that enhances our shared living experience.</p>
                     </div>
                     <div class="value-item">
-                        <h3>Community</h3>
+                        <h3>COMMUNITY</h3>
                         <p>We build meaningful connections that transform shared spaces into true homes where everyone
                             belongs.</p>
                     </div>
@@ -1577,15 +1575,16 @@
 
         // Section background colors
         // Section background colors
+        // Section background colors
         const sectionColors = {
-            'sec_1': { bg: 'transparent', text: '#ffffff' }, // fully transparent at start
-            'sec_2': { bg: 'rgba(0, 0, 0, 0.3)', text: '#ffffff' }, // hero with slight overlay
+            'sec_2': { bg: 'transparent', text: '#ffffff' }, // hero transparent
             'sec_3': { bg: 'rgba(248, 249, 250, 0.95)', text: '#333333' },
             'sec_4': { bg: 'rgba(255, 255, 255, 0.95)', text: '#333333' },
             'sec_5': { bg: 'rgba(44, 44, 44, 0.95)', text: '#ffffff' },
             'sec_6': { bg: 'rgba(255, 255, 255, 0.95)', text: '#333333' },
             'sec_7': { bg: 'rgba(44, 44, 44, 0.95)', text: '#ffffff' },
         };
+
 
 
         function updateNavbarForSection() {
