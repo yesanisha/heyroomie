@@ -154,7 +154,6 @@
         }
 
         #img_1::before {
-            content: '';
             position: absolute;
             top: 0;
             left: 0;
@@ -292,7 +291,7 @@
             background-image: url('2.jpg');
             background-position: center;
             background-repeat: no-repeat;
-            background-size: cover;
+            background-size: contain;
             border-radius: 10px;
         }
 
@@ -614,7 +613,7 @@
 
         .work-image {
             border-radius: 10px;
-            background-size: cover;
+            background-size: contain;
             background-position: center;
         }
 
@@ -1577,15 +1576,17 @@
         const navLinks = document.querySelectorAll('nav a, #logo');
 
         // Section background colors
+        // Section background colors
         const sectionColors = {
-            'sec_1': { bg: 'rgba(0, 0, 0, 0.3)', text: '#ffffff' }, // Hero section
-            'sec_2': { bg: 'rgba(0, 0, 0, 0.3)', text: '#ffffff' }, // Hero section
-            'sec_3': { bg: 'rgba(248, 249, 250, 0.95)', text: '#333333' }, // Light gray
-            'sec_4': { bg: 'rgba(255, 255, 255, 0.95)', text: '#333333' }, // White
-            'sec_5': { bg: 'rgba(44, 44, 44, 0.95)', text: '#ffffff' }, // Dark
-            'sec_6': { bg: 'rgba(255, 255, 255, 0.95)', text: '#333333' }, // White
-            'sec_7': { bg: 'rgba(44, 44, 44, 0.95)', text: '#ffffff' }, // Dark
+            'sec_1': { bg: 'transparent', text: '#ffffff' }, // fully transparent at start
+            'sec_2': { bg: 'rgba(0, 0, 0, 0.3)', text: '#ffffff' }, // hero with slight overlay
+            'sec_3': { bg: 'rgba(248, 249, 250, 0.95)', text: '#333333' },
+            'sec_4': { bg: 'rgba(255, 255, 255, 0.95)', text: '#333333' },
+            'sec_5': { bg: 'rgba(44, 44, 44, 0.95)', text: '#ffffff' },
+            'sec_6': { bg: 'rgba(255, 255, 255, 0.95)', text: '#333333' },
+            'sec_7': { bg: 'rgba(44, 44, 44, 0.95)', text: '#ffffff' },
         };
+
 
         function updateNavbarForSection() {
             const sections = document.querySelectorAll('section[id]');
