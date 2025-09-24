@@ -146,134 +146,268 @@
             color: inherit;
         }
 
-        #sec_2 {
+        /* Updated Values Section - Dark Theme */
+        #sec_5 {
             width: 100%;
-            height: 100vh;
-            position: relative;
+            min-height: 100vh;
+            background: #34221a;
+            color: #ffeccc;
+            padding: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        #img_1 {
-            background-image: url('room.jpg');
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
+        #sec_5 .values-container {
             width: 100%;
-            height: 100%;
-            position: relative;
-            background-color: rgba(255, 255, 255, 0.1);
-            /* white layer */
-            background-blend-mode: difference;
-            /* or try overlay / screen */
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        #img_1::before {
+        .section-label {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .values-section {
+            text-align: center;
+        }
+
+        .values-title {
+            font-size: 50px;
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 40px;
+            font-family: 'Georgia', serif;
+            color: #ffeccc;
+        }
+
+        .values-intro {
+            font-size: 20px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 60px;
+            font-weight: 300;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .core-values {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .value-item {
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .value-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .value-item h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #ffeccc;
+        }
+
+        .value-item p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 300;
+        }
+
+        /* New Principles Section - Compact Grid Layout */
+        #sec_6 {
+            width: 100%;
+            min-height: 100vh;
+            background: #fdf0d9bf;
+            display: flex;
+            align-items: center;
+            padding: 100px;
+        }
+
+        .principles-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+
+
+        }
+
+        .principles-content {
+            /* display: flex; */
+            flex-direction: column;
+            margin-bottom: 60px;
+        }
+
+        .section-label-light {
+            color: #4b2e27;
+            font-size: 18px;
+            font-weight: 400;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .principles-title-light {
+            font-size: 60px;
+            font-weight: 400;
+            line-height: 1.1;
+            margin-bottom: 40px;
+            color: #4b2e27;
+            font-family: 'Georgia', serif;
+        }
+
+        .principles-intro-light {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #666;
+            font-weight: 300;
+            margin-bottom: 0;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .principles-grid-light {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .principle-item-light {
+            background: #fdf0d9e7;
+            border-radius: 20px;
+            padding: 35px 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .principle-item-light::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            bottom: 0;
-            background: rgba(255, 255, 255, 0.3);
-            /* adjust opacity: 0 = invisible, 1 = full white */
+            height: 4px;
+            background: linear-gradient(90deg, #67295f, #4b2e27);
         }
 
-        #sec_2 span {
-            font-size: 70px;
-            color: #ffeccc;
-            position: absolute;
-            left: 7%;
-            top: 60%;
-            font-weight: 400;
-            line-height: 1.1;
-            z-index: 2;
+        .principle-item-light:hover {
+            transform: translateY(-10px);
+            background: #fdf0d9bf;
+            border-color: #4b2e27;
+            box-shadow: 0 15px 40px rgba(103, 41, 95, 0.15);
+        }
+
+        .principle-number-light {
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+            background: #4b2e27;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px auto;
+            transition: all 0.3s ease;
+        }
+
+        .principle-item-light:hover .principle-number-light {
+            background: #4b2e27;
+            transform: scale(1.1);
+        }
+
+        .principle-content-light h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #4b2e27;
             font-family: 'Georgia', serif;
         }
 
-        #sec_2 span sup {
-            font-size: 20px;
+        .principle-content-light p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #666;
+            font-weight: 300;
         }
 
-        #sec_3 {
+        .principles-visual {
+            display: none;
+            /* Hide the visual elements to make it more compact */
+        }
+
+        /* Work Section - Now Section 8 */
+        #sec_8 {
             width: 100%;
             height: 100vh;
+            background: #f8f9fa;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            background: #fdf0d9;
             padding: 0 100px;
         }
 
-        #left {
-            width: 48%;
-            height: 95%;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            flex-direction: column;
+        #sec_8 .work-container {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 100px;
+            align-items: center;
         }
 
-        #right {
-            width: 48%;
-            height: 95%;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            flex-direction: column;
-            padding-left: 60px;
-        }
-
-        #left p {
+        #sec_8 .work-content p {
             color: #67295f;
             font-size: 18px;
             font-weight: 400;
             margin-bottom: 30px;
         }
 
-
-        #left h1 {
+        #sec_8 .work-content h1 {
             font-size: 70px;
             font-weight: 400;
             line-height: 1.1;
+            margin-bottom: 40px;
             color: #4b2e27;
             font-family: 'Georgia', serif;
-            position: relative;
         }
 
-        .highlight-circle {
-            position: relative;
-            display: inline-block;
-        }
-
-        .highlight-circle::after {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: -15px;
-            right: -15px;
-            bottom: -10px;
-            border: 3px solid #67295f;
-            border-radius: 50%;
-            z-index: -1;
-        }
-
-        .arrow {
-            position: absolute;
-            right: -100px;
-            bottom: -50px;
-            font-size: 60px;
-            color: #67295f;
-            transform: rotate(45deg);
-        }
-
-        #right span {
-            color: #666;
+        #sec_8 .work-content span {
             font-size: 18px;
             line-height: 1.6;
-            margin-bottom: 40px;
+            color: #666;
             font-weight: 300;
+            margin-bottom: 40px;
+            display: block;
         }
 
-        #right button {
-            width: 160px;
+        #sec_8 .work-content button {
+            width: 120px;
             height: 45px;
             font-size: 15px;
             font-weight: 400;
@@ -285,114 +419,89 @@
             transition: all 0.3s ease;
         }
 
-        #right button:hover {
+        #sec_8 .work-content button:hover {
             background-color: #67295f;
             transform: translateY(-2px);
         }
 
-        #sec_4 {
+        .work-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            height: 400px;
+        }
+
+        .work-image {
+            border-radius: 10px;
+            background-size: contain;
+            background-position: center;
+        }
+
+        .work-image:nth-child(1) {
+            background-image: url('2.jpg');
+        }
+
+        .work-image:nth-child(2) {
+            background-image: url('3.jpg');
+        }
+
+        .work-image:nth-child(3) {
+            background-image: url('2.jpg');
+        }
+
+        /* Press Section */
+        #sec_7 {
             width: 100%;
             height: 100vh;
+            background: #2c2c2c;
+            color: white;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            background: white;
             padding: 0 100px;
         }
 
-        #sec_4 aside {
-            width: 45%;
-            height: 80%;
-            background-image: url('2.jpg');
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: contain;
-            border-radius: 10px;
+        #sec_7 .press-container {
+            width: 100%;
+            max-width: 600px;
         }
 
-        #sec_4 div {
-            width: 45%;
-            height: 80%;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            flex-direction: column;
-            padding-left: 60px;
-        }
-
-        #sec_4 div p {
-            color: #67295f;
-            font-size: 18px;
-            font-weight: 400;
+        #sec_7 .label {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7);
             margin-bottom: 30px;
         }
 
-
-        #sec_4 div h1 {
-            font-size: 60px;
+        #sec_7 h1 {
+            font-size: 70px;
             font-weight: 400;
             line-height: 1.1;
             margin-bottom: 40px;
-            color: #4b2e27;
             font-family: 'Georgia', serif;
         }
 
-        #sec_4 div span {
+        #sec_7 p {
             font-size: 18px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px;
             line-height: 1.6;
-            color: #666;
-            font-weight: 300;
         }
 
-
-
-        /* Footer */
-        footer {
-            background: #4b2e23;
-            color: white;
-            padding: 80px 100px 40px;
-        }
-
-        .footer-logo {
-            width: 60px;
-            height: 60px;
-            background: #4b2e27;
-            margin-bottom: 80px;
-            border-radius: 5px;
-        }
-
-        .footer-links {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 100px;
-            margin-bottom: 60px;
-        }
-
-        .footer-column h4 {
-            font-size: 18px;
-            margin-bottom: 30px;
-            color: rgba(255, 255, 255, 0.6);
-            font-weight: 400;
-        }
-
-        .footer-column ul {
-            list-style: none;
-        }
-
-        .footer-column li {
-            margin-bottom: 15px;
-        }
-
-        .footer-column a {
-            color: white;
-            text-decoration: none;
+        #sec_7 button {
+            background: white;
+            color: #4b2e27;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
             font-size: 16px;
-            transition: color 0.3s ease;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
 
-        .footer-column a:hover {
-            color: rgba(255, 255, 255, 0.7);
+        #sec_7 button:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
         }
+
 
         /* Responsive Design */
 
@@ -752,24 +861,30 @@
             }
 
             #right button,
-
-
-            footer {
-                padding: 50px 20px 30px;
-            }
-
-            .footer-links {
-                gap: 30px;
-            }
-
-            .footer-column h4 {
-                font-size: 16px;
-                margin-bottom: 20px;
-            }
-
-            .footer-column a {
+            #sec_8 .work-content button {
+                width: 140px;
+                height: 42px;
                 font-size: 14px;
             }
+
+            #sec_7 {
+                padding: 50px 20px;
+            }
+
+            #sec_7 h1 {
+                font-size: 32px;
+            }
+
+            #sec_7 p {
+                font-size: 16px;
+            }
+
+            #sec_7 button {
+                padding: 12px 25px;
+                font-size: 14px;
+            }
+
+
         }
 
         /* Extra Small Mobile */
@@ -938,6 +1053,7 @@
             }
         }
 
+
         /* Overlay styling */
         .overlay {
             display: none;
@@ -995,7 +1111,7 @@
                 <nav id="nav_1">
                     <ul>
                         <li><a href="mission.html">Mission</a></li>
-                        <li><a href="mission.html#sec_6">Impact</a></li>
+                        <li><a href="#sec_6">Impact</a></li>
                         <!-- <li><a href="#">Join Us</a></li> -->
                     </ul>
                 </nav>
@@ -1028,85 +1144,101 @@
     </div>
 
 
-    <section id="sec_2">
-        <div id="img_1"></div>
-        <span>
-            <b>Where Living </b><br><b>Meets Belonging</b> <sup></sup>
-        </span>
+    <section id="sec_5">
+        <div class="values-container">
+            <!-- Our Values Section Only -->
+            <div class="values-section">
+                <div class="section-label"></div>
+                <h2 class="values-title">Our Values</h2>
+                <p class="values-intro">
+                    Shared living is at the heart of everything we do. And not just with any roommate—it’s about
+                    building a home together. We can’t create the perfect living space alone, so we make great
+                    partnerships the foundation of our community. We believe these three core values are what it takes
+                    to foster those great partnerships.
+                </p>
+
+                <div class="core-values">
+                    <div class="value-item">
+                        <h3>AUTHENTICITY</h3>
+                        <p>We share never hide our words, actions, and intentions.</p>
+                    </div>
+                    <div class="value-item">
+                        <h3>SYNERGY</h3>
+                        <p>Together, we create something greater than the sum of our individual parts, fostering
+                            collaboration that enhances our shared living experience.</p>
+                    </div>
+                    <div class="value-item">
+                        <h3>COMMUNITY</h3>
+                        <p>We build meaningful connections that transform shared spaces into true homes where everyone
+                            belongs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="sec_3">
-        <aside id="left">
-            <p>Our Approach</p>
-            <h1>
-                Great Roommates<br>
-                Make Great
-                <span class="highlight-circle">Home.</span>
-                <span class="arrow"><!-- ↘ --></span>
-            </h1>
+    <section id="sec_6">
+        <div class="principles-container">
+            <div class="principles-content">
+                <p class="section-label-light">Our Foundation</p>
+                <h2 class="principles-title-light">Our Principles</h2>
+                <p class="principles-intro-light">
+                    We bring our values to life. Our principles guide us to prioritize our values in every decision we
+                    make.
+                </p>
+                <br>
 
-        </aside>
-        <aside id="right">
-            <span>At HeyRoomie, we believe that a true home is more than just four walls; it's where connections
-                flourish and memories are made. Everyone deserves a space that feels just right, and our smart,
-                data-driven algorithm is here to make that happen. By matching you with great vibes and like-minded
-                roommates, we're not just crafting homes—we're building a community where friendships thrive and every
-                moment feels at home.</span>
-            <a href="mission.html">
-                <button>How we do it</button>
-            </a>
-        </aside>
-    </section>
+                <div class="principles-grid-light">
+                    <div class="principle-item-light">
+                        <div class="principle-number-light">01</div>
+                        <div class="principle-content-light">
+                            <h3>Embrace the Challenge</h3>
+                            <p>True innovation emerges from a deep understanding of the challenges we face, and each
+                                setback thrills us to work harder rather than rushing to find quick solutions.</p>
+                        </div>
+                    </div>
 
+                    <div class="principle-item-light">
+                        <div class="principle-number-light">02</div>
+                        <div class="principle-content-light">
+                            <h3>Simplify Solutions</h3>
+                            <p>We focus on creating straightforward solutions that align with our key objectives—both as
+                                an organization and within our teams. We choose to say "no" to many ideas in order to
+                                concentrate on what truly matters.</p>
+                        </div>
+                    </div>
 
-    <section id="sec_4">
-        <aside></aside>
-        <div>
-            <p>At the core of HeyRoomie.</p>
-            <h1>Great Roommates Make Great Homes</h1>
-            <span>We strive to create a warm and inviting home for everyone by connecting you with the perfect roommate
-                to share it with.</span>
+                    <div class="principle-item-light">
+                        <div class="principle-number-light">03</div>
+                        <div class="principle-content-light">
+                            <h3>Decide with Purpose</h3>
+                            <p>Every decision at HeyRoomie is made thoughtfully and intentionally. Our choices are
+                                guided by our principles, not by random personal biases.</p>
+                        </div>
+                    </div>
+
+                    <div class="principle-item-light">
+                        <div class="principle-number-light">04</div>
+                        <div class="principle-content-light">
+                            <h3>Cultivate Trust</h3>
+                            <p>At HeyRoomie, we prioritize trust among each other and actively work to build and restore
+                                it through openness and collaboration. When trust is lacking, we address it directly.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="principles-visual">
+                <div class="principle-image-grid">
+                    <div class="principle-image principle-img-1"></div>
+                    <div class="principle-image principle-img-2"></div>
+                    <div class="principle-image principle-img-3"></div>
+                </div>
+            </div>
         </div>
     </section>
 
 
-
-
-    <footer>
-        <!-- <div class="footer-logo"></div> -->
-        <div class="footer-links">
-            <div class="footer-column">
-                <h4>Index</h4>
-                <ul>
-                    <li><a href="#">Mission</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Labs</a></li>
-                    <!-- <li><a href="#">Newsroom</a></li>
-                    <li><a href="#">Success Stories</a></li>
-                    <li><a href="#">History</a></li> -->
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Resources</h4>
-                <ul>
-                    <li><a href="#">Safe Living Tips</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <!-- <li><a href="#">Trust & Safety</a></li>
-                    <li><a href="#">Press Resources</a></li> -->
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Legal</h4>
-                <ul>
-                    <li><a href="#">Security</a></li>
-                    <li><a href="#">Terms</a></li>
-                    <!-- <li><a href="#">Privacy</a></li>
-                    <li><a href="#">Cookie Policy</a></li> -->
-                    <li><a href="#">anisha kumari (all rights reserved)<br></a></li>
-                </ul>
-            </div>
-        </div>
-    </footer>
 
     <script>
         // Smooth scrolling for navigation links
@@ -1180,11 +1312,9 @@
         const sectionColors = {
             //             color: #b97a56;
 
-            'sec_2': { bg: 'transparent', text: '#ffffff' }, // hero transparent
-            'sec_3': { bg: '#fdf0d9', text: '#333333' },
-            'sec_4': { bg: 'rgba(255, 255, 255, 0.95)', text: '#333333' },
+
             'sec_5': { bg: '#34221a', text: '#ffffff' },
-            'sec_6': { bg: 'rgba(255, 255, 255, 0.95)', text: '#4b2e27' },
+            'sec_6': { bg: '#fdf0d9', text: '#4b2e27' },
             'sec_7': { bg: 'rgba(44, 44, 44, 0.95)', text: '#ffffff' },
         };
 
@@ -1314,7 +1444,6 @@
             }
         });
     </script>
-
 </body>
 
 </html>
