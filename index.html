@@ -23,6 +23,63 @@
             -ms-text-size-adjust: 100%;
         }
 
+        /* Splash Screen */
+        .splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .splash-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .splash-logo {
+            font-size: 48px;
+            font-weight: 700;
+            color: #fff;
+            transform: scale(0);
+            animation: splashPop 1.2s ease-out forwards;
+        }
+
+        @keyframes splashPop {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            50% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Page entrance animations */
+        .page-content {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease 0.3s;
+        }
+
+        .page-content.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* Responsive utilities */
         img,
         video,
@@ -56,7 +113,6 @@
             overflow-wrap: break-word;
         }
 
-
         header {
             width: 100%;
             height: 75px;
@@ -68,7 +124,16 @@
             position: fixed;
             z-index: 1000;
             padding: 0 20px;
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: slideInFromTop 0.8s ease 1.8s forwards;
+        }
 
+        @keyframes slideInFromTop {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .header-left {
@@ -87,7 +152,6 @@
             color: inherit;
             order: -1;
             transition: color 0.3s ease, transform 0.2s ease;
-
         }
 
         .mobile-menu-btn:hover {
@@ -106,7 +170,6 @@
             align-items: center;
             margin-left: 80px;
             font-size: 17px;
-
         }
 
         #nav_2 ul {
@@ -142,14 +205,127 @@
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            /* removes underline */
             color: inherit;
+        }
+
+        /* Mobile Menu Styles */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100vh;
+            background: #000;
+            z-index: 1001;
+            transition: left 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            padding: 80px 50px 50px;
+        }
+
+        .mobile-menu.active {
+            left: 0;
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 10px;
+            border: 2px solid #fff;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-close:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        .mobile-menu-download {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #fff;
+            color: #000;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-download:hover {
+            background: #f0f0f0;
+        }
+
+        .mobile-menu-items {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .mobile-menu-item {
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+        }
+
+        .mobile-menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-menu-item a {
+            color: #fff;
+            font-size: 48px;
+            font-weight: 400;
+            text-decoration: none;
+            font-family: 'Georgia', serif;
+            display: block;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-menu-item a:hover {
+            color: #b19cd9;
+        }
+
+        .mobile-menu-footer {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mobile-menu-contact {
+            color: #fff;
+            font-size: 18px;
+            text-decoration: none;
+        }
+
+        .mobile-menu-social {
+            display: flex;
+            gap: 20px;
+        }
+
+        .mobile-menu-social a {
+            color: #fff;
+            font-size: 24px;
+            text-decoration: none;
         }
 
         #sec_2 {
             width: 100%;
             height: 100vh;
             position: relative;
+            overflow: hidden;
         }
 
         #img_1 {
@@ -161,9 +337,15 @@
             height: 100%;
             position: relative;
             background-color: rgba(255, 255, 255, 0.1);
-            /* white layer */
             background-blend-mode: difference;
-            /* or try overlay / screen */
+            transform: translateY(100%);
+            animation: slideUpImage 1.2s ease 1.5s forwards;
+        }
+
+        @keyframes slideUpImage {
+            to {
+                transform: translateY(0);
+            }
         }
 
         #img_1::before {
@@ -173,19 +355,38 @@
             right: 0;
             bottom: 0;
             background: rgba(255, 255, 255, 0.3);
-            /* adjust opacity: 0 = invisible, 1 = full white */
         }
 
         #sec_2 span {
             font-size: 70px;
-            color: #ffeccc;
+            color: #ffffff;
+            font-weight: 700;
             position: absolute;
             left: 7%;
-            top: 60%;
+            top: 65%;
             font-weight: 400;
             line-height: 1.1;
             z-index: 2;
             font-family: 'Georgia', serif;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .typing-text {
+            overflow: hidden;
+            animation: typeInText 2s ease 2.5s forwards;
+        }
+
+        @keyframes typeInText {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         #sec_2 span sup {
@@ -198,7 +399,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: #fdf0d9;
+            background: #ffffff;
             padding: 0 100px;
         }
 
@@ -226,8 +427,10 @@
             font-size: 18px;
             font-weight: 400;
             margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
         }
-
 
         #left h1 {
             font-size: 70px;
@@ -236,6 +439,9 @@
             color: #4b2e27;
             font-family: 'Georgia', serif;
             position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease 0.2s;
         }
 
         .highlight-circle {
@@ -253,6 +459,8 @@
             border: 3px solid #67295f;
             border-radius: 50%;
             z-index: -1;
+            transform: scale(0);
+            transition: transform 0.5s ease 0.8s;
         }
 
         .arrow {
@@ -270,6 +478,9 @@
             line-height: 1.6;
             margin-bottom: 40px;
             font-weight: 300;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease 0.4s;
         }
 
         #right button {
@@ -283,11 +494,27 @@
             border-radius: 25px;
             cursor: pointer;
             transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease 0.6s;
         }
 
         #right button:hover {
             background-color: #67295f;
             transform: translateY(-2px);
+        }
+
+        /* Animation classes */
+        .animate-in #left p,
+        .animate-in #left h1,
+        .animate-in #right span,
+        .animate-in #right button {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .animate-in .highlight-circle::after {
+            transform: scale(1);
         }
 
         #sec_4 {
@@ -308,6 +535,9 @@
             background-repeat: no-repeat;
             background-size: contain;
             border-radius: 10px;
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.8s ease;
         }
 
         #sec_4 div {
@@ -325,8 +555,10 @@
             font-size: 18px;
             font-weight: 400;
             margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
         }
-
 
         #sec_4 div h1 {
             font-size: 60px;
@@ -335,6 +567,9 @@
             margin-bottom: 40px;
             color: #4b2e27;
             font-family: 'Georgia', serif;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease 0.2s;
         }
 
         #sec_4 div span {
@@ -342,9 +577,22 @@
             line-height: 1.6;
             color: #666;
             font-weight: 300;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease 0.4s;
         }
 
+        .animate-sec4 #sec_4 aside,
+        .animate-sec4 #sec_4 div p,
+        .animate-sec4 #sec_4 div h1,
+        .animate-sec4 #sec_4 div span {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
+        .animate-sec4 #sec_4 aside {
+            transform: translateX(0);
+        }
 
         /* Footer */
         footer {
@@ -395,34 +643,6 @@
         }
 
         /* Responsive Design */
-
-        /* Large Desktop */
-        @media (min-width: 1400px) {
-            .header-left {
-                margin-left: 50px;
-            }
-
-            #nav_2 ul {
-                margin-right: 150px;
-            }
-
-            #sec_3,
-            #sec_4,
-            #sec_5,
-            #sec_6,
-            #sec_8 {
-                padding-left: 150px;
-                padding-right: 150px;
-            }
-
-            #sec_7,
-            footer {
-                padding-left: 150px;
-                padding-right: 150px;
-            }
-        }
-
-        /* Tablet Landscape */
         @media (max-width: 1024px) {
             .header-left {
                 margin-left: 20px;
@@ -439,44 +659,21 @@
             }
 
             #sec_3,
-            #sec_4,
-            #sec_8 {
+            #sec_4 {
                 padding: 0 50px;
             }
 
-            #sec_5,
-            #sec_6 {
-                padding: 80px 50px;
-            }
-
-            #sec_7,
             footer {
                 padding-left: 50px;
                 padding-right: 50px;
             }
 
             #left h1,
-            #sec_4 div h1,
-            #sec_8 .work-content h1 {
+            #sec_4 div h1 {
                 font-size: 60px;
-            }
-
-            .values-title,
-            .principles-title-light {
-                font-size: 45px;
-            }
-
-            .core-values {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 30px;
-            }
-
-            .principles-container {
-                gap: 60px;
             }
         }
 
-        /* Tablet Portrait */
         @media (max-width: 768px) {
             header {
                 padding: 0 20px;
@@ -486,34 +683,48 @@
                 display: block;
             }
 
-            #nav_1 ul,
-            #nav_2 ul {
+            #nav_1 ul {
                 display: none;
             }
 
-            .mobile-menu {
-                top: 60px;
-                display: block;
+            /* Keep community button visible on mobile */
+            #nav_2 {
+                display: flex !important;
+            }
+
+            #nav_2 ul {
+                display: flex !important;
+                margin-right: 10px;
+                width: auto;
+                background: rgba(255, 255, 255, 0.1);
+                backdrop-filter: blur(10px);
+                border-radius: 25px;
+                padding: 8px 16px;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+            }
+
+            #nav_2 ul li a {
+                font-size: 14px;
+                font-weight: 500;
+                color: #fff !important;
+                padding: 0;
+                white-space: nowrap;
             }
 
             .header-left {
                 margin-left: 0;
             }
 
-            /* #logo {
-                font-size: 28px;
-            } */
-
             #sec_2 span {
                 font-size: 45px;
                 left: 5%;
-                top: 55%;
+                top: 60%;
                 right: 5%;
+                font-weight: 700;
             }
 
             #sec_3,
-            #sec_4,
-            #sec_8 {
+            #sec_4 {
                 flex-direction: column;
                 height: auto;
                 padding: 60px 30px;
@@ -538,76 +749,19 @@
             }
 
             #left h1,
-            #sec_4 div h1,
-            #sec_8 .work-content h1,
-            #sec_7 h1 {
+            #sec_4 div h1 {
                 font-size: 45px;
                 line-height: 1.2;
             }
 
-            #sec_5,
-            #sec_6 {
-                padding: 60px 30px;
-            }
-
-            .values-title,
-            .principles-title-light {
-                font-size: 40px;
-                line-height: 1.2;
-            }
-
-            .values-intro,
-            .principles-intro-light {
-                font-size: 18px;
-                margin-bottom: 50px;
-            }
-
-            .core-values {
-                grid-template-columns: 1fr;
-                gap: 25px;
-            }
-
-            .value-item {
-                padding: 25px;
-                text-align: center;
-            }
-
-            .principles-container {
-                grid-template-columns: 1fr;
-                gap: 50px;
-            }
-
-            .principle-item-light {
-                grid-template-columns: 1fr;
-                gap: 20px;
-                text-align: center;
-            }
-
-            .principle-content-light h3 {
-                font-size: 24px;
-            }
-
-            .principle-content-light p {
-                font-size: 16px;
-            }
-
-            .principle-image-grid {
-                height: 300px;
-            }
-
-            #sec_8 .work-container {
-                grid-template-columns: 1fr;
-                gap: 50px;
-            }
-
-            .work-images {
-                grid-template-columns: 1fr;
-                height: auto;
-                gap: 15px;
-            }
-
-            .work-image {
-                height: 200px;
+            /* Better mobile button styling */
+            #right button {
+                width: auto;
+                min-width: 140px;
+                padding: 12px 24px;
+                font-size: 14px;
+                border-radius: 30px;
+                font-weight: 500;
             }
 
             .footer-links {
@@ -615,32 +769,21 @@
                 gap: 40px;
             }
 
-            #sec_7 {
-                padding: 60px 30px;
-            }
-
             footer {
                 padding: 60px 30px 30px;
             }
         }
 
-        /* Mobile Landscape */
         @media (max-width: 640px) {
             #sec_2 span {
                 font-size: 38px;
                 line-height: 1.1;
+                font-weight: 700;
             }
 
             #left h1,
-            #sec_4 div h1,
-            #sec_8 .work-content h1,
-            #sec_7 h1 {
+            #sec_4 div h1 {
                 font-size: 38px;
-            }
-
-            .values-title,
-            .principles-title-light {
-                font-size: 35px;
             }
 
             .arrow {
@@ -655,104 +798,52 @@
             }
         }
 
-        /* Mobile Portrait */
         @media (max-width: 480px) {
             header {
                 height: 60px;
                 padding: 0 15px;
             }
 
-            /* #logo {
-                font-size: 24px;
-            } */
+            .splash-logo {
+                font-size: 36px;
+            }
 
             #sec_2 span {
                 font-size: 32px;
                 left: 4%;
                 right: 4%;
-                top: 50%;
+                top: 55%;
+                font-weight: 700;
             }
 
             #sec_3,
-            #sec_4,
-            #sec_5,
-            #sec_6,
-            #sec_8 {
+            #sec_4 {
                 padding: 50px 20px;
             }
 
             #left h1,
-            #sec_4 div h1,
-            #sec_8 .work-content h1,
-            #sec_7 h1 {
+            #sec_4 div h1 {
                 font-size: 32px;
                 margin-bottom: 25px;
             }
 
             #left p,
-            #sec_4 div p,
-            #sec_8 .work-content p {
+            #sec_4 div p {
                 font-size: 16px;
                 margin-bottom: 20px;
             }
 
             #right span,
-            #sec_4 div span,
-            #sec_8 .work-content span {
+            #sec_4 div span {
                 font-size: 16px;
                 margin-bottom: 30px;
             }
 
-            .values-title,
-            .principles-title-light {
-                font-size: 30px;
-                margin-bottom: 30px;
+            #right button {
+                min-width: 120px;
+                padding: 10px 20px;
+                font-size: 13px;
             }
-
-            .values-intro,
-            .principles-intro-light {
-                font-size: 16px;
-                margin-bottom: 40px;
-            }
-
-            .section-label,
-            .section-label-light {
-                font-size: 14px;
-                margin-bottom: 20px;
-            }
-
-            .value-item {
-                padding: 20px;
-            }
-
-            .value-item h3 {
-                font-size: 20px;
-            }
-
-            .value-item p {
-                font-size: 14px;
-            }
-
-            .principles-grid-light {
-                gap: 30px;
-            }
-
-            .principle-number-light {
-                font-size: 16px;
-                padding: 10px 16px;
-            }
-
-            .principle-content-light h3 {
-                font-size: 20px;
-                margin-bottom: 12px;
-            }
-
-            .principle-content-light p {
-                font-size: 14px;
-            }
-
-            #right button,
-
 
             footer {
                 padding: 50px 20px 30px;
@@ -770,178 +861,19 @@
             .footer-column a {
                 font-size: 14px;
             }
-        }
 
-        /* Extra Small Mobile */
-        @media (max-width: 360px) {
-            #sec_2 span {
-                font-size: 28px;
-            }
-
-            #left h1,
-            #sec_4 div h1,
-            #sec_6 .work-content h1,
-            #sec_7 h1 {
-                font-size: 28px;
-            }
-
-            .values-title,
-            .principles-title {
-                font-size: 26px;
-            }
-
-            #sec_3,
-            #sec_4,
-            #sec_6,
-            #sec_5 {
-                padding: 40px 15px;
-            }
-
-            .value-item {
-                padding: 18px;
-            }
-
-            .principle-item {
-                gap: 15px;
-            }
-
-            #sec_7,
-            footer {
-                padding-left: 15px;
-                padding-right: 15px;
-            }
-        }
-
-        /* Landscape orientation for mobile */
-        @media (max-height: 500px) and (orientation: landscape) {
-            #sec_2 {
-                height: 70vh;
-            }
-
-            #sec_2 span {
-                font-size: 28px;
-                top: 45%;
-            }
-
-            #sec_3,
-            #sec_4,
-            #sec_6,
-            #sec_5 {
-                padding: 40px 20px;
-            }
-        }
-
-        /* Mobile Menu Styles */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            padding: 10px;
-            color: inherit;
-        }
-
-        .mobile-menu {
-            position: fixed;
-            top: 75px;
-            left: 0;
-            width: 100%;
-            background: rgba(44, 44, 44, 0.98);
-            backdrop-filter: blur(10px);
-            padding: 20px;
-            z-index: 999;
-            transform: translateY(-100%);
-            transition: transform 0.3s ease;
-            display: block;
-        }
-
-        .mobile-menu.active {
-            transform: translateY(0);
-        }
-
-        .mobile-menu ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            text-align: center;
-        }
-
-        .mobile-menu li {
-            margin: 20px 0;
-        }
-
-        .mobile-menu a {
-            color: white;
-            font-size: 18px;
-            text-decoration: none;
-            padding: 15px 20px;
-            display: block;
-            border-radius: 5px;
-            transition: background 0.3s ease;
-        }
-
-        .mobile-menu a:hover {
-            background: rgba(103, 41, 95, 0.3);
-        }
-
-        /* Mobile performance optimizations */
-        @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .mobile-menu {
-                top: 60px;
-            }
-
-            * {
-                -webkit-tap-highlight-color: transparent;
-            }
-
-            /* Disable parallax on mobile for better performance */
-            #img_1 {
-                transform: none !important;
-                background-attachment: scroll;
-            }
-
-            /* Optimize animations for mobile */
-            .value-item,
-            .principle-item {
-                transform: none;
-                transition: none;
-            }
-
-            .value-item:hover,
-            .principle-item:hover {
-                transform: none;
-            }
-
-            /* Better touch scrolling */
-            body {
-                -webkit-overflow-scrolling: touch;
-            }
-
-            /* Improve text rendering on mobile */
-            body,
-            h1,
-            h2,
-            h3,
-            h4,
-            h5,
-            h6,
-            p,
-            span {
-                -webkit-font-smoothing: antialiased;
-                -moz-osx-font-smoothing: grayscale;
-                text-rendering: optimizeLegibility;
+            /* Enhanced mobile community button */
+            #nav_2 ul {
+                background: rgba(255, 255, 255, 0.15);
+                backdrop-filter: blur(15px);
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             }
         }
 
         /* Overlay styling */
         .overlay {
             display: none;
-            /* Hidden by default */
             position: fixed;
             top: 0;
             left: 0;
@@ -954,12 +886,25 @@
         }
 
         .overlay-content {
-            background: #ffeccc;
+            background: #ffffff;
             padding: 30px;
             border-radius: 12px;
             text-align: center;
             max-width: 400px;
             width: 90%;
+            animation: popIn 0.3s ease;
+        }
+
+        @keyframes popIn {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
 
         .overlay-content ul {
@@ -974,7 +919,6 @@
         .overlay-content ul li a {
             text-decoration: none;
             color: #4b2e23;
-            /* font-weight: bold; */
         }
 
         .close {
@@ -988,127 +932,183 @@
 </head>
 
 <body>
-    <section id="sec_1">
-        <header>
-            <div class="header-left">
-                <button class="mobile-menu-btn">☰</button>
-                <nav id="nav_1">
-                    <ul>
-                        <li><a href="mission.html">Mission</a></li>
-                        <li><a href="mission.html#sec_6">Impact</a></li>
-                        <!-- <li><a href="#">Join Us</a></li> -->
-                    </ul>
-                </nav>
-            </div>
-            <a id="logo" href="index.html"><b>HeyRoomie</b></a>
-            <nav id="nav_2">
-                <ul>
-                    <!-- <li><a href="#">Join Us</a></li> -->
-                    <li><a href="#" id="openCommunity">Join the Community</a></li>
-                </ul>
-            </nav>
-        </header>
-    </section>
-    <div id="communityOverlay" class="overlay">
-        <div class="overlay-content">
-            <span id="closeOverlay" class="close">&times;</span>
-            <h2>Join Your Community</h2>
-            <ul>
-                <li><a href="https://chat.whatsapp.com/K595Lc0UtRKKQmOtnclvcL" target="_blank"
-                        rel="noopener noreferrer">Bangalore Community</a></li>
-                <li><a href="https://chat.whatsapp.com/GIlChXJoekYBRdAEBRScBp" target="_blank"
-                        rel="noopener noreferrer">Mumbai Community</a></li>
-                <li><a href="https://chat.whatsapp.com/GWHmsVPDFwE2mHrI8p7KvE" target="_blank"
-                        rel="noopener noreferrer">Delhi Community</a></li>
-                <li><a href="https://chat.whatsapp.com/EUWnq8OeubxCzxXGIgQmqO" target="_blank"
-                        rel="noopener noreferrer">Pune Community</a></li>
-
-            </ul>
-        </div>
+    <!-- Splash Screen -->
+    <div class="splash-screen" id="splashScreen">
+        <div class="splash-logo">HeyRoomie</div>
     </div>
 
+    <div class="page-content" id="pageContent">
+        <section id="sec_1">
+            <header>
+                <div class="header-left">
+                    <button class="mobile-menu-btn">☰</button>
+                    <nav id="nav_1">
+                        <ul>
+                            <li><a href="mission.html">Mission</a></li>
+                            <li><a href="mission.html#sec_6">Impact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <a id="logo" href="index.html"><b>HeyRoomie</b></a>
+                <nav id="nav_2">
+                    <ul>
+                        <li><a href="#" id="openCommunity">Join</a></li>
+                    </ul>
+                </nav>
+            </header>
+        </section>
 
-    <section id="sec_2">
-        <div id="img_1"></div>
-        <span>
-            <b>Where Living </b><br><b>Meets Belonging</b> <sup></sup>
-        </span>
-    </section>
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <button class="mobile-menu-close" id="closeMobileMenu">✕</button>
+            <button class="mobile-menu-download">Download</button>
 
-    <section id="sec_3">
-        <aside id="left">
-            <p>Our Approach</p>
-            <h1>
-                Great Roommates<br>
-                Make Great
-                <span class="highlight-circle">Home.</span>
-                <span class="arrow"><!-- ↘ --></span>
-            </h1>
+            <div class="mobile-menu-items">
+                <div class="mobile-menu-item">
+                    <a href="mission.html">Mission</a>
+                </div>
+                <div class="mobile-menu-item">
+                    <a href="mission.html#principles_section">Impact</a>
+                </div>
+                <div class="mobile-menu-item">
+                    <a href="#sec_3">Labs</a>
+                </div>
+                <div class="mobile-menu-item">
+                    <a href="#">Newsroom</a>
+                </div>
+                <div class="mobile-menu-item">
+                    <a href="#">Careers</a>
+                </div>
+            </div>
 
-        </aside>
-        <aside id="right">
-            <span>At HeyRoomie, we believe that a true home is more than just four walls; it's where connections
-                flourish and memories are made. Everyone deserves a space that feels just right, and our smart,
-                data-driven algorithm is here to make that happen. By matching you with great vibes and like-minded
-                roommates, we're not just crafting homes—we're building a community where friendships thrive and every
-                moment feels at home.</span>
-            <a href="mission.html">
-                <button>How we do it</button>
-            </a>
-        </aside>
-    </section>
-
-
-    <section id="sec_4">
-        <aside></aside>
-        <div>
-            <p>At the core of HeyRoomie.</p>
-            <h1>Great Roommates Make Great Homes</h1>
-            <span>We strive to create a warm and inviting home for everyone by connecting you with the perfect roommate
-                to share it with.</span>
+            <div class="mobile-menu-footer">
+                <a href="#" class="mobile-menu-contact">Contact</a>
+                <div class="mobile-menu-social">
+                    <a href="#">🐦</a>
+                    <a href="#">📷</a>
+                </div>
+            </div>
         </div>
-    </section>
 
-
-
-
-    <footer>
-        <!-- <div class="footer-logo"></div> -->
-        <div class="footer-links">
-            <div class="footer-column">
-                <h4>Index</h4>
+        <div id="communityOverlay" class="overlay">
+            <div class="overlay-content">
+                <span id="closeOverlay" class="close">&times;</span>
+                <h2>Join Your Community</h2>
                 <ul>
-                    <li><a href="#">Mission</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Labs</a></li>
-                    <!-- <li><a href="#">Newsroom</a></li>
-                    <li><a href="#">Success Stories</a></li>
-                    <li><a href="#">History</a></li> -->
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Resources</h4>
-                <ul>
-                    <li><a href="#">Safe Living Tips</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <!-- <li><a href="#">Trust & Safety</a></li>
-                    <li><a href="#">Press Resources</a></li> -->
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Legal</h4>
-                <ul>
-                    <li><a href="#">Security</a></li>
-                    <li><a href="#">Terms</a></li>
-                    <!-- <li><a href="#">Privacy</a></li>
-                    <li><a href="#">Cookie Policy</a></li> -->
-                    <li><a href="#">anisha kumari (all rights reserved)<br></a></li>
+                    <li><a href="https://chat.whatsapp.com/K595Lc0UtRKKQmOtnclvcL" target="_blank"
+                            rel="noopener noreferrer">Bangalore Community</a></li>
+                    <li><a href="https://chat.whatsapp.com/GIlChXJoekYBRdAEBRScBp" target="_blank"
+                            rel="noopener noreferrer">Mumbai Community</a></li>
+                    <li><a href="https://chat.whatsapp.com/GWHmsVPDFwE2mHrI8p7KvE" target="_blank"
+                            rel="noopener noreferrer">Delhi Community</a></li>
+                    <li><a href="https://chat.whatsapp.com/EUWnq8OeubxCzxXGIgQmqO" target="_blank"
+                            rel="noopener noreferrer">Pune Community</a></li>
                 </ul>
             </div>
         </div>
-    </footer>
+
+        <section id="sec_2">
+            <div id="img_1"></div>
+            <span class="typing-text">
+                <b>Where Living </b><br><b>Meets Belonging</b>
+            </span>
+        </section>
+
+        <section id="sec_3">
+            <aside id="left">
+                <p>Our Approach</p>
+                <h1>
+                    Great Roommates<br>
+                    Make Great
+                    <span class="highlight-circle">Home.</span>
+                    <span class="arrow"></span>
+                </h1>
+            </aside>
+            <aside id="right">
+                <span>At HeyRoomie, we believe that a true home is more than just four walls; it's where connections
+                    flourish and memories are made. Everyone deserves a space that feels just right, and our smart,
+                    data-driven algorithm is here to make that happen. By matching you with great vibes and like-minded
+                    roommates, we're not just crafting homes—we're building a community where friendships thrive and
+                    every
+                    moment feels at home.</span>
+                <a href="mission.html">
+                    <button>How we do it</button>
+                </a>
+            </aside>
+        </section>
+
+        <section id="sec_4">
+            <aside></aside>
+            <div>
+                <p>At the core of HeyRoomie.</p>
+                <h1>Great Roommates Make Great Homes</h1>
+                <span>We strive to create a warm and inviting home for everyone by connecting you with the perfect
+                    roommate
+                    to share it with.</span>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Index</h4>
+                    <ul>
+                        <li><a href="#">Mission</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Labs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Safe Living Tips</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Security</a></li>
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">anisha kumari (all rights reserved)<br></a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
 
     <script>
+        // Splash screen animation
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('splashScreen').classList.add('hidden');
+                document.getElementById('pageContent').classList.add('visible');
+            }, 1800);
+        });
+
+        // Mobile menu functionality
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        closeMobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close mobile menu when clicking on menu items
+        document.querySelectorAll('.mobile-menu-item a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        });
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1123,7 +1123,7 @@
             });
         });
 
-        // Scroll animations
+        // Scroll animations with Hinge-style smooth movements
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -1132,63 +1132,29 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    if (entry.target.id === 'sec_3') {
+                        entry.target.classList.add('animate-in');
+                    } else if (entry.target.id === 'sec_4') {
+                        document.body.classList.add('animate-sec4');
+                    }
                 }
             });
         }, observerOptions);
 
-        // Add fade-in animations to sections
-        document.querySelectorAll('section').forEach((section, index) => {
-            if (index > 0) { // Skip the hero section
-                section.style.opacity = '0';
-                section.style.transform = 'translateY(50px)';
-                section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-                observer.observe(section);
-            }
+        // Observe sections for animations
+        document.querySelectorAll('#sec_3, #sec_4').forEach(section => {
+            observer.observe(section);
         });
-
-        // Animate values and principles on scroll
-        const animateValueItems = () => {
-            const valueItems = document.querySelectorAll('.value-item, .principle-item');
-            valueItems.forEach((item, index) => {
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            setTimeout(() => {
-                                entry.target.style.opacity = '1';
-                                entry.target.style.transform = 'translateY(0)';
-                            }, index * 100);
-                        }
-                    });
-                }, { threshold: 0.2 });
-
-                item.style.opacity = '0';
-                item.style.transform = 'translateY(30px)';
-                item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(item);
-            });
-        };
 
         // Dynamic navigation background based on current section
         const header = document.querySelector('header');
         const navLinks = document.querySelectorAll('nav a, #logo');
 
-        // Section background colors
-        // Section background colors
-        // Section background colors
         const sectionColors = {
-            //             color: #b97a56;
-
-            'sec_2': { bg: 'transparent', text: '#ffffff' }, // hero transparent
-            'sec_3': { bg: '#fdf0d9', text: '#333333' },
+            'sec_2': { bg: 'transparent', text: '#ffffff' },
+            'sec_3': { bg: 'rgba(255, 255, 255, 0.95)', text: '#333333' },
             'sec_4': { bg: 'rgba(255, 255, 255, 0.95)', text: '#333333' },
-            'sec_5': { bg: '#34221a', text: '#ffffff' },
-            'sec_6': { bg: 'rgba(255, 255, 255, 0.95)', text: '#4b2e27' },
-            'sec_7': { bg: 'rgba(44, 44, 44, 0.95)', text: '#ffffff' },
         };
-
-        // 4b2e27
 
         function updateNavbarForSection() {
             const sections = document.querySelectorAll('section[id]');
@@ -1207,7 +1173,6 @@
             const colors = sectionColors[currentSection] || sectionColors['sec_2'];
 
             header.style.background = colors.bg;
-            // header.style.backdropFilter = 'blur(10px)';
 
             navLinks.forEach(link => {
                 link.style.color = colors.text;
@@ -1221,80 +1186,10 @@
             }
         }
 
-        // Update navbar on scroll
         window.addEventListener('scroll', updateNavbarForSection);
         updateNavbarForSection();
 
-        // Parallax effect for hero section
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const parallax = document.querySelector('#img_1');
-            const speed = scrolled * 0.5;
-
-            if (parallax) {
-                parallax.style.transform = `translateY(${speed}px)`;
-            }
-        });
-
-        // Button hover effects
-        document.querySelectorAll('button').forEach(button => {
-            button.addEventListener('mouseenter', function (e) {
-                this.style.transform = 'translateY(-3px)';
-                this.style.boxShadow = '0 8px 25px rgba(0,0,0,0.2)';
-            });
-
-            button.addEventListener('mouseleave', function (e) {
-                this.style.transform = 'translateY(0)';
-                this.style.boxShadow = 'none';
-            });
-        });
-
-        // Typing animation for hero text
-        const heroText = document.querySelector('#sec_2 span');
-        if (heroText) {
-            const text = heroText.innerHTML;
-            heroText.innerHTML = '';
-            heroText.style.borderRight = '2px solid white';
-
-            let i = 0;
-            const typeWriter = () => {
-                if (i < text.length) {
-                    if (text.charAt(i) === '<') {
-                        let tag = '';
-                        while (i < text.length && text.charAt(i) !== '>') {
-                            tag += text.charAt(i);
-                            i++;
-                        }
-                        tag += text.charAt(i);
-                        heroText.innerHTML += tag;
-                        i++;
-                    } else {
-                        heroText.innerHTML += text.charAt(i);
-                        i++;
-                    }
-                    setTimeout(typeWriter, 100);
-                } else {
-                    setTimeout(() => {
-                        heroText.style.borderRight = 'none';
-                    }, 1000);
-                }
-            };
-
-            setTimeout(typeWriter, 1000);
-        }
-
-        // Initialize animations
-        animateValueItems();
-
-        // Performance monitoring
-        window.addEventListener('load', () => {
-            const loadTime = performance.now();
-            console.log(`Page loaded in ${loadTime.toFixed(2)}ms`);
-        });
-
-
-        // 
-
+        // Community overlay functionality
         const overlay = document.getElementById('communityOverlay');
         const openBtn = document.getElementById('openCommunity');
         const closeBtn = document.getElementById('closeOverlay');
@@ -1313,8 +1208,37 @@
                 overlay.style.display = 'none';
             }
         });
-    </script>
 
+        // Parallax effect for hero section (disabled on mobile for performance)
+        if (window.innerWidth > 768) {
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const parallax = document.querySelector('#img_1');
+                const speed = scrolled * 0.2;
+
+                if (parallax) {
+                    parallax.style.transform = `translateY(${speed}px)`;
+                }
+            });
+        }
+
+        // Button hover effects
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mouseenter', function (e) {
+                if (!this.classList.contains('mobile-menu-btn')) {
+                    this.style.transform = 'translateY(-3px)';
+                    this.style.boxShadow = '0 8px 25px rgba(0,0,0,0.2)';
+                }
+            });
+
+            button.addEventListener('mouseleave', function (e) {
+                if (!this.classList.contains('mobile-menu-btn')) {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = 'none';
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
