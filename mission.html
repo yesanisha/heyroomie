@@ -14,7 +14,7 @@
             padding: 0px;
             margin: 0px;
             box-sizing: border-box;
-            font-family: "Poppins", sans-serif;
+            font-family: 'Georgia', serif;
         }
 
         body {
@@ -171,7 +171,7 @@
         }
 
         .mission-statement {
-            font-size: 80px;
+            font-size: 40px;
             font-weight: 400;
             line-height: 0.9;
             margin-bottom: 60px;
@@ -261,20 +261,47 @@
         }
 
         .value-card {
-            text-align: left;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
 
+
         .value-number {
-            font-size: 200px;
+            font-size: 100px;
+            /* was 200px – shrink for better proportion */
             font-weight: 300;
             line-height: 1;
-            margin-bottom: 30px;
+            margin-bottom: 10px;
+            /* was 30px – reduce spacing */
             color: #fff;
             font-family: 'Georgia', serif;
             opacity: 0;
-            transform: translateY(50px);
+            transform: translateY(30px);
             transition: all 0.8s ease;
         }
+
+        .value-title {
+            font-size: 22px;
+            /* a bit smaller */
+            font-weight: 600;
+            margin-bottom: 8px;
+            /* tighter gap */
+            color: #fff;
+            text-align: center;
+        }
+
+        .value-text {
+            font-size: 14px;
+            line-height: 1.4;
+            color: #ccc;
+            max-width: 300px;
+            text-align: center;
+            margin: 0 auto;
+            /* center align under the number */
+        }
+
 
         .value-number.animate {
             opacity: 1;
@@ -327,6 +354,7 @@
             color: #000;
             padding: 100px 0;
             overflow: hidden;
+            position: relative;
         }
 
         .principles-container {
@@ -361,11 +389,52 @@
             min-height: 60vh;
         }
 
+        /* Swipe Indicators */
+        .swipe-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .swipe-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.3);
+            transition: background 0.3s ease;
+        }
+
+        .swipe-dot.active {
+            background: #b19cd9;
+        }
+
+        .swipe-arrows {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: rgba(0, 0, 0, 0.4);
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .swipe-arrow-left {
+            left: 20px;
+        }
+
+        .swipe-arrow-right {
+            right: 20px;
+        }
+
         .principle-number {
             font-size: 150px;
             font-weight: 300;
             line-height: 1;
-            margin-bottom: 30px;
+            margin-bottom: 15px;
             color: #b19cd9;
             font-family: 'Georgia', serif;
             opacity: 0;
@@ -389,7 +458,7 @@
             fill: transparent;
             stroke-dasharray: 1000;
             stroke-dashoffset: 1000;
-            animation: drawStrokePurple 2s ease-in-out forwards, fillStrokePurple 1s ease-in-out 2s forwards;
+            animation: drawStrokePurple 2s ease-in-out forwards;
         }
 
         @keyframes drawStrokePurple {
@@ -398,16 +467,10 @@
             }
         }
 
-        @keyframes fillStrokePurple {
-            to {
-                fill: #b19cd9;
-            }
-        }
-
         .principle-title {
             font-size: 24px;
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             color: #000;
         }
 
@@ -415,6 +478,7 @@
             font-size: 14px;
             line-height: 1.4;
             color: #666;
+            max-width: 400px;
         }
 
         /* Responsive Design */
@@ -504,9 +568,9 @@
                 font-size: 60px;
             }
 
-            /* Show community button in mobile */
-            #nav_2 {
-                display: block;
+            /* Hide logo on mobile */
+            #logo {
+                display: none;
             }
 
             #nav_2 ul {
@@ -551,6 +615,37 @@
                 padding: 60px 20px;
             }
         }
+
+        .swipe-arrows {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+            color: rgba(0, 0, 0, 0.6);
+            background: rgba(255, 255, 255, 0.8);
+            padding: 8px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            z-index: 20;
+            pointer-events: auto;
+            /* allow clicks */
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .swipe-arrows:hover {
+            background: #b19cd9;
+            color: #fff;
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .swipe-arrow-left {
+            left: 20px;
+        }
+
+        .swipe-arrow-right {
+            right: 20px;
+        }
+
 
         /* Mobile Menu Styles */
         .mobile-menu {
@@ -727,7 +822,7 @@
             <a id="logo" href="index.html"><b>HeyRoomie</b></a>
             <nav id="nav_2">
                 <ul>
-                    <li><a href="#" id="openCommunity">Join</a></li>
+                    <li><a href="#" id="openCommunity">Join the Community</a></li>
                 </ul>
             </nav>
         </header>
@@ -745,15 +840,7 @@
             <div class="mobile-menu-item">
                 <a href="#principles_section">Impact</a>
             </div>
-            <div class="mobile-menu-item">
-                <a href="#values_section">Labs</a>
-            </div>
-            <div class="mobile-menu-item">
-                <a href="#">Newsroom</a>
-            </div>
-            <div class="mobile-menu-item">
-                <a href="#">Careers</a>
-            </div>
+
         </div>
 
         <div class="mobile-menu-footer">
@@ -787,17 +874,15 @@
         <div class="mission-container">
             <div class="hinge-today"></div>
             <h1 class="mission-statement">
-                <span class="line-1">We strive to create a warm and inviting home for everyone</span>
-                <span class="line-2"> by connecting you with the perfect roommate to share it with.</span>
+
+                <span class="line-1">We strive to create a warm and inviting home</span>
+                <span class="line-2"> for everyone by connecting you with the perfect roommate to share it with.</span>
             </h1>
             <div class="mission-arrow">
-                <svg viewBox="0 0 100 100">
+                <!-- <svg viewBox="0 0 100 100">
                     <path d="M20,80 Q50,20 80,80" stroke="#b19cd9" stroke-width="2" fill="none" />
-                    <path d="M70,70 L80,80 L70,90" stroke="#b19cd9" stroke-width="2" fill="none" />
+                    <path d="M70,70 L80,80 L70,90" stroke="#b19cd9" stroke-width="2" fill="none" /> -->
                 </svg>
-            </div>
-            <div class="mission-continuation">
-
             </div>
         </div>
     </section>
@@ -808,13 +893,15 @@
             <div class="values-label">Our Values</div>
             <h2 class="values-title"></h2>
             <p class="values-description">
-                Shared living is at the heart of everything we do. And not just with any roommate—it’s about building a
-                home together. We can’t create the perfect living space alone, so we make great partnerships the
+                Our Values
+                Shared living is at the heart of everything we do. And not just with any roommate-it's about building a
+                home together. We can't create the perfect living space alone, so we make great partnerships the
                 foundation of our community.
+
             </p>
             <p class="values-description">
-                We believe these three core values are what it takes to foster those great
-                partnerships. </p>
+                We believe these three core values are what it takes to build those great relationships.
+            </p>
 
             <div class="values-grid">
                 <div class="value-card">
@@ -829,7 +916,7 @@
                         </svg>
                     </div>
                     <h3 class="value-title">Authenticity</h3>
-                    <p class="value-text">We share — never hide — our words, actions, and intentions.</p>
+                    <p class="value-text">We share, never hide, our words, actions, and intentions.</p>
                 </div>
                 <div class="value-card">
                     <div class="value-number" data-number="02">
@@ -842,7 +929,7 @@
                                 d="M120 50 Q120 20 150 20 Q180 20 180 50 Q180 80 150 100 L120 140 L180 140 L180 180 L120 180" />
                         </svg>
                     </div>
-                    <h3 class="value-title">Synergy</h3>
+                    <h3 class="value-title">Courage</h3>
                     <p class="value-text">Breakthroughs require a willingness to take risks and embrace lofty goals and
                         tough challenges.</p>
                 </div>
@@ -857,7 +944,7 @@
                                 d="M120 20 L180 20 Q180 50 150 60 Q180 70 180 100 Q180 180 120 180 Q120 140 150 140" />
                         </svg>
                     </div>
-                    <h3 class="value-title">Community</h3>
+                    <h3 class="value-title">Empathy</h3>
                     <p class="value-text">We're all humans first. So we deeply consider the perspectives of others,
                         listen openly, and speak with care.</p>
                 </div>
@@ -872,7 +959,6 @@
                 <div class="principle-card">
                     <div class="principle-number" data-number="01">
                         <svg viewBox="0 0 200 300" width="150" height="225">
-
                             <!-- 0 -->
                             <path class="principle-path"
                                 d="M30 50 Q30 20 60 20 Q90 20 90 50 L90 150 Q90 180 60 180 Q30 180 30 150 Z" />
@@ -880,12 +966,10 @@
                             <path class="principle-path" d="M120 20 L120 180" />
                             <path class="principle-path" d="M100 40 L120 20" />
                         </svg>
-
                     </div>
-                    <h3 class="principle-title">Embrace the Challenge</h3>
-                    <p class="principle-text">True innovation emerges from a deep understanding of the challenges we
-                        face, and each setback thrills us to work harder rather than rushing to find quick solutions.
-                    </p>
+                    <h3 class="principle-title">Love the Problem</h3>
+                    <p class="principle-text">Breakthrough innovation happens when we spend time deeply understanding a
+                        problem, not jumping to solutions.</p>
                 </div>
                 <div class="principle-card">
                     <div class="principle-number" data-number="02">
@@ -898,10 +982,10 @@
                                 d="M100 50 Q100 20 130 20 Q160 20 160 50 Q160 80 130 100 L100 140 L160 140 L160 180 L100 180" />
                         </svg>
                     </div>
-                    <h3 class="principle-title">Simplify Solutions</h3>
-                    <p class="principle-text">We focus on creating straightforward solutions that align with our key
-                        objectives—both as an organization and within our teams. We choose to say "no" to many ideas in
-                        order to concentrate on what truly matters.</p>
+                    <h3 class="principle-title">Keep it Simple</h3>
+                    <p class="principle-text">We prioritize elegant solutions that align with our biggest goals both
+                        as an organization and within teams. We say "no" to a lot so we can do the few things that
+                        matter most.</p>
                 </div>
                 <div class="principle-card">
                     <div class="principle-number" data-number="03">
@@ -914,9 +998,9 @@
                                 d="M100 20 L160 20 Q160 50 130 60 Q160 70 160 100 Q160 180 100 180 Q100 140 130 140" />
                         </svg>
                     </div>
-                    <h3 class="principle-title">Decide with Purpose</h3>
-                    <p class="principle-text">Every decision at HeyRoomie is made thoughtfully and intentionally. Our
-                        choices are guided by our principles, not by random personal biases.</p>
+                    <h3 class="principle-title">Decide with Principles</h3>
+                    <p class="principle-text">We are highly thoughtful and intentional with every decision at Hinge.
+                        Decisions are driven by principles, not arbitrary personal judgment.</p>
                 </div>
                 <div class="principle-card">
                     <div class="principle-number" data-number="04">
@@ -929,14 +1013,15 @@
                             <path class="principle-path" d="M130 20 L130 100" />
                         </svg>
                     </div>
-                    <h3 class="principle-title">Cultivate Trust</h3>
-                    <p class="principle-text">At HeyRoomie, we prioritize trust among each other and actively work to
-                        build and restore it through openness and collaboration. When trust is lacking, we address it
-                        directly.
+                    <h3 class="principle-title">Tend to Trust</h3>
+                    <p class="principle-text">At Hinge, we tend to trust each other and also put in the work to nurture
+                        and restore trust through transparency and collaboration. When trust is lacking, we speak up.
                     </p>
                 </div>
             </div>
         </div>
+        <div class="swipe-arrows swipe-arrow-left">← </div>
+        <div class="swipe-arrows swipe-arrow-right"> →</div>
     </section>
 
     <script>
