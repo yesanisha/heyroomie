@@ -14,7 +14,7 @@
             padding: 0px;
             margin: 0px;
             box-sizing: border-box;
-            font-family: "Poppins", sans-serif;
+            font-family: 'Georgia', serif;
         }
 
         body {
@@ -188,17 +188,54 @@
         ul li a {
             text-decoration: none;
             font-weight: 400;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 20px;
+            position: relative;
         }
 
         ul li a:hover {
             color: #67295f;
         }
 
+        /* Highlight Join Community Button */
+        #openCommunity {
+            background: linear-gradient(135deg, #67295f, #8a4374) !important;
+            color: #fff !important;
+            font-weight: 500 !important;
+            padding: 10px 20px !important;
+            border-radius: 25px !important;
+            box-shadow: 0 4px 15px rgba(103, 41, 95, 0.3) !important;
+            border: 2px solid rgba(255, 255, 255, 0.2) !important;
+            backdrop-filter: blur(10px) !important;
+            white-space: nowrap !important;
+        }
+
+        #openCommunity:hover {
+            background: linear-gradient(135deg, #8a4374, #67295f) !important;
+            transform: translateY(-3px) scale(1.05) !important;
+            box-shadow: 0 8px 25px rgba(103, 41, 95, 0.5) !important;
+            border-color: rgba(255, 255, 255, 0.4) !important;
+        }
+
+        /* Desktop/Mobile text control */
+        .mobile-text {
+            display: none;
+        }
+
+        .desktop-text {
+            display: inline;
+        }
+
+        #logo:hover {
+            color: #67295f !important;
+            transform: scale(1.05);
+        }
+
         #logo {
             width: 70px;
             height: 50px;
-            font-size: 32px;
+            font-size: 24px;
             font-weight: 400;
             color: #4b2e27;
             display: flex;
@@ -395,7 +432,7 @@
 
         #sec_3 {
             width: 100%;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -404,44 +441,49 @@
         }
 
         #left {
-            width: 48%;
+            width: 50%;
             height: 95%;
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: flex-start;
             flex-direction: column;
+            position: relative;
+            padding-top: 80px;
         }
 
         #right {
-            width: 48%;
+            width: 40%;
             height: 95%;
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: flex-start;
             flex-direction: column;
-            padding-left: 60px;
+            padding-left: 80px;
+            padding-top: 200px;
+            text-align: left;
         }
 
         #left p {
-            color: #67295f;
+            color: #b19cd9;
             font-size: 18px;
             font-weight: 400;
-            margin-bottom: 30px;
+            margin-bottom: 60px;
             opacity: 0;
             transform: translateY(20px);
             transition: all 0.6s ease;
         }
 
         #left h1 {
-            font-size: 70px;
+            font-size: 85px;
             font-weight: 400;
             line-height: 1.1;
-            color: #4b2e27;
+            color: #000;
             font-family: 'Georgia', serif;
             position: relative;
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.8s ease 0.2s;
+            max-width: 600px;
         }
 
         .highlight-circle {
@@ -452,11 +494,11 @@
         .highlight-circle::after {
             content: '';
             position: absolute;
-            top: -10px;
-            left: -15px;
-            right: -15px;
-            bottom: -10px;
-            border: 3px solid #67295f;
+            top: -15px;
+            left: -25px;
+            right: -25px;
+            bottom: -15px;
+            border: 3px solid #b19cd9;
             border-radius: 50%;
             z-index: -1;
             transform: scale(0);
@@ -465,11 +507,17 @@
 
         .arrow {
             position: absolute;
-            right: -100px;
-            bottom: -50px;
-            font-size: 60px;
-            color: #67295f;
-            transform: rotate(45deg);
+            right: -80px;
+            bottom: -100px;
+            width: 120px;
+            height: 120px;
+            background-image: url('arrow.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.6s ease 1s;
         }
 
         #right span {
@@ -481,26 +529,27 @@
             opacity: 0;
             transform: translateY(20px);
             transition: all 0.6s ease 0.4s;
+            max-width: 400px;
         }
 
         #right button {
-            width: 160px;
-            height: 45px;
-            font-size: 15px;
-            font-weight: 400;
-            background-color: #4b2e23;
+            background-color: #000;
             color: white;
             border: none;
-            border-radius: 25px;
+            border-radius: 30px;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: 500;
             cursor: pointer;
             transition: all 0.3s ease;
             opacity: 0;
             transform: translateY(20px);
             transition: all 0.6s ease 0.6s;
+            font-family: 'Georgia', serif;
         }
 
         #right button:hover {
-            background-color: #67295f;
+            background-color: #333;
             transform: translateY(-2px);
         }
 
@@ -508,9 +557,14 @@
         .animate-in #left p,
         .animate-in #left h1,
         .animate-in #right span,
-        .animate-in #right button {
+        .animate-in #right button,
+        .animate-in .arrow {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        .animate-in .arrow {
+            transform: scale(1);
         }
 
         .animate-in .highlight-circle::after {
@@ -687,28 +741,36 @@
                 display: none;
             }
 
-            /* Keep community button visible on mobile */
+            /* Keep community button visible and properly positioned on mobile */
             #nav_2 {
                 display: flex !important;
+                align-items: center !important;
+                height: 100% !important;
             }
 
             #nav_2 ul {
                 display: flex !important;
-                margin-right: 10px;
-                width: auto;
-                background: rgba(255, 255, 255, 0.1);
-                backdrop-filter: blur(10px);
-                border-radius: 25px;
-                padding: 8px 16px;
-                border: 1px solid rgba(255, 255, 255, 0.2);
+                margin-right: 10px !important;
+                margin-top: 0 !important;
+                margin-bottom: 0 !important;
+                width: auto !important;
+                align-items: center !important;
             }
 
             #nav_2 ul li a {
-                font-size: 14px;
-                font-weight: 500;
-                color: #fff !important;
-                padding: 0;
-                white-space: nowrap;
+                font-size: 14px !important;
+                font-weight: 500 !important;
+                padding: 8px 16px !important;
+                white-space: nowrap !important;
+            }
+
+            /* Switch to mobile text */
+            .desktop-text {
+                display: none;
+            }
+
+            .mobile-text {
+                display: inline;
             }
 
             .header-left {
@@ -718,9 +780,17 @@
             #sec_2 span {
                 font-size: 45px;
                 left: 5%;
-                top: 60%;
+                top: 70%;
                 right: 5%;
                 font-weight: 700;
+            }
+
+            /* Ensure background image is visible on mobile */
+            #img_1 {
+                background-attachment: scroll !important;
+                background-size: cover !important;
+                min-height: 100vh !important;
+                display: block !important;
             }
 
             #sec_3,
@@ -738,6 +808,30 @@
                 width: 100%;
                 height: auto;
                 padding: 0;
+            }
+
+            /* Ensure section 4 image remains visible on mobile - no cropping */
+            #sec_4 aside {
+                min-height: 400px !important;
+                background-size: contain !important;
+                background-position: center !important;
+                background-repeat: no-repeat !important;
+                border-radius: 10px !important;
+                margin-bottom: 20px !important;
+            }
+
+            /* Keep arrow visible on mobile */
+            .arrow {
+                display: block !important;
+                right: -40px !important;
+                bottom: -60px !important;
+                width: 80px !important;
+                height: 80px !important;
+            }
+
+            /* Hide logo on mobile, show only join button */
+            #logo {
+                display: none !important;
             }
 
             #right {
@@ -871,14 +965,14 @@
             }
         }
 
-        /* Overlay styling */
+        /* Overlay styling - positioned over hero section */
         .overlay {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
+            height: 100vh;
             background: rgba(0, 0, 0, 0.7);
             z-index: 1000;
             justify-content: center;
@@ -887,12 +981,37 @@
 
         .overlay-content {
             background: #ffffff;
-            padding: 30px;
-            border-radius: 12px;
+            padding: 40px;
+            border-radius: 15px;
             text-align: center;
-            max-width: 400px;
+            max-width: 450px;
             width: 90%;
             animation: popIn 0.3s ease;
+            position: relative;
+            top: -20vh;
+        }
+
+        .overlay-content h2 {
+            font-family: 'Georgia', serif;
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .overlay-content ul li a {
+            font-family: 'Georgia', serif;
+            text-decoration: none;
+            color: #4b2e23;
+            font-size: 16px;
+            padding: 10px 0;
+            display: block;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .overlay-content ul li a:hover {
+            background: #f5f5f5;
+            color: #67295f;
         }
 
         @keyframes popIn {
@@ -952,7 +1071,7 @@
                 <a id="logo" href="index.html"><b>HeyRoomie</b></a>
                 <nav id="nav_2">
                     <ul>
-                        <li><a href="#" id="openCommunity">Join</a></li>
+                        <li><a href="#" id="openCommunity">Join the Community</a></li>
                     </ul>
                 </nav>
             </header>
