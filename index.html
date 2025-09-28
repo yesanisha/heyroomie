@@ -406,6 +406,9 @@
             font-family: 'Georgia', serif;
             opacity: 0;
             transform: translateY(30px);
+            top: 65%;
+            /* <-- this is what fixes it vertically */
+
         }
 
         .typing-text {
@@ -867,28 +870,44 @@
             }
         }
 
-        @media (max-width: 640px) {
+        @media (max-width: 768px) {
             #sec_2 span {
-                font-size: 38px;
-                line-height: 1.1;
-                font-weight: 700;
+                font-size: 45px;
+                left: 5%;
+                right: 5%;
+                top: 50%;
+                /* was 80% → push further down */
             }
+        }
 
-            #left h1,
-            #sec_4 div h1 {
-                font-size: 38px;
+        @media (max-width: 480px) {
+            #sec_2 span {
+                font-size: 32px;
+                left: 5%;
+                right: 5%;
+                top: 80%;
+                /* was 55% → much lower */
+                transform: translateY(-100%);
+                /* keep it just above bottom edge */
             }
+        }
 
-            .arrow {
-                display: none;
-            }
 
-            .highlight-circle::after {
-                top: -8px;
-                left: -12px;
-                right: -12px;
-                bottom: -8px;
-            }
+        #left h1,
+        #sec_4 div h1 {
+            font-size: 38px;
+        }
+
+        .arrow {
+            display: none;
+        }
+
+        .highlight-circle::after {
+            top: -8px;
+            left: -12px;
+            right: -12px;
+            bottom: -8px;
+        }
         }
 
         @media (max-width: 480px) {
