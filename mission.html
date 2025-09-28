@@ -107,6 +107,26 @@
             font-size: 17px;
         }
 
+        #openCommunity {
+            padding: 8px 16px;
+            border: 2px solid #b19cd9;
+            /* purple outline */
+            border-radius: 25px;
+            color: #b19cd9;
+            /* match text to outline */
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        #openCommunity:hover {
+            background: #b19cd9;
+            /* purple fill on hover */
+            color: #fff;
+            /* white text for contrast */
+        }
+
+
         #nav_2 ul {
             width: 200px;
             display: flex;
@@ -814,6 +834,7 @@
                 <button class="mobile-menu-btn">☰</button>
                 <nav id="nav_1">
                     <ul>
+
                         <li><a href="mission.html">Mission</a></li>
                         <li><a href="#principles_section">Impact</a></li>
                     </ul>
@@ -833,7 +854,13 @@
         <button class="mobile-menu-close" id="closeMobileMenu">✕</button>
         <button class="mobile-menu-download">Download</button>
 
+
+
         <div class="mobile-menu-items">
+
+            <div class="mobile-menu-item">
+                <a href="index.html">Home</a>
+            </div>
             <div class="mobile-menu-item">
                 <a href="#mission_hero">Mission</a>
             </div>
@@ -1195,6 +1222,23 @@
             const cardWidth = window.innerWidth;
             currentPrinciple = Math.round(scrollLeft / cardWidth);
         });
+
+
+        // 
+        document.querySelector('.swipe-arrow-left').addEventListener('click', () => {
+            if (currentPrinciple > 0) {
+                currentPrinciple--;
+                scrollToPrinciple(currentPrinciple);
+            }
+        });
+
+        document.querySelector('.swipe-arrow-right').addEventListener('click', () => {
+            if (currentPrinciple < principleCards.length - 1) {
+                currentPrinciple++;
+                scrollToPrinciple(currentPrinciple);
+            }
+        });
+
     </script>
 </body>
 
