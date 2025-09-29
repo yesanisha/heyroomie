@@ -152,6 +152,7 @@
             color: inherit;
             order: -1;
             transition: color 0.3s ease, transform 0.2s ease;
+
         }
 
         .mobile-menu-btn:hover {
@@ -170,6 +171,7 @@
             align-items: center;
             margin-left: 80px;
             font-size: 17px;
+
         }
 
         #nav_2 ul {
@@ -179,10 +181,12 @@
             align-items: center;
             margin-right: 100px;
             font-size: 17px;
+
         }
 
         ul li {
             list-style: none;
+
         }
 
         ul li a {
@@ -191,6 +195,7 @@
             transition: all 0.3s ease;
             padding: 8px 16px;
             border-radius: 20px;
+
             position: relative;
         }
 
@@ -200,9 +205,10 @@
 
         #openCommunity {
             padding: 8px 16px;
-            border: 2px solid #2b105c;
+            border: 2px solid #000000;
             /* purple outline */
             border-radius: 25px;
+            background-color: #000000;
             color: #2b105c;
             /* match text to outline */
             font-weight: 500;
@@ -213,17 +219,19 @@
         #openCommunity:hover {
             background: #2b105c;
             /* purple fill on hover */
-            color: #fff;
+            color: #410000;
             /* white text for contrast */
         }
 
         /* Desktop/Mobile text control */
         .mobile-text {
             display: none;
+
         }
 
         .desktop-text {
             display: inline;
+
         }
 
         #logo:hover {
@@ -257,10 +265,13 @@
             display: flex;
             flex-direction: column;
             padding: 80px 50px 50px;
+
+
         }
 
         .mobile-menu.active {
             left: 0;
+
         }
 
         .mobile-menu-close {
@@ -308,6 +319,7 @@
             flex-direction: column;
             justify-content: center;
             gap: 20px;
+
         }
 
         .mobile-menu-item {
@@ -362,6 +374,7 @@
             height: 100vh;
             position: relative;
             overflow: hidden;
+
         }
 
         #img_1 {
@@ -390,7 +403,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(128, 54, 54, 0.3);
         }
 
         #sec_2 span {
@@ -463,6 +476,7 @@
             padding-left: 80px;
             padding-top: 200px;
             text-align: left;
+
         }
 
         #left p {
@@ -838,6 +852,7 @@
 
             #right {
                 padding-left: 0;
+
             }
 
             #sec_4 div {
@@ -980,6 +995,7 @@
                 background: rgba(255, 255, 255, 0.15);
                 backdrop-filter: blur(15px);
                 border: 1px solid rgba(255, 255, 255, 0.3);
+
                 box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             }
         }
@@ -1091,7 +1107,7 @@
                 <a id="logo" href="index.html"><b>HeyRoomie</b></a>
                 <nav id="nav_2">
                     <ul>
-                        <li><a href="#" id="openCommunity">Join the Community</a></li>
+                        <li><a href="#" id="openCommunity" style="color: #2b105c;">Join the Community</a></li>
                     </ul>
                 </nav>
             </header>
@@ -1100,7 +1116,7 @@
         <!-- Mobile Menu -->
         <div class="mobile-menu" id="mobileMenu">
             <button class="mobile-menu-close" id="closeMobileMenu">✕</button>
-            <button class="mobile-menu-download">Download</button>
+            <!-- <button class="mobile-menu-download">Join Us</button> -->
 
             <div class="mobile-menu-items">
 
@@ -1114,15 +1130,17 @@
                 <div class="mobile-menu-item">
                     <a href="mission.html#principles_section">Impact</a>
                 </div>
-
-            </div>
-
-            <div class="mobile-menu-footer">
-                <a href="#" class="mobile-menu-contact">Contact</a>
+                <a href="#" class="mobile-menu-contact">Contact Us</a>
                 <div class="mobile-menu-social">
                     <a href="#">🐦</a>
                     <a href="#">📷</a>
                 </div>
+
+
+            </div>
+
+            <div class="mobile-menu-footer">
+
             </div>
         </div>
 
