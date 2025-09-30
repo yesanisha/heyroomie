@@ -61,11 +61,9 @@
             }
 
             to {
-                width: 10ch;
+                width: 11ch;
             }
         }
-
-
 
         /* Page entrance animations */
         .page-content {
@@ -205,11 +203,9 @@
         #openCommunity {
             padding: 8px 16px;
             border: 2px solid #000000;
-            /* purple outline */
             border-radius: 25px;
             background-color: #000000;
             color: #2b105c;
-            /* match text to outline */
             font-weight: 500;
             text-decoration: none;
             transition: all 0.3s ease;
@@ -217,9 +213,7 @@
 
         #openCommunity:hover {
             background: #2b105c;
-            /* purple fill on hover */
             color: #410000;
-            /* white text for contrast */
         }
 
         /* Desktop/Mobile text control */
@@ -419,13 +413,12 @@
             opacity: 0;
             transform: translateY(30px);
             top: 65%;
-            /* <-- this is what fixes it vertically */
 
         }
 
         .typing-text {
             overflow: hidden;
-            animation: typeInText 2s ease 2.5s forwards;
+            animation: typeInText 1.2s ease 2.5s forwards;
         }
 
         @keyframes typeInText {
@@ -663,6 +656,95 @@
             transform: translateX(0);
         }
 
+        /* Reviews Section */
+        #sec_5 {
+            width: 100%;
+            min-height: 100vh;
+            background: #1a1a1a;
+            padding: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .reviews-header {
+            font-size: 32px;
+            color: #fff;
+            font-weight: 400;
+            margin-bottom: 80px;
+            font-family: 'Georgia', serif;
+        }
+
+        .review-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            min-height: 500px;
+        }
+
+        .review-slide {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .review-slide.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .quote-mark {
+            font-size: 80px;
+            color: #fff;
+            font-family: Georgia, serif;
+            margin-bottom: 30px;
+            line-height: 0.5;
+        }
+
+        .review-text {
+            font-size: 42px;
+            color: #fff;
+            font-weight: 400;
+            line-height: 1.3;
+            margin-bottom: 60px;
+            font-family: 'Georgia', serif;
+        }
+
+        .review-author {
+            font-size: 24px;
+            color: #fff;
+            font-weight: 400;
+            margin-bottom: 60px;
+            font-family: 'Georgia', serif;
+        }
+
+        .review-dots {
+            display: flex;
+            gap: 12px;
+        }
+
+        .dot {
+            width: 60px;
+            height: 4px;
+            background: #444;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .dot.active {
+            background: #fff;
+        }
+
         /* Footer */
         footer {
             background: #000000;
@@ -737,6 +819,14 @@
                 padding-right: 50px;
             }
 
+            #sec_5 {
+                padding: 60px 50px;
+            }
+
+            .review-text {
+                font-size: 32px;
+            }
+
             #left h1,
             #sec_4 div h1 {
                 font-size: 60px;
@@ -747,7 +837,6 @@
             header {
                 display: flex;
                 align-items: center;
-                /* ✅ vertically aligned */
                 justify-content: space-between;
                 padding: 0 20px;
                 height: 70px;
@@ -886,6 +975,31 @@
                 padding: 60px 30px 30px;
             }
 
+            #sec_5 {
+                padding: 60px 30px;
+                min-height: 80vh;
+            }
+
+            .reviews-header {
+                font-size: 24px;
+                margin-bottom: 50px;
+            }
+
+            .review-text {
+                font-size: 24px;
+            }
+
+            .review-author {
+                font-size: 18px;
+                margin-bottom: 40px;
+            }
+
+            .dot {
+                width: 40px;
+            }
+
+            /* Ensure background image is visible on mobile */
+
             /* mobile logo */
 
         }
@@ -898,9 +1012,7 @@
                 left: 5%;
                 right: 5%;
                 top: 84%;
-                /* was 55% → much lower */
                 transform: translateY(-100%);
-                /* keep it just above bottom edge */
             }
         }
 
@@ -1102,7 +1214,6 @@
                     </nav>
                 </div>
                 <a id="logo" href="index.html"><b>HeyRoomie</b></a>
-                <!-- <a href="index.html" class="mobile-logo">HeyRoomie</a> -->
 
                 <nav id="nav_2">
                     <ul>
@@ -1115,7 +1226,6 @@
         <!-- Mobile Menu -->
         <div class="mobile-menu" id="mobileMenu">
             <button class="mobile-menu-close" id="closeMobileMenu">✕</button>
-            <!-- <button class="mobile-menu-download">Join Us</button> -->
 
             <div class="mobile-menu-items">
 
@@ -1206,6 +1316,50 @@
             </div>
         </section>
 
+        <section id="sec_5">
+            <h2 class="reviews-header">What Our Users Say</h2>
+            <div class="review-container">
+                <div class="review-slide active" data-slide="0">
+                    <div class="quote-mark">"</div>
+                    <p class="review-text">I was dreading the roommate hunt, but HeyRoomie made it so easy. Within a
+                        week, I found someone who shares my love for cooking and quiet evenings. We've been living
+                        together for six months now, and it feels like home.</p>
+                    <p class="review-author">Priya M.</p>
+                    <div class="review-dots">
+                        <span class="dot active" data-dot="0"></span>
+                        <span class="dot" data-dot="1"></span>
+                        <span class="dot" data-dot="2"></span>
+                    </div>
+                </div>
+
+                <div class="review-slide" data-slide="1">
+                    <div class="quote-mark">"</div>
+                    <p class="review-text">Moving to a new city was scary, but HeyRoomie connected me with the perfect
+                        roommate. We clicked instantly, and now I have both a great living situation and a close friend.
+                        Best decision I made!</p>
+                    <p class="review-author">Arjun K.</p>
+                    <div class="review-dots">
+                        <span class="dot" data-dot="0"></span>
+                        <span class="dot active" data-dot="1"></span>
+                        <span class="dot" data-dot="2"></span>
+                    </div>
+                </div>
+
+                <div class="review-slide" data-slide="2">
+                    <div class="quote-mark">"</div>
+                    <p class="review-text">Other platforms gave me random matches, but HeyRoomie actually understood
+                        what I was looking for. My roommate and I have similar schedules and respect for personal space.
+                        It's been perfect.</p>
+                    <p class="review-author">Sneha R.</p>
+                    <div class="review-dots">
+                        <span class="dot" data-dot="0"></span>
+                        <span class="dot" data-dot="1"></span>
+                        <span class="dot active" data-dot="2"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <footer>
             <div class="footer-links">
                 <div class="footer-column">
@@ -1241,7 +1395,7 @@
             setTimeout(() => {
                 document.getElementById('splashScreen').classList.add('hidden');
                 document.getElementById('pageContent').classList.add('visible');
-            }, 1800);
+            }, 1200);
         });
 
         // Mobile menu functionality
@@ -1312,6 +1466,7 @@
             'sec_2': { bg: 'transparent', text: '#ffffff' },
             'sec_3': { bg: 'rgba(255, 255, 255, 0.95)', text: '#333333' },
             'sec_4': { bg: 'rgba(255, 255, 255, 0.95)', text: '#333333' },
+            'sec_5': { bg: 'rgba(26, 26, 26, 0.95)', text: '#ffffff' },
         };
 
         function updateNavbarForSection() {
@@ -1396,6 +1551,38 @@
                 }
             });
         });
+
+        // Reviews carousel functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.review-slide');
+        const dots = document.querySelectorAll('.dot');
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+
+            currentSlide = n;
+            slides[currentSlide].classList.add('active');
+
+            // Update all dot sets
+            document.querySelectorAll(`.dot[data-dot="${currentSlide}"]`).forEach(dot => {
+                dot.classList.add('active');
+            });
+        }
+
+        // Dot click functionality
+        document.querySelectorAll('.dot').forEach(dot => {
+            dot.addEventListener('click', function () {
+                const slideIndex = parseInt(this.getAttribute('data-dot'));
+                showSlide(slideIndex);
+            });
+        });
+
+        // Auto-rotate reviews every 5 seconds
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }, 5000);
     </script>
 </body>
 

@@ -279,7 +279,7 @@
 
         .values-label {
             font-size: 20px;
-            color: #67295f;
+            color: #000000;
             margin-bottom: 40px;
             font-weight: 900;
         }
@@ -623,17 +623,24 @@
 
         /* Responsive Design */
         @media (max-width: 1024px) {
+            #mission_hero {
+                padding: 40px 30px 30px;
+                /* ↓ reduce top padding */
+            }
+
             .mission-container {
                 grid-template-columns: 1fr;
-                gap: 0px;
+                gap: 10px;
             }
 
             .mission-image {
                 height: 700px;
+                margin-top: 0;
+                /* ensure no extra margin above */
             }
 
             .mission-heading {
-                font-size: 45px;
+                font-size: 95px;
             }
 
             .mission-text-top,
@@ -658,6 +665,8 @@
                 gap: 50px;
             }
         }
+
+
 
         @media (max-width: 768px) {
             header {
@@ -723,17 +732,19 @@
             }
 
             #sec_2 span {
-                font-size: 45px;
+                font-size: 80px;
                 left: 5%;
-                top: 80%;
+                top: 10%;
                 right: 5%;
                 font-weight: 700;
             }
 
             /* REDUCED MOBILE PADDING */
             #mission_hero {
-                padding: 90px 20px 40px;
+                padding: 40px 20px 30px;
+                /* match tablet style, keep top tighter */
             }
+
 
             #mission_text_section {
                 padding: 20px 15px;
@@ -764,7 +775,7 @@
 
             .mission-heading {
                 font-size: 40px;
-                margin-bottom: 0px;
+                margin-bottom: 10px;
                 /* Reduced from 20px but increased for better spacing */
             }
 
@@ -981,7 +992,7 @@
 
     <!-- Mission Hero Section - Part 2: First Text + Arrow -->
     <section id="mission_text_section">
-        <p class="mission-text-top">We strive to create<br> a warm and inviting home</p>
+        <p class="mission-text-top"><b>We strive to create<br> a warm and inviting home</b></p>
         <div class="mission-arrow">
             <img src="arrow.png" height="200" alt="arrow">
         </div>
@@ -989,20 +1000,22 @@
 
     <!-- Mission Hero Section - Part 3: Second Text -->
     <section id="mission_final_section">
-        <p class="mission-text-bottom">for everyone by connecting you<br> with the perfect roommate <br>to share it
-            with.
+        <p class="mission-text-bottom"><b>for everyone by connecting you<br> with the perfect roommate <br>to share it
+                with.</b>
         </p>
     </section>
 
     <!-- Values Section -->
     <section id="values_section">
         <div class="values-container">
+            <br>
             <div class="values-label">Our Values</div>
             <h2 class="values-title"></h2>
             <p class="values-description">
-                Shared living is at the heart of everything we do. And not just with any roommate-it's about building a
-                home together. We can't create the perfect living space alone, so we make great partnerships the
-                foundation of our community.
+                <i>Shared living is at the heart of everything we do. And not just with any roommate-it's about building
+                    a
+                    home together. We can't create the perfect living space alone, so we make great partnerships the
+                    foundation of our community.</i>
             </p>
             <p class="values-description">
                 We believe these three core values are what it takes to build those great relationships.
