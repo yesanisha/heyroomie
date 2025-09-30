@@ -22,10 +22,9 @@
             -webkit-text-size-adjust: 100%;
             -ms-text-size-adjust: 100%;
             background: #000;
-            color: #fff;
+            color: #000000;
         }
 
-        /* Responsive utilities */
         img,
         video,
         iframe {
@@ -33,14 +32,12 @@
             height: auto;
         }
 
-        /* Better box model for responsive design */
         *,
         *::before,
         *::after {
             box-sizing: border-box;
         }
 
-        /* Improve tap targets for mobile */
         button,
         a,
         input,
@@ -50,7 +47,6 @@
             min-width: 44px;
         }
 
-        /* Prevent horizontal scrolling */
         .container,
         section,
         div {
@@ -63,12 +59,18 @@
             height: 75px;
             display: flex;
             background: transparent;
-            transition: background 0.3s ease, box-shadow 0.3s ease;
+            transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
             justify-content: space-between;
             align-items: center;
             position: fixed;
             z-index: 1000;
             padding: 0 20px;
+        }
+
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .header-left {
@@ -109,23 +111,18 @@
 
         #openCommunity {
             padding: 8px 16px;
-            border: 2px solid #b19cd9;
-            /* purple outline */
+            border: 2px solid #000000;
             border-radius: 25px;
-            color: #b19cd9;
-            /* match text to outline */
+            color: #000000;
             font-weight: 500;
             text-decoration: none;
             transition: all 0.3s ease;
         }
 
         #openCommunity:hover {
-            background: #b19cd9;
-            /* purple fill on hover */
-            color: #fff;
-            /* white text for contrast */
+            background: #280a5e;
+            color: #000000;
         }
-
 
         #nav_2 ul {
             width: 200px;
@@ -144,7 +141,7 @@
             text-decoration: none;
             font-weight: 400;
             transition: color 0.3s ease;
-            color: #fff;
+            color: #000000;
         }
 
         ul li a:hover {
@@ -156,7 +153,7 @@
             height: 50px;
             font-size: 32px;
             font-weight: 400;
-            color: #fff;
+            color: #000000;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -168,79 +165,107 @@
         #mission_hero {
             width: 100%;
             min-height: 100vh;
-            background: #000;
-            color: #fff;
+            background: #ffffff;
+            color: #000000;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 100px 50px;
+            padding: 100px 50px 50px;
             position: relative;
+        }
+
+        /* Mission Text Sections */
+        #mission_text_section,
+        #mission_final_section {
+            width: 100%;
+            background: #ffffff;
+            color: #000000;
+            padding: 40px 50px;
+            display: flex;
+            flex-direction: column;
+            /* align-items: center;
+            justify-content: center; */
         }
 
         .mission-container {
-            max-width: 800px;
-            text-align: left;
+            max-width: 1400px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        /* here I was */
+
+        .mission-image {
+            width: 100%;
+            height: 600px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .mission-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .mission-content {
             position: relative;
         }
 
-        .hinge-today {
-            font-size: 16px;
-            color: #b19cd9;
-            margin-bottom: 60px;
-            font-weight: 500;
-        }
-
-        .mission-statement {
-            font-size: 40px;
-            font-weight: 400;
-            line-height: 0.9;
-            margin-bottom: 60px;
-
-            color: #67295f;
+        .mission-heading {
+            font-size: 60px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 40px;
+            color: #000000;
             font-family: 'Georgia', serif;
         }
 
-        .mission-statement .line-1 {
-            display: block;
-            margin-bottom: 20px;
-        }
-
-        .mission-statement .line-2 {
-            display: block;
-            color: #b19cd9;
+        .mission-text-top {
+            font-size: 50px;
+            font-weight: 400;
+            line-height: 1.2;
+            color: #67295f;
+            font-family: 'Georgia', serif;
+            margin-bottom: 30px;
+            text-align: left;
         }
 
         .mission-arrow {
-            position: absolute;
-            right: -100px;
-            bottom: 100px;
-            width: 80px;
-            height: 80px;
+            display: flex;
+            justify-content: center;
+            /* centers arrow horizontally */
+            align-items: center;
+            /* aligns vertically if container has height */
+            margin: 20px 0;
         }
 
-        .mission-arrow svg {
-            width: 100%;
-            height: 100%;
-            stroke: #b19cd9;
-            fill: none;
-            stroke-width: 2;
+        .mission-arrow img {
+            width: 100px;
+            height: auto;
+            display: block;
         }
 
-        .mission-continuation {
-            font-size: 60px;
+
+        .mission-text-bottom {
+            font-size: 50px;
             font-weight: 400;
-            line-height: 1.1;
-            margin-top: 100px;
+            line-height: 1.2;
+            text-align: right;
+            color: #67295f;
             font-family: 'Georgia', serif;
-            max-width: 600px;
         }
 
         /* Values Section */
         #values_section {
             width: 100%;
             min-height: 100vh;
-            background: #000;
-            color: #fff;
+            background: #fdfdfd;
+            color: #000000;
             padding: 100px 50px;
             display: flex;
             align-items: center;
@@ -253,10 +278,10 @@
         }
 
         .values-label {
-            font-size: 16px;
+            font-size: 20px;
             color: #67295f;
             margin-bottom: 40px;
-            font-weight: 500;
+            font-weight: 900;
         }
 
         .values-title {
@@ -271,7 +296,7 @@
         .values-description {
             font-size: 18px;
             line-height: 1.6;
-            color: #ccc;
+            color: #4b2e23;
             margin-bottom: 80px;
             max-width: 700px;
         }
@@ -289,91 +314,62 @@
             text-align: center;
         }
 
-
         .value-number {
-            font-size: 100px;
-            /* was 200px – shrink for better proportion */
+            font-size: 120px;
             font-weight: 300;
             line-height: 1;
-            margin-bottom: 10px;
-            /* was 30px – reduce spacing */
-            color: #fff;
+            margin-bottom: 20px;
+            color: #4b2e23;
             font-family: 'Georgia', serif;
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.8s ease;
         }
 
+        .value-number.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .value-number.animate .number-outline {
+            animation: fillNumber 2s ease-in-out forwards;
+            animation-delay: 0.5s;
+        }
+
+        .number-outline {
+            fill: transparent;
+            stroke: #4b2e23;
+            stroke-width: 3;
+        }
+
+        @keyframes fillNumber {
+            to {
+                fill: #4b2e23;
+            }
+        }
+
         .value-title {
             font-size: 22px;
-            /* a bit smaller */
             font-weight: 600;
             margin-bottom: 8px;
-            /* tighter gap */
-            color: #fff;
+            color: #000000;
             text-align: center;
         }
 
         .value-text {
             font-size: 14px;
             line-height: 1.4;
-            color: #ccc;
+            color: #000000;
             max-width: 300px;
             text-align: center;
             margin: 0 auto;
-            /* center align under the number */
         }
 
-
-        .value-number.animate {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .value-number svg {
-            width: 100%;
-            height: 100%;
-        }
-
-        .number-path {
-            stroke: #fff;
-            stroke-width: 2;
-            fill: transparent;
-            stroke-dasharray: 1000;
-            stroke-dashoffset: 1000;
-            animation: drawStroke 2s ease-in-out forwards, fillStroke 1s ease-in-out 2s forwards;
-        }
-
-        @keyframes drawStroke {
-            to {
-                stroke-dashoffset: 0;
-            }
-        }
-
-        @keyframes fillStroke {
-            to {
-                fill: #fff;
-            }
-        }
-
-        .value-title {
-            font-size: 28px;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: #fff;
-        }
-
-        .value-text {
-            font-size: 16px;
-            line-height: 1.5;
-            color: #ccc;
-        }
-
-        /* Principles Section - Horizontal Scroll */
+        /* Principles Section */
         #principles_section {
             width: 100%;
-            background: #f8f8f8;
-            color: #67295f;
+            background: #000000;
+            color: #ffffff;
             padding: 100px 0;
             overflow: hidden;
             position: relative;
@@ -411,53 +407,12 @@
             min-height: 60vh;
         }
 
-        /* Swipe Indicators */
-        .swipe-indicator {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 10px;
-            z-index: 10;
-        }
-
-        .swipe-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: rgba(0, 0, 0, 0.3);
-            transition: background 0.3s ease;
-        }
-
-        .swipe-dot.active {
-            background: #67295f;
-        }
-
-        .swipe-arrows {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 24px;
-            color: rgba(0, 0, 0, 0.4);
-            pointer-events: none;
-            z-index: 10;
-        }
-
-        .swipe-arrow-left {
-            left: 20px;
-        }
-
-        .swipe-arrow-right {
-            right: 20px;
-        }
-
         .principle-number {
-            font-size: 150px;
+            font-size: 120px;
             font-weight: 300;
             line-height: 1;
-            margin-bottom: 15px;
-            color: #67295f;
+            margin-bottom: 20px;
+            color: #b19cd9;
             font-family: 'Georgia', serif;
             opacity: 0;
             transform: translateY(50px);
@@ -469,23 +424,20 @@
             transform: translateY(0);
         }
 
-        .principle-number svg {
-            width: 100%;
-            height: 100%;
+        .principle-number.animate .principle-outline {
+            animation: fillPrinciple 2s ease-in-out forwards;
+            animation-delay: 0.5s;
         }
 
-        .principle-path {
-            stroke: #b19cd9;
-            stroke-width: 2;
+        .principle-outline {
             fill: transparent;
-            stroke-dasharray: 1000;
-            stroke-dashoffset: 1000;
-            animation: drawStrokePurple 2s ease-in-out forwards;
+            stroke: #b19cd9;
+            stroke-width: 3;
         }
 
-        @keyframes drawStrokePurple {
+        @keyframes fillPrinciple {
             to {
-                stroke-dashoffset: 0;
+                fill: #b19cd9;
             }
         }
 
@@ -493,149 +445,14 @@
             font-size: 24px;
             font-weight: 600;
             margin-bottom: 15px;
-            color: #000;
+            color: #fff;
         }
 
         .principle-text {
             font-size: 14px;
             line-height: 1.4;
-            color: #67295f;
+            color: #b19cd9;
             max-width: 400px;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .mission-statement {
-                font-size: 60px;
-            }
-
-            .mission-continuation {
-                font-size: 45px;
-                margin-top: 60px;
-            }
-
-            .values-title {
-                font-size: 45px;
-            }
-
-            .values-grid {
-                grid-template-columns: 1fr;
-                gap: 50px;
-            }
-
-            .principles-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 40px;
-            }
-
-            .mission-arrow {
-                display: none;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            #nav_1 ul,
-            #nav_2 ul {
-                display: none;
-            }
-
-            header {
-                padding: 0 20px;
-            }
-
-            .header-left {
-                margin-left: 0;
-            }
-
-            #mission_hero,
-            #values_section {
-                padding: 80px 30px;
-            }
-
-            #principles_section {
-                padding: 80px 0;
-            }
-
-            .mission-statement {
-                font-size: 45px;
-            }
-
-            .mission-continuation {
-                font-size: 35px;
-                margin-top: 50px;
-            }
-
-            .values-title {
-                font-size: 35px;
-            }
-
-            .value-number {
-                font-size: 80px;
-            }
-
-            .values-grid {
-                grid-template-columns: 1fr;
-                gap: 50px;
-            }
-
-            .principle-card {
-                padding: 0 30px;
-            }
-
-            .principle-number {
-                font-size: 60px;
-            }
-
-            /* Hide logo on mobile */
-            #logo {
-                display: none;
-            }
-
-            #nav_2 ul {
-                display: flex;
-                margin-right: 20px;
-                width: auto;
-            }
-
-            #nav_2 ul li a {
-                font-size: 14px;
-                padding: 8px 12px;
-                background: rgba(255, 255, 255, 0.1);
-                border-radius: 20px;
-                border: 1px solid rgba(255, 255, 255, 0.2);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .mission-statement {
-                font-size: 32px;
-            }
-
-            .mission-continuation {
-                font-size: 28px;
-            }
-
-            .values-title {
-                font-size: 28px;
-            }
-
-            .value-number {
-                font-size: 60px;
-            }
-
-            .principle-number {
-                font-size: 40px;
-            }
-
-            #mission_hero,
-            #values_section,
-            #principles_section {
-                padding: 60px 20px;
-            }
         }
 
         .swipe-arrows {
@@ -643,14 +460,13 @@
             top: 50%;
             transform: translateY(-50%);
             font-size: 20px;
-            color: rgba(0, 0, 0, 0.6);
-            background: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.1);
             padding: 8px 12px;
             border-radius: 20px;
             cursor: pointer;
             z-index: 20;
             pointer-events: auto;
-            /* allow clicks */
             transition: background 0.3s ease, transform 0.2s ease;
         }
 
@@ -668,8 +484,7 @@
             right: 20px;
         }
 
-
-        /* Mobile Menu Styles */
+        /* Mobile Menu */
         .mobile-menu {
             position: fixed;
             top: 0;
@@ -681,7 +496,7 @@
             transition: left 0.3s ease;
             display: flex;
             flex-direction: column;
-            padding: 80px 50px 50px;
+            padding: 80px 30px 30px;
         }
 
         .mobile-menu.active {
@@ -706,25 +521,6 @@
         .mobile-menu-close:hover {
             background: #fff;
             color: #000;
-        }
-
-        .mobile-menu-download {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: #fff;
-            color: #000;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 25px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-menu-download:hover {
-            background: #f0f0f0;
         }
 
         .mobile-menu-items {
@@ -765,12 +561,6 @@
             align-items: center;
         }
 
-        .mobile-menu-contact {
-            color: #fff;
-            font-size: 18px;
-            text-decoration: none;
-        }
-
         .mobile-menu-social {
             display: flex;
             gap: 20px;
@@ -782,7 +572,7 @@
             text-decoration: none;
         }
 
-        /* Overlay styling */
+        /* Overlay */
         .overlay {
             display: none;
             position: fixed;
@@ -826,6 +616,282 @@
             font-size: 28px;
             cursor: pointer;
         }
+
+        .mobile-nav-content {
+            display: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .mission-container {
+                grid-template-columns: 1fr;
+                gap: 0px;
+            }
+
+            .mission-image {
+                height: 700px;
+            }
+
+            .mission-heading {
+                font-size: 45px;
+            }
+
+            .mission-text-top,
+            .mission-text-bottom {
+                font-size: 38px;
+            }
+
+            .mission-arrow {
+                display: inline;
+            }
+
+            .mission-text-bottom {
+                text-align: left;
+            }
+
+            .values-title {
+                font-size: 45px;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                display: flex;
+                align-items: center;
+                /* ✅ vertically aligned */
+                justify-content: space-between;
+                padding: 0 20px;
+                height: 70px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                background: #fff;
+                z-index: 1000;
+            }
+
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            #nav_1 ul {
+                display: none;
+            }
+
+            /* Keep community button visible and properly positioned on mobile */
+            #nav_2 {
+                display: flex !important;
+                align-items: center !important;
+                height: 100% !important;
+            }
+
+            #nav_2 ul {
+                display: flex !important;
+                margin-right: 10px !important;
+                margin-top: 0 !important;
+                margin-bottom: 0 !important;
+                width: auto !important;
+                align-items: center !important;
+            }
+
+            #nav_2 ul li a {
+                font-size: 14px !important;
+                font-weight: 500 !important;
+                padding: 8px 16px !important;
+                white-space: nowrap !important;
+            }
+
+            /* Switch to mobile text */
+            .desktop-text {
+                display: none;
+            }
+
+            .mobile-text {
+                display: inline;
+            }
+
+            .header-left {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+            }
+
+            #sec_2 span {
+                font-size: 45px;
+                left: 5%;
+                top: 80%;
+                right: 5%;
+                font-weight: 700;
+            }
+
+            /* REDUCED MOBILE PADDING */
+            #mission_hero {
+                padding: 90px 20px 40px;
+            }
+
+            #mission_text_section {
+                padding: 20px 15px;
+            }
+
+            #mission_final_section {
+                padding: 20px 15px 40px;
+            }
+
+            #values_section {
+                padding: 40px 15px;
+                /* Reduced from 60px 20px */
+            }
+
+            #principles_section {
+                padding: 40px 0;
+                /* Reduced from 60px 0 */
+            }
+
+            .mission-image {
+                height: 280px;
+                /* Slightly reduced */
+                border-radius: 10px;
+                margin-top: 0;
+                margin-bottom: 25px;
+                /* Reduced spacing after image */
+            }
+
+            .mission-heading {
+                font-size: 40px;
+                margin-bottom: 0px;
+                /* Reduced from 20px but increased for better spacing */
+            }
+
+            .mission-text-top {
+                font-size: 24px;
+                text-align: left;
+                margin-bottom: 20px;
+                /* Reduced spacing */
+            }
+
+            .mission-text-bottom {
+                font-size: 24px;
+                text-align: right;
+                margin-top: 0;
+            }
+
+            .values-title {
+                font-size: 32px;
+            }
+
+            .value-number {
+                font-size: 80px;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                /* Reduced from 50px */
+            }
+
+            .principle-card {
+                padding: 0 20px;
+                /* Reduced from 30px */
+            }
+
+            .principle-number {
+                font-size: 80px;
+            }
+
+            /* 
+            #logo {
+                display: none;
+            } */
+        }
+
+        @media (max-width: 480px) {
+            .btn-container {
+                display: flex;
+                justify-content: flex-end;
+                /* pushes btn to the right */
+            }
+
+            .mobile-join-btn {
+                padding: 8px 14px;
+                border: 2px solid #b19cd9;
+                border-radius: 25px;
+                color: #b19cd9;
+                font-weight: 500;
+                text-decoration: none;
+                font-size: 14px;
+                transition: all 0.3s ease;
+            }
+
+            .mobile-join-btn:hover {
+                background: #b19cd9;
+                color: #fff;
+            }
+
+            #mission_hero {
+                padding: 80px 12px 25px;
+            }
+
+
+            #mission_text_section {
+                padding: 15px 12px;
+            }
+
+            #mission_final_section {
+                padding: 15px 12px 35px;
+            }
+
+            #values_section,
+            #principles_section {
+                padding: 35px 12px;
+                /* Further reduced */
+            }
+
+            /* mobile paading reduced here */
+            .mission-image {
+                height: 400px;
+                /* Reduced height */
+                margin-bottom: 20px;
+                /* Tighter spacing */
+            }
+
+            .mission-heading {
+                font-size: 28px;
+                margin-bottom: 0px;
+            }
+
+            .mission-text-top,
+            .mission-text-bottom {
+                font-size: 20px;
+                margin-bottom: 20px;
+            }
+
+            .values-title {
+                font-size: 26px;
+            }
+
+            .value-number {
+                font-size: 70px;
+            }
+
+            .principle-number {
+                font-size: 60px;
+            }
+
+            .values-grid {
+                gap: 35px;
+                /* Even tighter */
+            }
+
+            .principle-card {
+                padding: 0 15px;
+            }
+        }
     </style>
 </head>
 
@@ -836,16 +902,19 @@
                 <button class="mobile-menu-btn">☰</button>
                 <nav id="nav_1">
                     <ul>
-
                         <li><a href="mission.html">Mission</a></li>
                         <li><a href="#principles_section">Impact</a></li>
                     </ul>
                 </nav>
             </div>
             <a id="logo" href="index.html"><b>HeyRoomie</b></a>
+            <div class="mobile-nav-content">
+                <a href="index.html" class="mobile-logo">HeyRoomie</a>
+                <a href="#" class="mobile-join-btn" id="mobileJoinBtn">Join</a>
+            </div>
             <nav id="nav_2">
                 <ul>
-                    <li><a href="#" id="openCommunity">Join the Community</a></li>
+                    <li><a href="#" id="openCommunity" style="color: #2b105c;">Join</a></li>
                 </ul>
             </nav>
         </header>
@@ -854,12 +923,8 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <button class="mobile-menu-close" id="closeMobileMenu">✕</button>
-        <!-- <button class="mobile-menu-download">Join</button> -->
-
-
 
         <div class="mobile-menu-items">
-
             <div class="mobile-menu-item">
                 <a href="index.html">Home</a>
             </div>
@@ -875,14 +940,12 @@
             <div class="mobile-menu-item">
                 <a href="#">Socials</a>
             </div>
-
         </div>
 
         <div class="mobile-menu-footer">
-            <!-- <a href="#" class="mobile-menu-contact">Contact</a> -->
             <div class="mobile-menu-social">
-                <a href="#">🐦</a>
-                <a href="#">📷</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
             </div>
         </div>
     </div>
@@ -904,22 +967,31 @@
         </div>
     </div>
 
-    <!-- Mission Hero Section -->
+    <!-- Mission Hero Section - Part 1: Image + Heading -->
     <section id="mission_hero">
         <div class="mission-container">
-            <div class="hinge-today"></div>
-            <h1 class="mission-statement">
-
-                <span class="line-1">We strive to create a warm and inviting home</span>
-                <span class="line-2"> for everyone by connecting you with the perfect roommate to share it with.</span>
-            </h1>
-            <div class="mission-arrow">
-                <!-- <svg viewBox="0 0 100 100">
-                    <path d="M20,80 Q50,20 80,80" stroke="#b19cd9" stroke-width="2" fill="none" />
-                    <path d="M70,70 L80,80 L70,90" stroke="#b19cd9" stroke-width="2" fill="none" /> -->
-                </svg>
+            <div class="mission-image">
+                <img src="vibingroom.jpg" alt="Friends sharing a moment">
+            </div>
+            <div class="mission-content">
+                <h1 class="mission-heading"><strong>At the heart of HeyRoomie.</strong></h1>
             </div>
         </div>
+    </section>
+
+    <!-- Mission Hero Section - Part 2: First Text + Arrow -->
+    <section id="mission_text_section">
+        <p class="mission-text-top">We strive to create<br> a warm and inviting home</p>
+        <div class="mission-arrow">
+            <img src="arrow.png" height="200" alt="arrow">
+        </div>
+    </section>
+
+    <!-- Mission Hero Section - Part 3: Second Text -->
+    <section id="mission_final_section">
+        <p class="mission-text-bottom">for everyone by connecting you<br> with the perfect roommate <br>to share it
+            with.
+        </p>
     </section>
 
     <!-- Values Section -->
@@ -928,11 +1000,9 @@
             <div class="values-label">Our Values</div>
             <h2 class="values-title"></h2>
             <p class="values-description">
-                Our Values
                 Shared living is at the heart of everything we do. And not just with any roommate-it's about building a
                 home together. We can't create the perfect living space alone, so we make great partnerships the
                 foundation of our community.
-
             </p>
             <p class="values-description">
                 We believe these three core values are what it takes to build those great relationships.
@@ -941,13 +1011,9 @@
             <div class="values-grid">
                 <div class="value-card">
                     <div class="value-number" data-number="01">
-                        <svg viewBox="0 0 200 300" width="200" height="300">
-                            <!-- 0 -->
-                            <path class="number-path"
-                                d="M50 50 Q50 20 80 20 Q110 20 110 50 L110 150 Q110 180 80 180 Q50 180 50 150 Z" />
-                            <!-- 1 -->
-                            <path class="number-path" d="M150 20 L150 180" />
-                            <path class="number-path" d="M130 40 L150 20" />
+                        <svg viewBox="0 0 200 200" width="200" height="200">
+                            <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" class="number-outline"
+                                font-size="140" font-family="Georgia">01</text>
                         </svg>
                     </div>
                     <h3 class="value-title">Authenticity</h3>
@@ -955,13 +1021,9 @@
                 </div>
                 <div class="value-card">
                     <div class="value-number" data-number="02">
-                        <svg viewBox="0 0 200 300" width="200" height="300">
-                            <!-- 0 -->
-                            <path class="number-path"
-                                d="M50 50 Q50 20 80 20 Q110 20 110 50 L110 150 Q110 180 80 180 Q50 180 50 150 Z" />
-                            <!-- 2 -->
-                            <path class="number-path"
-                                d="M120 50 Q120 20 150 20 Q180 20 180 50 Q180 80 150 100 L120 140 L180 140 L180 180 L120 180" />
+                        <svg viewBox="0 0 200 200" width="200" height="200">
+                            <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" class="number-outline"
+                                font-size="140" font-family="Georgia">02</text>
                         </svg>
                     </div>
                     <h3 class="value-title">Courage</h3>
@@ -970,13 +1032,9 @@
                 </div>
                 <div class="value-card">
                     <div class="value-number" data-number="03">
-                        <svg viewBox="0 0 200 300" width="200" height="300">
-                            <!-- 0 -->
-                            <path class="number-path"
-                                d="M50 50 Q50 20 80 20 Q110 20 110 50 L110 150 Q110 180 80 180 Q50 180 50 150 Z" />
-                            <!-- 3 -->
-                            <path class="number-path"
-                                d="M120 20 L180 20 Q180 50 150 60 Q180 70 180 100 Q180 180 120 180 Q120 140 150 140" />
+                        <svg viewBox="0 0 200 200" width="200" height="200">
+                            <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" class="number-outline"
+                                font-size="140" font-family="Georgia">03</text>
                         </svg>
                     </div>
                     <h3 class="value-title">Empathy</h3>
@@ -993,13 +1051,9 @@
             <div class="principles-grid">
                 <div class="principle-card">
                     <div class="principle-number" data-number="01">
-                        <svg viewBox="0 0 200 300" width="150" height="225">
-                            <!-- 0 -->
-                            <path class="principle-path"
-                                d="M30 50 Q30 20 60 20 Q90 20 90 50 L90 150 Q90 180 60 180 Q30 180 30 150 Z" />
-                            <!-- 1 -->
-                            <path class="principle-path" d="M120 20 L120 180" />
-                            <path class="principle-path" d="M100 40 L120 20" />
+                        <svg viewBox="0 0 200 200" width="200" height="200">
+                            <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle"
+                                class="principle-outline" font-size="140" font-family="Georgia">01</text>
                         </svg>
                     </div>
                     <h3 class="principle-title">Embrace the Challenge</h3>
@@ -1009,29 +1063,21 @@
                 </div>
                 <div class="principle-card">
                     <div class="principle-number" data-number="02">
-                        <svg viewBox="0 0 200 300" width="150" height="225">
-                            <!-- 0 -->
-                            <path class="principle-path"
-                                d="M30 50 Q30 20 60 20 Q90 20 90 50 L90 150 Q90 180 60 180 Q30 180 30 150 Z" />
-                            <!-- 2 -->
-                            <path class="principle-path"
-                                d="M100 50 Q100 20 130 20 Q160 20 160 50 Q160 80 130 100 L100 140 L160 140 L160 180 L100 180" />
+                        <svg viewBox="0 0 200 200" width="200" height="200">
+                            <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle"
+                                class="principle-outline" font-size="140" font-family="Georgia">02</text>
                         </svg>
                     </div>
                     <h3 class="principle-title">Simplify Solutions</h3>
                     <p class="principle-text">We focus on creating straightforward solutions that align with our key
                         objectives—both as an organization and within our teams. We choose to say "no" to many ideas in
-                        order to concentrate on what truly matters..</p>
+                        order to concentrate on what truly matters.</p>
                 </div>
                 <div class="principle-card">
                     <div class="principle-number" data-number="03">
-                        <svg viewBox="0 0 200 300" width="150" height="225">
-                            <!-- 0 -->
-                            <path class="principle-path"
-                                d="M30 50 Q30 20 60 20 Q90 20 90 50 L90 150 Q90 180 60 180 Q30 180 30 150 Z" />
-                            <!-- 3 -->
-                            <path class="principle-path"
-                                d="M100 20 L160 20 Q160 50 130 60 Q160 70 160 100 Q160 180 100 180 Q100 140 130 140" />
+                        <svg viewBox="0 0 200 200" width="200" height="200">
+                            <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle"
+                                class="principle-outline" font-size="140" font-family="Georgia">03</text>
                         </svg>
                     </div>
                     <h3 class="principle-title">Decide with Principles</h3>
@@ -1040,13 +1086,9 @@
                 </div>
                 <div class="principle-card">
                     <div class="principle-number" data-number="04">
-                        <svg viewBox="0 0 200 300" width="150" height="225">
-                            <!-- 0 -->
-                            <path class="principle-path"
-                                d="M30 50 Q30 20 60 20 Q90 20 90 50 L90 150 Q90 180 60 180 Q30 180 30 150 Z" />
-                            <!-- 4 -->
-                            <path class="principle-path" d="M100 20 L100 100 L160 100 L160 130 L130 130 L130 180" />
-                            <path class="principle-path" d="M130 20 L130 100" />
+                        <svg viewBox="0 0 200 200" width="200" height="200">
+                            <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle"
+                                class="principle-outline" font-size="140" font-family="Georgia">04</text>
                         </svg>
                     </div>
                     <h3 class="principle-title">Tend to Trust</h3>
@@ -1057,12 +1099,21 @@
                 </div>
             </div>
         </div>
-        <div class="swipe-arrows swipe-arrow-left">← </div>
-        <div class="swipe-arrows swipe-arrow-right"> →</div>
+        <div class="swipe-arrows swipe-arrow-left">←</div>
+        <div class="swipe-arrows swipe-arrow-right">→</div>
     </section>
 
     <script>
-        // Smooth scrolling for navigation links
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
         document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1076,7 +1127,6 @@
             });
         });
 
-        // Scroll animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -1091,38 +1141,18 @@
             });
         }, observerOptions);
 
-        // Animated number observer
         const numberObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('animate');
-
-                    // Restart SVG animations
-                    const paths = entry.target.querySelectorAll('.number-path, .principle-path');
-                    paths.forEach((path, index) => {
-                        // Reset animation
-                        path.style.animation = 'none';
-                        path.offsetHeight; // Trigger reflow
-
-                        // Apply animation with stagger
-                        setTimeout(() => {
-                            if (path.classList.contains('number-path')) {
-                                path.style.animation = `drawStroke 1.5s ease-in-out forwards, fillStroke 0.8s ease-in-out 1.5s forwards`;
-                            } else {
-                                path.style.animation = `drawStrokePurple 1.5s ease-in-out forwards, fillStrokePurple 0.8s ease-in-out 1.5s forwards`;
-                            }
-                        }, index * 200);
-                    });
                 }
             });
         }, { threshold: 0.3 });
 
-        // Observe all number elements
         document.querySelectorAll('.value-number, .principle-number').forEach(numberEl => {
             numberObserver.observe(numberEl);
         });
 
-        // Add staggered animation to cards
         const cardObserver = new IntersectionObserver((entries) => {
             entries.forEach((entry, index) => {
                 if (entry.isIntersecting) {
@@ -1134,7 +1164,6 @@
             });
         }, { threshold: 0.2 });
 
-        // Observe cards for staggered animation
         document.querySelectorAll('.value-card, .principle-card').forEach(card => {
             card.style.opacity = '0';
             card.style.transform = 'translateY(50px)';
@@ -1142,12 +1171,17 @@
             cardObserver.observe(card);
         });
 
-        // Community overlay functionality
         const overlay = document.getElementById('communityOverlay');
         const openBtn = document.getElementById('openCommunity');
+        const mobileJoinBtn = document.getElementById('mobileJoinBtn');
         const closeBtn = document.getElementById('closeOverlay');
 
         openBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            overlay.style.display = 'flex';
+        });
+
+        mobileJoinBtn.addEventListener('click', (e) => {
             e.preventDefault();
             overlay.style.display = 'flex';
         });
@@ -1162,7 +1196,6 @@
             }
         });
 
-        // Mobile menu functionality
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const mobileMenu = document.getElementById('mobileMenu');
         const closeMobileMenu = document.getElementById('closeMobileMenu');
@@ -1177,7 +1210,6 @@
             document.body.style.overflow = 'auto';
         });
 
-        // Close mobile menu when clicking on menu items
         document.querySelectorAll('.mobile-menu-item a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.remove('active');
@@ -1185,7 +1217,6 @@
             });
         });
 
-        // Horizontal scroll for principles section
         let currentPrinciple = 0;
         const principlesContainer = document.querySelector('.principles-container');
         const principleCards = document.querySelectorAll('.principle-card');
@@ -1198,7 +1229,6 @@
             });
         }
 
-        // Touch/swipe support for principles
         let startX = 0;
         let endX = 0;
 
@@ -1226,15 +1256,12 @@
             }
         }
 
-        // Scroll snap detection
         principlesContainer.addEventListener('scroll', () => {
             const scrollLeft = principlesContainer.scrollLeft;
             const cardWidth = window.innerWidth;
             currentPrinciple = Math.round(scrollLeft / cardWidth);
         });
 
-
-        // 
         document.querySelector('.swipe-arrow-left').addEventListener('click', () => {
             if (currentPrinciple > 0) {
                 currentPrinciple--;
@@ -1248,7 +1275,6 @@
                 scrollToPrinciple(currentPrinciple);
             }
         });
-
     </script>
 </body>
 
