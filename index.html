@@ -209,8 +209,8 @@
         }
 
         #openCommunity:hover {
-            background: #2b105c;
-            color: #410000;
+            background: #ffe598dd;
+            color: #ffffff;
         }
 
         /* Desktop/Mobile text control */
@@ -539,7 +539,7 @@
         }
 
         #right button {
-            background-color: #000;
+            background-color: #311d15;
             color: white;
             border: none;
             border-radius: 30px;
@@ -660,7 +660,7 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            display: grid;
+            display: block;
             gap: 20px;
             right: -120px;
         }
@@ -675,7 +675,7 @@
             font-size: 20px;
             cursor: pointer;
             transition: all 0.3s ease;
-            display: flex;
+            display: inline;
             align-items: center;
             justify-content: center;
         }
@@ -747,7 +747,7 @@
         #sec_5 {
             width: 100%;
             min-height: 100vh;
-            background: #1a1a1a;
+            background: #000000;
             padding: 100px;
             display: flex;
             flex-direction: column;
@@ -757,7 +757,7 @@
 
         .reviews-header {
             font-size: 32px;
-            color: #fff;
+            color: #ffe598dd;
             font-weight: 400;
             margin-bottom: 80px;
             font-family: 'Georgia', serif;
@@ -789,13 +789,6 @@
             }
         }
 
-        .quote-mark {
-            font-size: 80px;
-            color: #fff;
-            font-family: Georgia, serif;
-            margin-bottom: 30px;
-            line-height: 0.5;
-        }
 
         .review-text {
             font-size: 42px;
@@ -819,18 +812,6 @@
             gap: 12px;
         }
 
-        .dot {
-            width: 60px;
-            height: 4px;
-            background: #444;
-            border-radius: 2px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .dot.active {
-            background: #fff;
-        }
 
 
         .main-footer {
@@ -1581,6 +1562,7 @@
                     It's been perfect.</p>
                 <p class="review-author">Sneha R.</p>
                 <div class="review-dots">
+
                     <span class="dot" data-dot="0">
                         <span class="dot-progress"></span>
                     </span>
@@ -1590,18 +1572,21 @@
                     <span class="dot active" data-dot="2">
                         <span class="dot-progress"></span>
                     </span>
+
                 </div>
+
             </div>
 
             <!-- Navigation Arrows -->
             <div class="review-nav">
-                <!-- <button class="review-arrow" id="prevReview">←</button> -->
+                <button class="review-arrow" id="prevReview">←</button>
                 <button class="review-arrow" id="nextReview">→</button>
             </div>
         </div>
     </section>
 
     <footer class="main-footer">
+        <hr>
         <div class="footer-container">
             <div class="footer-section brand">
                 <div class="footer-logo">
@@ -1614,30 +1599,30 @@
             </div>
 
             <div class="footer-section heyroomie-links">
-                <h4>HeyRoomie</h4>
+                <!-- <h4>HeyRoomie</h4> -->
                 <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">How It Works</a></li>
+                    <!-- <li><a href="#">About Us</a></li> -->
+                    <!-- <li><a href="#">How It Works</a></li>
                     <li><a href="#">Blog</a></li>
-                    <li><a href="#">Success Stories</a></li>
+                    <li><a href="#">Success Stories</a></li> -->
                 </ul>
             </div>
 
             <div class="footer-section support-links">
-                <h4>Support</h4>
+                <!-- <h4>Support</h4> -->
                 <ul>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Safety & Security</a></li>
+                    <!-- <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Safety & Security</a></li> -->
                     <li><a href="#">Help Center</a></li>
                 </ul>
             </div>
 
             <div class="footer-section legal-links">
-                <h4>Legal</h4>
+                <!-- <h4>Legal</h4> -->
                 <ul>
                     <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Cookie Policy</a></li>
+                    <!-- <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cookie Policy</a></li> -->
                 </ul>
             </div>
 
