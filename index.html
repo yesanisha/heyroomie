@@ -25,7 +25,6 @@
             -ms-text-size-adjust: 100%;
         }
 
-        /* Splash Screen */
         .splash-screen {
             position: fixed;
             top: 0;
@@ -37,35 +36,36 @@
             justify-content: center;
             align-items: center;
             z-index: 9999;
-            transition: opacity 0.2s ease;
-        }
-
-        .splash-screen.hidden {
-            opacity: 0;
-            pointer-events: none;
         }
 
         .splash-logo {
-            font-size: 48px;
+            font-size: 60px;
             font-weight: 700;
-            color: #fff;
             font-family: 'Georgia', serif;
-            overflow: hidden;
-            white-space: nowrap;
-            letter-spacing: 0.1em;
-            width: 0;
-            animation: typing 0.6s steps(10, end) forwards;
+            color: #fff;
+            letter-spacing: 0.05em;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+
         }
 
-        @keyframes typing {
-            from {
-                width: 0;
-            }
-
+        @keyframes fadeIn {
             to {
-                width: 11ch;
+                opacity: 0.6;
             }
         }
+
+        .splash-screen.hidden {
+            animation: fadeOut 0.8s ease forwards;
+        }
+
+        @keyframes fadeOut {
+            to {
+                opacity: 0.2;
+                visibility: hidden;
+            }
+        }
+
 
         /* Page entrance animations */
         .page-content {
@@ -117,22 +117,18 @@
             height: 75px;
             display: flex;
             background: transparent;
-            transition: background 0.3s ease, box-shadow 0.3s ease;
+            transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
             justify-content: space-between;
             align-items: center;
             position: fixed;
             z-index: 1000;
             padding: 0 20px;
-            opacity: 0;
-            transform: translateY(-20px);
-            animation: slideInFromTop 0.8s ease 1.8s forwards;
         }
 
-        @keyframes slideInFromTop {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .header-left {
@@ -151,7 +147,6 @@
             color: inherit;
             order: -1;
             transition: color 0.3s ease, transform 0.2s ease;
-
         }
 
         .mobile-menu-btn:hover {
@@ -170,8 +165,8 @@
             align-items: center;
             margin-left: 80px;
             font-size: 17px;
-
         }
+
 
         #nav_2 ul {
             width: 200px;
@@ -206,8 +201,8 @@
             padding: 8px 16px;
             border: 2px solid #000000;
             border-radius: 25px;
-            background-color: #000000;
-            color: #2b105c;
+            background-color: transparent;
+            color: #000000;
             font-weight: 500;
             text-decoration: none;
             transition: all 0.3s ease;
@@ -230,21 +225,20 @@
         }
 
         #logo:hover {
-            color: #67295f !important;
+            color: #cac6ca !important;
             transform: scale(1.05);
         }
 
         #logo {
             width: 70px;
             height: 50px;
-            font-size: 24px;
+            font-size: 32px;
             font-weight: 400;
-            color: #4b2e27;
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            color: inherit;
+
         }
 
         /* Mobile Menu Styles */
@@ -294,7 +288,7 @@
             top: 20px;
             right: 20px;
             background: #fff;
-            color: #000;
+            color: #b61717;
             border: none;
             padding: 12px 20px;
             border-radius: 25px;
@@ -631,7 +625,7 @@
             font-weight: 400;
             line-height: 1.1;
             margin-bottom: 40px;
-            color: #4b2e27;
+            color: #550b0b;
             font-family: 'Georgia', serif;
             opacity: 0;
             transform: translateY(30px);
@@ -661,6 +655,95 @@
         }
 
         /* Reviews Section */
+        /* Review Navigation Arrows */
+        .review-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            display: grid;
+            gap: 20px;
+            right: -120px;
+        }
+
+        .review-arrow {
+            width: 50px;
+            height: 50px;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            background: transparent;
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .review-arrow:hover {
+            background: #fff;
+            color: #1a1a1a;
+            transform: scale(1.1);
+        }
+
+        .review-arrow:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        /* Progress bars for dots */
+        .dot {
+            width: 60px;
+            height: 4px;
+            background: #444;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dot-progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: #fff;
+            width: 0%;
+            transition: none;
+        }
+
+        .dot.active .dot-progress {
+            animation: progress 5s linear;
+        }
+
+        @keyframes progress {
+            from {
+                width: 0%;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        /* Mobile adjustments for arrows */
+        @media (max-width: 768px) {
+            .review-nav {
+                position: static;
+                transform: none;
+                justify-content: center;
+                margin-top: 30px;
+                gap: 15px;
+            }
+
+            .review-arrow {
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+        }
+
         #sec_5 {
             width: 100%;
             min-height: 100vh;
@@ -748,6 +831,7 @@
         .dot.active {
             background: #fff;
         }
+
 
         .main-footer {
             background-color: #000;
@@ -869,8 +953,19 @@
 
         /* Responsive Design */
         @media (max-width: 1024px) {
-            .header-left {
-                margin-left: 20px;
+            header {
+                display: flex;
+                align-items: center;
+                /* ✅ vertically aligned */
+                justify-content: space-between;
+                padding: 0 20px;
+                height: 70px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                background: #fff;
+                z-index: 1000;
             }
 
             #nav_1 ul {
@@ -906,8 +1001,9 @@
             header {
                 display: flex;
                 align-items: center;
+                /* ✅ vertically aligned */
                 justify-content: space-between;
-                padding: 0 20px 0 5px;
+                padding: 0 20px;
                 height: 70px;
                 position: fixed;
                 top: 0;
@@ -918,6 +1014,7 @@
             }
 
 
+
             .mobile-menu-btn {
                 display: block;
                 margin-left: -5px;
@@ -925,6 +1022,11 @@
 
             #nav_1 ul {
                 display: none;
+            }
+
+            #logo {
+                color: #dcdcdc;
+
             }
 
             /* Keep community button visible and properly positioned on mobile */
@@ -1082,6 +1184,20 @@
             .review-author {
                 font-size: 18px;
                 margin-bottom: 40px;
+            }
+
+            .review-nav {
+                position: static;
+                transform: none;
+                justify-content: center;
+                margin-top: 30px;
+                gap: 15px;
+            }
+
+            .review-arrow {
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
             }
 
             .dot {
@@ -1282,6 +1398,11 @@
             right: 20px;
             font-size: 28px;
             cursor: pointer;
+            color: white;
+        }
+
+        .mobile-nav-content {
+            display: none;
         }
     </style>
 </head>
@@ -1291,231 +1412,256 @@
     <div class="splash-screen" id="splashScreen">
         <div class="splash-logo">HeyRoomie</div>
     </div>
+    <!-- 
 
-    <div class="page-content" id="pageContent">
-        <section id="sec_1">
-            <header>
-                <div class="header-left">
-                    <button class="mobile-menu-btn">☰</button>
-                    <nav id="nav_1">
-                        <ul>
-
-                            <li><a href="mission.html">Mission</a></li>
-                            <li><a href="mission.html#sec_6">Impact</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                <a id="logo" href="index.html"><b>HeyRoomie</b></a>
-
-                <nav id="nav_2">
+    <div class="page-content" id="pageContent"> -->
+    <section id="sec_1">
+        <header>
+            <div class="header-left">
+                <button class="mobile-menu-btn">☰</button>
+                <nav id="nav_1">
                     <ul>
-                        <li><a href="#" id="openCommunity" style="color: #2b105c;">Join us</a></li>
+                        <li><a href="mission.html">Mission</a></li>
+                        <li><a href="mission.html#principles_section">Impact</a></li>
                     </ul>
                 </nav>
-            </header>
-        </section>
-
-        <!-- Mobile Menu -->
-        <div class="mobile-menu" id="mobileMenu">
-            <button class="mobile-menu-close" id="closeMobileMenu">✕</button>
-
-            <div class="mobile-menu-items">
-
-                <div class="mobile-menu-item">
-                    <a href="index.html">Home</a>
-                </div>
-
-                <div class="mobile-menu-item">
-                    <a href="mission.html">Mission</a>
-                </div>
-                <div class="mobile-menu-item">
-                    <a href="mission.html#principles_section">Impact</a>
-                </div>
-                <div class="mobile-menu-item">
-                    <a href="#">Contact</a>
-                </div>
-                <div class="mobile-menu-item">
-                    <a href="#">Socials</a>
-                </div>
-                <div class="mobile-menu-social">
-                    <a href="#">🐦</a>
-                    <a href="#">📷</a>
-                </div>
+            </div>
+            <a id="logo" href="index.html"><b>HeyRoomie</b></a>
+            <div class="mobile-nav-content">
+                <a href="index.html" class="mobile-logo">HeyRoomie</a>
+                <a href="#" class="mobile-join-btn" id="mobileJoinBtn">Join</a>
+            </div>
+            <nav id="nav_2">
+                <ul>
+                    <li><a href="#" id="openCommunity" ;>Join</a></li>
+                </ul>
+            </nav>
+        </header>
+    </section>
 
 
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu-close" id="closeMobileMenu">✕</button>
+
+        <div class="mobile-menu-items">
+
+            <div class="mobile-menu-item">
+                <a href="index.html">Home</a>
             </div>
 
-            <div class="mobile-menu-footer">
-
+            <div class="mobile-menu-item">
+                <a href="mission.html">Mission</a>
             </div>
+            <div class="mobile-menu-item">
+                <a href="mission.html#principles_section">Impact</a>
+            </div>
+            <div class="mobile-menu-item">
+                <a href="#">Contact</a>
+            </div>
+            <div class="mobile-menu-item">
+                <a href="#">Socials</a>
+            </div>
+            <div class="mobile-menu-social">
+                <a href="#">🐦</a>
+                <a href="#">📷</a>
+            </div>
+
+
         </div>
 
-        <div id="communityOverlay" class="overlay">
-            <div class="overlay-content">
-                <span id="closeOverlay" class="close">&times;</span>
-                <h2>Join Your Community</h2>
+        <div class="mobile-menu-footer">
+
+        </div>
+    </div>
+
+    <div id="communityOverlay" class="overlay">
+        <div class="overlay-content">
+            <span id="closeOverlay" class="close">&times;</span>
+            <h2>Join Your Community</h2>
+            <ul>
+                <li><a href="https://chat.whatsapp.com/K595Lc0UtRKKQmOtnclvcL" target="_blank"
+                        rel="noopener noreferrer">Bangalore Community</a></li>
+                <li><a href="https://chat.whatsapp.com/GIlChXJoekYBRdAEBRScBp" target="_blank"
+                        rel="noopener noreferrer">Mumbai Community</a></li>
+                <li><a href="https://chat.whatsapp.com/GWHmsVPDFwE2mHrI8p7KvE" target="_blank"
+                        rel="noopener noreferrer">Delhi Community</a></li>
+                <li><a href="https://chat.whatsapp.com/EUWnq8OeubxCzxXGIgQmqO" target="_blank"
+                        rel="noopener noreferrer">Pune Community</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <section id="sec_2">
+        <div id="img_1"></div>
+        <span class="typing-text">
+            <b>Where Living </b><br><b>Meets Belonging</b>
+        </span>
+    </section>
+
+    <section id="sec_3">
+        <aside id="left">
+            <p>Our Approach</p>
+            <h1>
+                Great Roommates<br>
+                Make Great
+                <span class="highlight-circle">Home.</span>
+                <span class="arrow"></span>
+            </h1>
+        </aside>
+        <aside id="right">
+            <span>At HeyRoomie, we believe that a true home is more than just four walls; it's where connections
+                flourish and memories are made. Everyone deserves a space that feels just right, and our smart,
+                data-driven algorithm is here to make that happen. By matching you with great vibes and like-minded
+                roommates, we're not just crafting homes, we're building a community where friendships thrive and
+                every
+                moment feels at home.</span>
+            <a href="mission.html">
+                <button>How we do it</button>
+            </a>
+        </aside>
+    </section>
+
+    <section id="sec_4">
+        <aside></aside>
+        <div>
+            <p>At the core of HeyRoomie.</p>
+            <h1>Great Roommates Make Great Homes</h1>
+            <span>We strive to create a warm and inviting home for everyone by connecting you with the perfect
+                roommate
+                to share it with.</span>
+        </div>
+    </section>
+
+    <section id="sec_5">
+        <h2 class="reviews-header">What Our Users Say</h2>
+        <div class="review-container">
+            <div class="review-slide active" data-slide="0">
+                <div class="quote-mark"></div>
+                <p class="review-text">"I was dreading the roommate hunt, but HeyRoomie made it so easy. Within a
+                    week, I found someone who shares my love for cooking and quiet evenings. We've been living
+                    together for six months now, and it feels like home.</p>
+                <p class="review-author">Priya M.</p>
+                <div class="review-dots">
+                    <span class="dot active" data-dot="0">
+                        <span class="dot-progress"></span>
+                    </span>
+                    <span class="dot" data-dot="1">
+                        <span class="dot-progress"></span>
+                    </span>
+                    <span class="dot" data-dot="2">
+                        <span class="dot-progress"></span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="review-slide" data-slide="1">
+                <div class="quote-mark"></div>
+                <p class="review-text">"Moving to a new city was scary, but HeyRoomie connected me with the perfect
+                    roommate. We clicked instantly, and now I have both a great living situation and a close friend.
+                    Best decision I made!</p>
+                <p class="review-author">Arjun K.</p>
+                <div class="review-dots">
+                    <span class="dot" data-dot="0">
+                        <span class="dot-progress"></span>
+                    </span>
+                    <span class="dot active" data-dot="1">
+                        <span class="dot-progress"></span>
+                    </span>
+                    <span class="dot" data-dot="2">
+                        <span class="dot-progress"></span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="review-slide" data-slide="2">
+                <div class="quote-mark"></div>
+                <p class="review-text">"Other platforms gave me random matches, but HeyRoomie actually understood
+                    what I was looking for. My roommate and I have similar schedules and respect for personal space.
+                    It's been perfect.</p>
+                <p class="review-author">Sneha R.</p>
+                <div class="review-dots">
+                    <span class="dot" data-dot="0">
+                        <span class="dot-progress"></span>
+                    </span>
+                    <span class="dot" data-dot="1">
+                        <span class="dot-progress"></span>
+                    </span>
+                    <span class="dot active" data-dot="2">
+                        <span class="dot-progress"></span>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Navigation Arrows -->
+            <div class="review-nav">
+                <!-- <button class="review-arrow" id="prevReview">←</button> -->
+                <button class="review-arrow" id="nextReview">→</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-section brand">
+                <div class="footer-logo">
+                    <!-- Assuming you have an SVG or image for the house icon and "HeyRoomie" -->
+                    <!-- For now, using Font Awesome icon and text -->
+                    <i class="fas fa-home" style="font-size: 30px; margin-right: 10px;"></i>
+                    <span>HeyRoomie</span>
+                </div>
+                <p>Connecting you to your ideal living situation.</p>
+            </div>
+
+            <div class="footer-section heyroomie-links">
+                <h4>HeyRoomie</h4>
                 <ul>
-                    <li><a href="https://chat.whatsapp.com/K595Lc0UtRKKQmOtnclvcL" target="_blank"
-                            rel="noopener noreferrer">Bangalore Community</a></li>
-                    <li><a href="https://chat.whatsapp.com/GIlChXJoekYBRdAEBRScBp" target="_blank"
-                            rel="noopener noreferrer">Mumbai Community</a></li>
-                    <li><a href="https://chat.whatsapp.com/GWHmsVPDFwE2mHrI8p7KvE" target="_blank"
-                            rel="noopener noreferrer">Delhi Community</a></li>
-                    <li><a href="https://chat.whatsapp.com/EUWnq8OeubxCzxXGIgQmqO" target="_blank"
-                            rel="noopener noreferrer">Pune Community</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">How It Works</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Success Stories</a></li>
                 </ul>
             </div>
+
+            <div class="footer-section support-links">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Safety & Security</a></li>
+                    <li><a href="#">Help Center</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section legal-links">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section social-media">
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
         </div>
 
-        <section id="sec_2">
-            <div id="img_1"></div>
-            <span class="typing-text">
-                <b>Where Living </b><br><b>Meets Belonging</b>
-            </span>
-        </section>
-
-        <section id="sec_3">
-            <aside id="left">
-                <p>Our Approach</p>
-                <h1>
-                    Great Roommates<br>
-                    Make Great
-                    <span class="highlight-circle">Home.</span>
-                    <span class="arrow"></span>
-                </h1>
-            </aside>
-            <aside id="right">
-                <span>At HeyRoomie, we believe that a true home is more than just four walls; it's where connections
-                    flourish and memories are made. Everyone deserves a space that feels just right, and our smart,
-                    data-driven algorithm is here to make that happen. By matching you with great vibes and like-minded
-                    roommates, we're not just crafting homes, we're building a community where friendships thrive and
-                    every
-                    moment feels at home.</span>
-                <a href="mission.html">
-                    <button>How we do it</button>
-                </a>
-            </aside>
-        </section>
-
-        <section id="sec_4">
-            <aside></aside>
-            <div>
-                <p>At the core of HeyRoomie.</p>
-                <h1>Great Roommates Make Great Homes</h1>
-                <span>We strive to create a warm and inviting home for everyone by connecting you with the perfect
-                    roommate
-                    to share it with.</span>
-            </div>
-        </section>
-
-        <section id="sec_5">
-            <h2 class="reviews-header">What Our Users Say</h2>
-            <div class="review-container">
-                <div class="review-slide active" data-slide="0">
-                    <div class="quote-mark"></div>
-                    <p class="review-text">"I was dreading the roommate hunt, but HeyRoomie made it so easy. Within a
-                        week, I found someone who shares my love for cooking and quiet evenings. We've been living
-                        together for six months now, and it feels like home.</p>
-                    <p class="review-author">Priya M.</p>
-                    <div class="review-dots">
-                        <span class="dot active" data-dot="0"></span>
-                        <span class="dot" data-dot="1"></span>
-                        <span class="dot" data-dot="2"></span>
-                    </div>
-                </div>
-
-                <div class="review-slide" data-slide="1">
-                    <div class="quote-mark"></div>
-                    <p class="review-text">"Moving to a new city was scary, but HeyRoomie connected me with the perfect
-                        roommate. We clicked instantly, and now I have both a great living situation and a close friend.
-                        Best decision I made!</p>
-                    <p class="review-author">Arjun K.</p>
-                    <div class="review-dots">
-                        <span class="dot" data-dot="0"></span>
-                        <span class="dot active" data-dot="1"></span>
-                        <span class="dot" data-dot="2"></span>
-                    </div>
-                </div>
-
-                <div class="review-slide" data-slide="2">
-                    <div class="quote-mark"></div>
-                    <p class="review-text">"Other platforms gave me random matches, but HeyRoomie actually understood
-                        what I was looking for. My roommate and I have similar schedules and respect for personal space.
-                        It's been perfect.</p>
-                    <p class="review-author">Sneha R.</p>
-                    <div class="review-dots">
-                        <span class="dot" data-dot="0"></span>
-                        <span class="dot" data-dot="1"></span>
-                        <span class="dot active" data-dot="2"></span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <footer class="main-footer">
-            <div class="footer-container">
-                <div class="footer-section brand">
-                    <div class="footer-logo">
-                        <!-- Assuming you have an SVG or image for the house icon and "HeyRoomie" -->
-                        <!-- For now, using Font Awesome icon and text -->
-                        <i class="fas fa-home" style="font-size: 30px; margin-right: 10px;"></i>
-                        <span>HeyRoomie</span>
-                    </div>
-                    <p>Connecting you to your ideal living situation.</p>
-                </div>
-
-                <div class="footer-section heyroomie-links">
-                    <h4>HeyRoomie</h4>
-                    <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">How It Works</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Success Stories</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section support-links">
-                    <h4>Support</h4>
-                    <ul>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Safety & Security</a></li>
-                        <li><a href="#">Help Center</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section legal-links">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Cookie Policy</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section social-media">
-                    <div class="social-icons">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="copyright">
-                &copy; 2024 HeyRoomie. All ideal reserved.
-            </div>
-        </footer>
+        <div class="copyright">
+            &copy; 2024 HeyRoomie. All ideal reserved.
+        </div>
+    </footer>
     </div>
 
     <script>
-        // Splash screen animation
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('splashScreen').classList.add('hidden');
-                document.getElementById('pageContent').classList.add('visible');
-            }, 1200);
-        });
+        setTimeout(() => {
+            document.getElementById('splashScreen').classList.add('hidden');
+            document.getElementById('pageContent').classList.add('visible');
+        }, 3500); // matches handwriting + fill duration
 
         // Mobile menu functionality
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
@@ -1582,10 +1728,10 @@
         const navLinks = document.querySelectorAll('nav a, #logo');
 
         const sectionColors = {
-            'sec_2': { bg: 'transparent', text: '#ffffff' },
-            'sec_3': { bg: 'rgba(255, 255, 255, 0.95)', text: '#333333' },
-            'sec_4': { bg: 'rgba(255, 255, 255, 0.95)', text: '#333333' },
-            'sec_5': { bg: 'rgba(26, 26, 26, 0.95)', text: '#ffffff' },
+            'sec_2': { bg: 'transparent', text: 'black' },
+            'sec_3': { bg: 'rgba(255, 255, 255)', text: 'black' },
+            'sec_4': { bg: 'rgba(255, 255, 255)', text: 'black' },
+            'sec_5': { bg: 'rgba(0, 0, 0)', text: '#ffffff' },
         };
 
         function updateNavbarForSection() {
@@ -1672,22 +1818,63 @@
         });
 
         // Reviews carousel functionality
+        // Reviews carousel functionality
         let currentSlide = 0;
         const slides = document.querySelectorAll('.review-slide');
         const dots = document.querySelectorAll('.dot');
+        const totalSlides = slides.length;
+        let autoPlayInterval;
+        const autoPlayDuration = 5000; // 5 seconds
 
-        function showSlide(n) {
+        function showSlide(n, resetTimer = true) {
+            // Remove active class from all
             slides.forEach(slide => slide.classList.remove('active'));
             dots.forEach(dot => dot.classList.remove('active'));
 
-            currentSlide = n;
+            // Wrap around
+            if (n >= totalSlides) currentSlide = 0;
+            else if (n < 0) currentSlide = totalSlides - 1;
+            else currentSlide = n;
+
+            // Show current slide
             slides[currentSlide].classList.add('active');
 
-            // Update all dot sets
+            // Update all dots for current slide
             document.querySelectorAll(`.dot[data-dot="${currentSlide}"]`).forEach(dot => {
                 dot.classList.add('active');
             });
+
+            // Restart auto-play timer if needed
+            if (resetTimer) {
+                stopAutoPlay();
+                startAutoPlay();
+            }
         }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(nextSlide, autoPlayDuration);
+        }
+
+        function stopAutoPlay() {
+            clearInterval(autoPlayInterval);
+        }
+
+        // Arrow button functionality
+        document.getElementById('nextReview').addEventListener('click', () => {
+            nextSlide();
+        });
+
+        document.getElementById('prevReview').addEventListener('click', () => {
+            prevSlide();
+        });
 
         // Dot click functionality
         document.querySelectorAll('.dot').forEach(dot => {
@@ -1697,11 +1884,13 @@
             });
         });
 
-        // Auto-rotate reviews every 5 seconds
-        setInterval(() => {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }, 5000);
+        // Pause on hover
+        const reviewContainer = document.querySelector('.review-container');
+        reviewContainer.addEventListener('mouseenter', stopAutoPlay);
+        reviewContainer.addEventListener('mouseleave', startAutoPlay);
+
+        // Start auto-play
+        startAutoPlay();
     </script>
 </body>
 
