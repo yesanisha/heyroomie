@@ -39,7 +39,7 @@
         }
 
         .splash-logo {
-            font-size: 60px;
+            font-size: 40px;
             font-weight: 700;
             font-family: 'Georgia', serif;
             color: #fff;
@@ -232,7 +232,7 @@
         #logo {
             width: 70px;
             height: 50px;
-            font-size: 32px;
+            font-size: 30px;
             font-weight: 400;
             display: flex;
             align-items: center;
@@ -822,6 +822,80 @@
         }
 
 
+        /* cta */
+        /* CTA Section - Add this in your style section */
+        #sec_6 {
+            width: 100%;
+            height: 90vh;
+            background-image: url('people.jpeg');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: 8%;
+        }
+
+        .cta-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 55%;
+            height: 100%;
+            background: linear-gradient(to right,
+                    rgba(240, 248, 248, 0.95) 0%,
+                    rgba(224, 242, 241, 0.9) 60%,
+                    rgba(224, 242, 241, 0) 100%);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+        }
+
+        .cta-content h2 {
+            font-size: 52px;
+            font-weight: 400;
+            color: #311d15;
+            font-family: 'Georgia', serif;
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+
+        .cta-content p {
+            font-size: 18px;
+            color: #374151;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        .cta-content p strong {
+            font-weight: 600;
+            color: #000;
+        }
+
+        #ctaJoinBtn {
+            background-color: #311d15;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 16px 45px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(20, 184, 166, 0.3);
+        }
+
+        #ctaJoinBtn:hover {
+            background-color: #311d15;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(20, 184, 166, 0.4);
+        }
+
 
         .main-footer {
             background-color: #000;
@@ -1016,6 +1090,9 @@
 
             #logo {
                 color: #dcdcdc;
+                font-size: 25px;
+
+
 
             }
 
@@ -1061,7 +1138,7 @@
             #sec_2 span {
                 font-size: 45px;
                 left: 5%;
-                top: 80%;
+                top: 70%;
                 right: 5%;
                 font-weight: 700;
             }
@@ -1194,11 +1271,56 @@
                 width: 40px;
             }
 
-            /* Ensure background image is visible on mobile */
+            /* section 6 */
 
-            /* mobile logo */
+            .cta-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 80%;
+                height: 100%;
+                background: linear-gradient(to right,
+                        rgba(240, 248, 248, 0.95) 0%,
+                        rgba(224, 242, 241, 0.9) 60%,
+                        rgba(224, 242, 241, 0) 100%);
+            }
+
+            .cta-content h2 {
+                font-size: 30px;
+                font-weight: 400;
+                color: #2b105c;
+                font-family: 'Georgia', serif;
+                line-height: 1.1;
+                margin-bottom: 25px;
+            }
+
+            .cta-content p {
+                font-size: 14px;
+                color: #374151;
+                line-height: 1.6;
+                margin-bottom: 40px;
+            }
+
+            .cta-content p strong {
+                font-weight: 600;
+                color: #000;
+            }
+
+            #ctaJoinBtn {
+                background-color: #311d15;
+                color: white;
+                border: none;
+                border-radius: 8px;
+                padding: 10px 20px;
+                font-size: 10px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                box-shadow: 0 2px 8px rgba(20, 184, 166, 0.3);
+            }
 
         }
+
 
 
 
@@ -1207,7 +1329,7 @@
                 font-size: 32px;
                 left: 5%;
                 right: 5%;
-                top: 84%;
+                top: 70%;
                 transform: translateY(-100%);
             }
         }
@@ -1523,11 +1645,10 @@
                 <span class="highlight-circle">
                     Home.
                     <svg class="circle-sketch" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M50,75 
-                             C50,20 250,20 250,75 
-                             C250,130 50,130 50,75 
-                             Z" />
+                        <ellipse cx="150" cy="75" rx="100" ry="50" fill="none" stroke="#67295f" stroke-width="4" />
                     </svg>
+
+
                 </span>
             </h1>
 
@@ -1633,6 +1754,18 @@
         </div>
     </section>
 
+    <section id="sec_6">
+        <div class="cta-overlay"></div>
+        <div class="cta-content">
+            <h2>Your Perfect <br>Roommate<br>is Just a <br>Click Away</h2>
+            <p>
+                Find compatible housemates<br> and create our<br>
+                ideal living <br>situation with <strong>HeyRoomie</strong>
+            </p>
+            <button id="ctaJoinBtn">Join Community</button>
+        </div>
+    </section>
+
     <footer class="main-footer">
         <hr>
         <div class="footer-container">
@@ -1691,6 +1824,8 @@
     </div>
 
     <script>
+
+
         setTimeout(() => {
             document.getElementById('splashScreen').classList.add('hidden');
             document.getElementById('pageContent').classList.add('visible');
@@ -1733,6 +1868,12 @@
             });
         });
 
+        // CTA button opens community overlay
+        document.getElementById('ctaJoinBtn').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('communityOverlay').style.display = 'flex';
+        });
+
         // Scroll animations with Hinge-style smooth movements
         const observerOptions = {
             threshold: 0.1,
@@ -1764,7 +1905,9 @@
             'sec_2': { bg: 'transparent', text: 'black' },
             'sec_3': { bg: 'rgba(255, 255, 255)', text: 'black' },
             'sec_4': { bg: 'rgba(255, 255, 255)', text: 'black' },
-            'sec_5': { bg: 'rgba(0, 0, 0)', text: '#ffffff' },
+            'sec_5': { bg: 'rgba(255, 255, 255)', text: 'black' },
+            'sec_6': { bg: 'rgba(255, 255, 255)', text: 'black' },
+
         };
 
         function updateNavbarForSection() {
@@ -1924,6 +2067,9 @@
 
         // Start auto-play
         startAutoPlay();
+
+
+
     </script>
 </body>
 
