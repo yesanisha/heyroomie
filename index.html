@@ -492,24 +492,6 @@
             max-width: 600px;
         }
 
-        .highlight-circle {
-            position: relative;
-            display: inline-block;
-        }
-
-        .highlight-circle::after {
-            content: '';
-            position: absolute;
-            top: -15px;
-            left: -25px;
-            right: -25px;
-            bottom: -15px;
-            border: 3px solid #2b105c;
-            border-radius: 50%;
-            z-index: -1;
-            transform: scale(0);
-            transition: transform 0.5s ease 0.8s;
-        }
 
         .arrow {
             position: absolute;
@@ -525,6 +507,35 @@
             transform: scale(0.8);
             transition: all 0.6s ease 1s;
         }
+
+        .arrow-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            /* center horizontally */
+            margin-top: 30px;
+        }
+
+        .arrow-img {
+            height: 190px;
+            /* adjust size */
+            /* animation: moveArrow 2s ease-in-out infinite; */
+        }
+
+        @keyframes moveArrow {
+            0% {
+                transform: translateX(-30px);
+            }
+
+            50% {
+                transform: translateX(30px);
+            }
+
+            100% {
+                transform: translateX(-30px);
+            }
+        }
+
 
         #right span {
             color: #666;
@@ -573,9 +584,7 @@
             transform: scale(1);
         }
 
-        .animate-in .highlight-circle::after {
-            transform: scale(1);
-        }
+
 
         #sec_4 {
             width: 100%;
@@ -1213,12 +1222,37 @@
             display: none;
         }
 
-        .highlight-circle::after {
-            top: -8px;
-            left: -12px;
-            right: -12px;
-            bottom: -8px;
+        .highlight-circle {
+            position: relative;
+            display: inline-block;
         }
+
+        .circle-sketch {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 160%;
+            height: 200%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        .circle-sketch path {
+            fill: none;
+            stroke: #2b105c;
+            /* paint/sketch color */
+            stroke-width: 8px;
+            /* thick like marker */
+            stroke-linecap: round;
+            stroke-linejoin: round;
+
+            /* sketchy vibe */
+            stroke-dasharray: 300 20 50 40;
+            stroke-dashoffset: 10;
+            opacity: 0.9;
+        }
+
+
         }
 
         @media (max-width: 480px) {
@@ -1486,10 +1520,24 @@
             <h1>
                 Great Roommates<br>
                 Make Great
-                <span class="highlight-circle">Home.</span>
-                <span class="arrow"></span>
+                <span class="highlight-circle">
+                    Home.
+                    <svg class="circle-sketch" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M50,75 
+                             C50,20 250,20 250,75 
+                             C250,130 50,130 50,75 
+                             Z" />
+                    </svg>
+                </span>
             </h1>
+
+            <!-- arrow centered + animated -->
+            <div class="arrow-container">
+                <img src="arrow.png" alt="arrow" class="arrow-img">
+            </div>
+
         </aside>
+
         <aside id="right">
             <span>At HeyRoomie, we believe that a true home is more than just four walls; it's where connections
                 flourish and memories are made. Everyone deserves a space that feels just right, and our smart,
