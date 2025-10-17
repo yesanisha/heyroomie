@@ -10,7 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="sytle.css">
     <style>
         * {
             padding: 0px;
@@ -46,7 +45,6 @@
             letter-spacing: 0.05em;
             opacity: 0;
             animation: fadeIn 1s ease forwards;
-
         }
 
         @keyframes fadeIn {
@@ -66,8 +64,6 @@
             }
         }
 
-
-        /* Page entrance animations */
         .page-content {
             opacity: 0;
             transform: translateY(30px);
@@ -79,7 +75,6 @@
             transform: translateY(0);
         }
 
-        /* Responsive utilities */
         img,
         video,
         iframe {
@@ -87,14 +82,12 @@
             height: auto;
         }
 
-        /* Better box model for responsive design */
         *,
         *::before,
         *::after {
             box-sizing: border-box;
         }
 
-        /* Improve tap targets for mobile */
         button,
         a,
         input,
@@ -104,7 +97,6 @@
             min-width: 44px;
         }
 
-        /* Prevent horizontal scrolling */
         .container,
         section,
         div {
@@ -137,25 +129,66 @@
             gap: 20px;
         }
 
+        /* Creative Burger Menu */
         .mobile-menu-btn {
             display: none;
             background: none;
             border: none;
-            font-size: 24px;
             cursor: pointer;
             padding: 10px;
-            color: inherit;
             order: -1;
-            transition: color 0.3s ease, transform 0.2s ease;
+            width: 40px;
+            height: 40px;
+            position: relative;
         }
 
-        .mobile-menu-btn:hover {
-            color: #67295f;
-            transform: scale(1.1);
+        .burger-line {
+            width: 28px;
+            height: 3px;
+            background: #000;
+            border-radius: 3px;
+            position: absolute;
+            left: 6px;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
-        .mobile-menu-btn:active {
-            transform: scale(0.95);
+        .burger-line:nth-child(1) {
+            top: 10px;
+        }
+
+        .burger-line:nth-child(2) {
+            top: 18px;
+        }
+
+        .burger-line:nth-child(3) {
+            top: 26px;
+        }
+
+        .mobile-menu-btn:hover .burger-line {
+            background: #67295f;
+        }
+
+        .mobile-menu-btn:hover .burger-line:nth-child(1) {
+            transform: translateX(-3px);
+        }
+
+        .mobile-menu-btn:hover .burger-line:nth-child(3) {
+            transform: translateX(3px);
+        }
+
+        .mobile-menu-btn.active .burger-line:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+            background: #fff;
+        }
+
+        .mobile-menu-btn.active .burger-line:nth-child(2) {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+
+        .mobile-menu-btn.active .burger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+            background: #fff;
         }
 
         #nav_1 ul {
@@ -167,7 +200,6 @@
             font-size: 17px;
         }
 
-
         #nav_2 ul {
             width: 200px;
             display: flex;
@@ -175,12 +207,10 @@
             align-items: center;
             margin-right: 100px;
             font-size: 17px;
-
         }
 
         ul li {
             list-style: none;
-
         }
 
         ul li a {
@@ -189,7 +219,6 @@
             transition: all 0.3s ease;
             padding: 8px 16px;
             border-radius: 20px;
-
             position: relative;
         }
 
@@ -213,15 +242,12 @@
             color: #ffffff;
         }
 
-        /* Desktop/Mobile text control */
         .mobile-text {
             display: none;
-
         }
 
         .desktop-text {
             display: inline;
-
         }
 
         #logo:hover {
@@ -238,10 +264,8 @@
             align-items: center;
             justify-content: center;
             text-decoration: none;
-
         }
 
-        /* Mobile Menu Styles */
         .mobile-menu {
             position: fixed;
             top: 0;
@@ -254,13 +278,10 @@
             display: flex;
             flex-direction: column;
             padding: 80px 50px 50px;
-
-
         }
 
         .mobile-menu.active {
             left: 0;
-
         }
 
         .mobile-menu-close {
@@ -283,32 +304,12 @@
             color: #000;
         }
 
-        .mobile-menu-download {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: #fff;
-            color: #b61717;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 25px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-menu-download:hover {
-            background: #f0f0f0;
-        }
-
         .mobile-menu-items {
             flex: 1;
             display: flex;
             flex-direction: column;
             justify-content: center;
             gap: 20px;
-
         }
 
         .mobile-menu-item {
@@ -340,13 +341,6 @@
             justify-content: space-between;
             align-items: center;
             background-color: #000;
-
-        }
-
-        .mobile-menu-contact {
-            color: #fff;
-            font-size: 18px;
-            text-decoration: none;
         }
 
         .mobile-menu-social {
@@ -365,7 +359,6 @@
             height: 100vh;
             position: relative;
             overflow: hidden;
-
         }
 
         #img_1 {
@@ -410,8 +403,6 @@
             font-family: 'Georgia', serif;
             opacity: 0;
             transform: translateY(30px);
-            top: 65%;
-
         }
 
         .typing-text {
@@ -466,7 +457,6 @@
             padding-left: 80px;
             padding-top: 200px;
             text-align: left;
-
         }
 
         #left p {
@@ -492,50 +482,16 @@
             max-width: 600px;
         }
 
-
-        .arrow {
-            position: absolute;
-            right: -80px;
-            bottom: -100px;
-            width: 120px;
-            height: 120px;
-            background-image: url('arrow.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            opacity: 0;
-            transform: scale(0.8);
-            transition: all 0.6s ease 1s;
-        }
-
         .arrow-container {
             width: 100%;
             display: flex;
             justify-content: center;
-            /* center horizontally */
             margin-top: 30px;
         }
 
         .arrow-img {
             height: 190px;
-            /* adjust size */
-            /* animation: moveArrow 2s ease-in-out infinite; */
         }
-
-        @keyframes moveArrow {
-            0% {
-                transform: translateX(-30px);
-            }
-
-            50% {
-                transform: translateX(30px);
-            }
-
-            100% {
-                transform: translateX(-30px);
-            }
-        }
-
 
         #right span {
             color: #666;
@@ -570,21 +526,13 @@
             transform: translateY(-2px);
         }
 
-        /* Animation classes */
         .animate-in #left p,
         .animate-in #left h1,
         .animate-in #right span,
-        .animate-in #right button,
-        .animate-in .arrow {
+        .animate-in #right button {
             opacity: 1;
             transform: translateY(0);
         }
-
-        .animate-in .arrow {
-            transform: scale(1);
-        }
-
-
 
         #sec_4 {
             width: 100%;
@@ -663,8 +611,6 @@
             transform: translateX(0);
         }
 
-        /* Reviews Section */
-        /* Review Navigation Arrows */
         .review-nav {
             position: absolute;
             top: 50%;
@@ -700,7 +646,6 @@
             cursor: not-allowed;
         }
 
-        /* Progress bars for dots */
         .dot {
             width: 60px;
             height: 4px;
@@ -736,23 +681,6 @@
             }
         }
 
-        /* Mobile adjustments for arrows */
-        @media (max-width: 768px) {
-            .review-nav {
-                position: static;
-                transform: none;
-                justify-content: center;
-                margin-top: 30px;
-                gap: 15px;
-            }
-
-            .review-arrow {
-                width: 45px;
-                height: 45px;
-                font-size: 18px;
-            }
-        }
-
         #sec_5 {
             width: 100%;
             min-height: 100vh;
@@ -781,14 +709,14 @@
 
         .review-slide {
             display: none;
-            animation: fadeIn 0.5s ease;
+            animation: fadeInReview 0.5s ease;
         }
 
         .review-slide.active {
             display: block;
         }
 
-        @keyframes fadeIn {
+        @keyframes fadeInReview {
             from {
                 opacity: 0;
             }
@@ -797,7 +725,6 @@
                 opacity: 1;
             }
         }
-
 
         .review-text {
             font-size: 42px;
@@ -821,9 +748,6 @@
             gap: 12px;
         }
 
-
-        /* cta */
-        /* CTA Section - Add this in your style section */
         #sec_6 {
             width: 100%;
             height: 90vh;
@@ -896,7 +820,6 @@
             box-shadow: 0 4px 12px rgba(72, 20, 184, 0.4);
         }
 
-
         .main-footer {
             background-color: #000;
             color: white;
@@ -913,7 +836,6 @@
 
         .footer-section {
             flex: 1;
-
             padding: 0 20px;
         }
 
@@ -925,12 +847,6 @@
             display: flex;
             align-items: center;
             margin-bottom: 10px;
-        }
-
-        .footer-logo img {
-            height: 30px;
-            /* Adjust as needed */
-            margin-right: 10px;
         }
 
         .footer-logo span {
@@ -948,7 +864,6 @@
             font-size: 18px;
             margin-bottom: 20px;
             white-space: nowrap;
-            /* Prevent line breaks for titles */
         }
 
         .footer-section ul {
@@ -965,10 +880,11 @@
             color: #f7f7f7;
             text-decoration: none;
             font-size: 14px;
+            transition: color 0.3s ease;
         }
 
         .footer-section ul li a:hover {
-            text-decoration: underline;
+            color: #ffe598dd;
         }
 
         .social-icons {
@@ -984,88 +900,226 @@
             height: 40px;
             border-radius: 50%;
             background-color: #ffffff;
-            /* Slightly lighter dark for icons */
             display: flex;
             justify-content: center;
             align-items: center;
             text-decoration: none;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .social-icons a:hover {
-            background-color: #ffffff;
-        }
-
-        .copyright {
-            text-align: left;
-            padding: 20px 80px;
-            font-size: 14px;
-            border-top: 1px solid #ffffff;
-            /* Separator line */
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .social-icons {
-            justify-content: center;
+            background-color: #ffe598dd;
+            transform: scale(1.1);
         }
 
         .copyright {
             text-align: center;
-            padding: 20px 40px;
+            padding: 20px 80px;
+            font-size: 14px;
+            border-top: 1px solid #ffffff;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Privacy Policy Link Styling */
+        .privacy-policy-link {
+            color: #f7f7f7;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+        }
+
+        .privacy-policy-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: #ffe598dd;
+            transition: width 0.3s ease;
+        }
+
+        .privacy-policy-link:hover {
+            color: #ffe598dd;
+        }
+
+        .privacy-policy-link:hover::after {
+            width: 100%;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .overlay-content {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 450px;
+            width: 90%;
+            animation: popIn 0.3s ease;
+            position: relative;
+        }
+
+        .overlay-content h2 {
+            font-family: 'Georgia', serif;
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .overlay-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .overlay-content ul li {
+            margin: 15px 0;
+        }
+
+        .overlay-content ul li a {
+            font-family: 'Georgia', serif;
+            text-decoration: none;
+            color: #4b2e23;
+            font-size: 16px;
+            padding: 10px 0;
+            display: block;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .overlay-content ul li a:hover {
+            background: #f5f5f5;
+            color: #67295f;
+        }
+
+        @keyframes popIn {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #000;
+            transition: color 0.3s ease;
+        }
+
+        .close:hover {
+            color: #67295f;
+        }
+
+        #policyOverlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        #policyOverlay .overlay-content {
+            width: 90%;
+            max-width: 900px;
+            max-height: 85vh;
+            overflow-y: auto;
+            text-align: left;
+            line-height: 1.8;
+            font-size: 15px;
+            padding: 50px;
+        }
+
+        #policyOverlay h2 {
+            color: #222;
+            font-family: 'Georgia', serif;
+            font-size: 32px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        #policyOverlay h3 {
+            color: #311d15;
+            font-family: 'Georgia', serif;
+            font-size: 22px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        #policyOverlay p {
+            margin-bottom: 15px;
+            color: #444;
+        }
+
+        #policyOverlay ul {
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        #policyOverlay ul li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        .highlight-circle {
+            position: relative;
+            display: inline-block;
+        }
+
+        .circle-sketch {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 160%;
+            height: 200%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        .circle-sketch path {
+            fill: none;
+            stroke: #2b105c;
+            stroke-width: 8px;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 300 20 50 40;
+            stroke-dashoffset: 10;
+            opacity: 0.9;
         }
 
         /* Responsive Design */
-        @media (max-width: 1024px) {
-            header {
-                display: flex;
-                align-items: center;
-                /* ✅ vertically aligned */
-                justify-content: space-between;
-                padding: 0 20px;
-                height: 70px;
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                background: #fff;
-                z-index: 1000;
-            }
-
-            #nav_1 ul {
-                margin-left: 30px;
-                width: 200px;
-            }
-
-            #nav_2 ul {
-                margin-right: 50px;
-                width: 150px;
-            }
-
-            #sec_3,
-            #sec_4 {
-                padding: 0 50px;
-            }
-
-            #sec_5 {
-                padding: 60px 50px;
-            }
-
-            .review-text {
-                font-size: 32px;
-            }
-
-            #left h1,
-            #sec_4 div h1 {
-                font-size: 60px;
-            }
-        }
-
         @media (max-width: 768px) {
             header {
                 display: flex;
                 align-items: center;
-                /* ✅ vertically aligned */
                 justify-content: space-between;
                 padding: 0 20px;
                 height: 70px;
@@ -1076,8 +1130,6 @@
                 background: #fff;
                 z-index: 1000;
             }
-
-
 
             .mobile-menu-btn {
                 display: block;
@@ -1091,12 +1143,8 @@
             #logo {
                 color: #dcdcdc;
                 font-size: 25px;
-
-
-
             }
 
-            /* Keep community button visible and properly positioned on mobile */
             #nav_2 {
                 display: flex !important;
                 align-items: center !important;
@@ -1119,7 +1167,6 @@
                 white-space: nowrap !important;
             }
 
-            /* Switch to mobile text */
             .desktop-text {
                 display: none;
             }
@@ -1134,7 +1181,6 @@
                 gap: 20px;
             }
 
-
             #sec_2 span {
                 font-size: 45px;
                 left: 5%;
@@ -1143,7 +1189,6 @@
                 font-weight: 700;
             }
 
-            /* Ensure background image is visible on mobile */
             #img_1 {
                 background-attachment: scroll !important;
                 background-size: cover !important;
@@ -1168,7 +1213,6 @@
                 padding: 0;
             }
 
-            /* Ensure section 4 image remains visible on mobile - no cropping */
             #sec_4 aside {
                 min-height: 400px !important;
                 background-size: contain !important;
@@ -1178,11 +1222,8 @@
                 margin-bottom: 20px !important;
             }
 
-
-
             #right {
                 padding-left: 0;
-
             }
 
             #sec_4 div {
@@ -1195,7 +1236,6 @@
                 line-height: 1.2;
             }
 
-            /* Better mobile button styling */
             #right button {
                 width: auto;
                 min-width: 140px;
@@ -1209,14 +1249,10 @@
                 flex-direction: column;
                 align-items: center;
                 padding: 20px 20px;
-                background-color: #000;
-                color: white;
-
             }
 
             .footer-section {
                 flex: 1 1 100%;
-                /* Single column on very small screens */
                 text-align: center;
                 margin-bottom: 20px;
                 padding: 0;
@@ -1271,36 +1307,12 @@
                 width: 40px;
             }
 
-            /* section 6 */
-
-            /* #sec_6 {
-                position: relative;
-                width: 100%;
-                min-height: 80vh;
-                background: url("people.jpeg") center center/cover no-repeat;
-                display: flex;
-                align-items: flex-end;
-                justify-content: center;
-                padding: 40px 20px;
-                box-sizing: border-box;
-            }
-
-            .cta-overlay {
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                height: 45%;
-                z-index: 1;
-            } */
-
             .cta-content {
                 position: relative;
                 z-index: 2;
                 text-align: left;
                 max-width: 800px;
                 margin-bottom: 100px;
-                /* ⬅️ pushes text upward */
             }
 
             .cta-content h2 {
@@ -1319,103 +1331,31 @@
                 margin-bottom: 40px;
             }
 
-            .cta-content p strong {
-                font-weight: 600;
-                color: #000;
-            }
-
             #ctaJoinBtn {
-                background-color: #311d15;
-                color: white;
-                border: none;
-                border-radius: 8px;
                 padding: 10px 20px;
                 font-size: 10px;
-                font-weight: 600;
-                cursor: pointer;
-                transition: all 0.3s ease;
-                box-shadow: 0 2px 8px rgba(20, 184, 166, 0.3);
             }
 
-        }
-
-
-
-
-        @media (max-width: 480px) {
-            #sec_2 span {
-                font-size: 32px;
-                left: 5%;
-                right: 5%;
-                top: 70%;
-                transform: translateY(-100%);
+            #policyOverlay .overlay-content {
+                padding: 30px 20px;
             }
-        }
 
+            #policyOverlay h2 {
+                font-size: 24px;
+            }
 
-        #left h1,
-        #sec_4 div h1 {
-            font-size: 38px;
-        }
-
-        .arrow {
-            display: none;
-        }
-
-        .highlight-circle {
-            position: relative;
-            display: inline-block;
-        }
-
-        .circle-sketch {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 160%;
-            height: 200%;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-        }
-
-        .circle-sketch path {
-            fill: none;
-            stroke: #2b105c;
-            /* paint/sketch color */
-            stroke-width: 8px;
-            /* thick like marker */
-            stroke-linecap: round;
-            stroke-linejoin: round;
-
-            /* sketchy vibe */
-            stroke-dasharray: 300 20 50 40;
-            stroke-dashoffset: 10;
-            opacity: 0.9;
-        }
-
-
+            #policyOverlay h3 {
+                font-size: 18px;
+            }
         }
 
         @media (max-width: 480px) {
-            header {
-                height: 60px;
-                padding: 0 15px;
-            }
-
-            .splash-logo {
-                font-size: 36px;
-            }
-
             #sec_2 span {
                 font-size: 32px;
                 left: 4%;
                 right: 4%;
                 top: 55%;
                 font-weight: 700;
-            }
-
-            #sec_3,
-            #sec_4 {
-                padding: 50px 20px;
             }
 
             #left h1,
@@ -1441,458 +1381,465 @@
                 padding: 10px 20px;
                 font-size: 13px;
             }
-
-            footer {
-                padding: 50px 20px 30px;
-                background-color: #000;
-
-            }
-
-            .footer-links {
-                gap: 30px;
-            }
-
-            .footer-column h4 {
-                font-size: 16px;
-                margin-bottom: 20px;
-            }
-
-            .footer-column a {
-                font-size: 14px;
-            }
-
-
-            /* Enhanced mobile community button */
-            #nav_2 ul {
-                background: rgba(255, 255, 255, 0.15);
-                backdrop-filter: blur(15px);
-                border: 1px solid rgba(255, 255, 255, 0.3);
-
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            }
-        }
-
-        /* Overlay styling - positioned over hero section */
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .overlay-content {
-            background: #ffffff;
-            padding: 40px;
-            border-radius: 15px;
-            text-align: center;
-            max-width: 450px;
-            width: 90%;
-            animation: popIn 0.3s ease;
-            position: relative;
-            top: -20vh;
-        }
-
-        .overlay-content h2 {
-            font-family: 'Georgia', serif;
-            font-size: 24px;
-            margin-bottom: 30px;
-            color: #333;
-        }
-
-        .overlay-content ul li a {
-            font-family: 'Georgia', serif;
-            text-decoration: none;
-            color: #4b2e23;
-            font-size: 16px;
-            padding: 10px 0;
-            display: block;
-            border-radius: 8px;
-            transition: background 0.3s ease;
-        }
-
-        .overlay-content ul li a:hover {
-            background: #f5f5f5;
-            color: #67295f;
-        }
-
-        @keyframes popIn {
-            0% {
-                transform: scale(0.8);
-                opacity: 0;
-            }
-
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        .overlay-content ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .overlay-content ul li {
-            margin: 15px 0;
-        }
-
-        .overlay-content ul li a {
-            text-decoration: none;
-            color: #4b2e23;
-        }
-
-        .close {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 28px;
-            cursor: pointer;
-            color: white;
-        }
-
-        .mobile-nav-content {
-            display: none;
         }
     </style>
 </head>
 
 <body>
-    <!-- Splash Screen -->
     <div class="splash-screen" id="splashScreen">
         <div class="splash-logo">HeyRoomie</div>
     </div>
-    <!-- 
 
-    <div class="page-content" id="pageContent"> -->
-    <section id="sec_1">
-        <header>
-            <div class="header-left">
-                <button class="mobile-menu-btn">☰</button>
-                <nav id="nav_1">
+    <div class="page-content" id="pageContent">
+        <section id="sec_1">
+            <header>
+                <div class="header-left">
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                        <span class="burger-line"></span>
+                        <span class="burger-line"></span>
+                        <span class="burger-line"></span>
+                    </button>
+                    <nav id="nav_1">
+                        <ul>
+                            <li><a href="mission.html">Mission</a></li>
+                            <li><a href="mission.html#principles_section">Impact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <a id="logo" href="index.html"><b>HeyRoomie</b></a>
+                <nav id="nav_2">
                     <ul>
-                        <li><a href="mission.html">Mission</a></li>
-                        <li><a href="mission.html#principles_section">Impact</a></li>
+                        <li><a href="#" id="openCommunity">Join</a></li>
                     </ul>
                 </nav>
+            </header>
+        </section>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <button class="mobile-menu-close" id="closeMobileMenu">✕</button>
+            <div class="mobile-menu-items">
+                <div class="mobile-menu-item">
+                    <a href="index.html">Home</a>
+                </div>
+                <div class="mobile-menu-item">
+                    <a href="mission.html">Mission</a>
+                </div>
+                <div class="mobile-menu-item">
+                    <a href="mission.html#principles_section">Impact</a>
+                </div>
+                <div class="mobile-menu-item">
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="mobile-menu-social">
+                    <a href="https://www.instagram.com/heyroomie.in" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://chat.whatsapp.com/K595Lc0UtRKKQmOtnclvcL"><i class="fab fa-whatsapp"></i></a>
+                </div>
             </div>
-            <a id="logo" href="index.html"><b>HeyRoomie</b></a>
-            <div class="mobile-nav-content">
-                <a href="index.html" class="mobile-logo">HeyRoomie</a>
-                <a href="#" class="mobile-join-btn" id="mobileJoinBtn">Join</a>
-            </div>
-            <nav id="nav_2">
+        </div>
+
+        <div id="communityOverlay" class="overlay">
+            <div class="overlay-content">
+                <span id="closeOverlay" class="close">&times;</span>
+                <h2>Join Your Community</h2>
                 <ul>
-                    <li><a href="#" id="openCommunity" ;>Join</a></li>
-                </ul>
-            </nav>
-        </header>
-    </section>
-
-
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <button class="mobile-menu-close" id="closeMobileMenu">✕</button>
-
-        <div class="mobile-menu-items">
-
-            <div class="mobile-menu-item">
-                <a href="index.html">Home</a>
-            </div>
-
-            <div class="mobile-menu-item">
-                <a href="mission.html">Mission</a>
-            </div>
-            <div class="mobile-menu-item">
-                <a href="mission.html#principles_section">Impact</a>
-            </div>
-            <div class="mobile-menu-item">
-                <a href="#">Contact</a>
-            </div>
-            <div class="mobile-menu-item">
-                <a href="#">Socials</a>
-            </div>
-            <div class="mobile-menu-social">
-                <a href="#">🐦</a>
-                <a href="#">📷</a>
-            </div>
-
-
-        </div>
-
-        <div class="mobile-menu-footer">
-
-        </div>
-    </div>
-
-    <div id="communityOverlay" class="overlay">
-        <div class="overlay-content">
-            <span id="closeOverlay" class="close">&times;</span>
-            <h2>Join Your Community</h2>
-            <ul>
-                <li><a href="https://chat.whatsapp.com/K595Lc0UtRKKQmOtnclvcL" target="_blank"
-                        rel="noopener noreferrer">Bangalore Community</a></li>
-                <li><a href="https://chat.whatsapp.com/GIlChXJoekYBRdAEBRScBp" target="_blank"
-                        rel="noopener noreferrer">Mumbai Community</a></li>
-                <li><a href="https://chat.whatsapp.com/GWHmsVPDFwE2mHrI8p7KvE" target="_blank"
-                        rel="noopener noreferrer">Delhi Community</a></li>
-                <li><a href="https://chat.whatsapp.com/EUWnq8OeubxCzxXGIgQmqO" target="_blank"
-                        rel="noopener noreferrer">Pune Community</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <section id="sec_2">
-        <div id="img_1"></div>
-        <span class="typing-text">
-            <b>Where Living </b><br><b>Meets Belonging</b>
-        </span>
-    </section>
-
-    <section id="sec_3">
-        <aside id="left">
-            <p>Our Approach</p>
-            <h1>
-                Great Roommates<br>
-                Make Great
-                <span class="highlight-circle">
-                    Home.
-                    <svg class="circle-sketch" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
-                        <ellipse cx="150" cy="75" rx="100" ry="50" fill="none" stroke="#67295f" stroke-width="4" />
-                    </svg>
-
-
-                </span>
-            </h1>
-
-            <!-- arrow centered + animated -->
-            <div class="arrow-container">
-                <img src="arrow.png" alt="arrow" class="arrow-img">
-            </div>
-
-        </aside>
-
-        <aside id="right">
-            <span>At HeyRoomie, we believe that a true home is more than just four walls; it's where connections
-                flourish and memories are made. Everyone deserves a space that feels just right, and our smart,
-                data-driven algorithm is here to make that happen. By matching you with great vibes and like-minded
-                roommates, we're not just crafting homes, we're building a community where friendships thrive and
-                every
-                moment feels at home.</span>
-            <a href="mission.html">
-                <button>How we do it</button>
-            </a>
-        </aside>
-    </section>
-
-    <section id="sec_4">
-        <aside></aside>
-        <div>
-            <p>At the core of HeyRoomie.</p>
-            <h1>Great Roommates Make Great Homes</h1>
-            <span>We strive to create a warm and inviting home for everyone by connecting you with the perfect
-                roommate
-                to share it with.</span>
-        </div>
-    </section>
-
-    <section id="sec_5">
-        <h2 class="reviews-header">What Our Users Say</h2>
-        <div class="review-container">
-            <div class="review-slide active" data-slide="0">
-                <div class="quote-mark"></div>
-                <p class="review-text">"I was dreading the roommate hunt, but HeyRoomie made it so easy. Within a
-                    week, I found someone who shares my love for cooking and quiet evenings. We've been living
-                    together for six months now, and it feels like home.</p>
-                <p class="review-author">Priya M.</p>
-                <div class="review-dots">
-                    <span class="dot active" data-dot="0">
-                        <span class="dot-progress"></span>
-                    </span>
-                    <span class="dot" data-dot="1">
-                        <span class="dot-progress"></span>
-                    </span>
-                    <span class="dot" data-dot="2">
-                        <span class="dot-progress"></span>
-                    </span>
-                </div>
-            </div>
-
-            <div class="review-slide" data-slide="1">
-                <div class="quote-mark"></div>
-                <p class="review-text">"Moving to a new city was scary, but HeyRoomie connected me with the perfect
-                    roommate. We clicked instantly, and now I have both a great living situation and a close friend.
-                    Best decision I made!</p>
-                <p class="review-author">Arjun K.</p>
-                <div class="review-dots">
-                    <span class="dot" data-dot="0">
-                        <span class="dot-progress"></span>
-                    </span>
-                    <span class="dot active" data-dot="1">
-                        <span class="dot-progress"></span>
-                    </span>
-                    <span class="dot" data-dot="2">
-                        <span class="dot-progress"></span>
-                    </span>
-                </div>
-            </div>
-
-            <div class="review-slide" data-slide="2">
-                <div class="quote-mark"></div>
-                <p class="review-text">"Other platforms gave me random matches, but HeyRoomie actually understood
-                    what I was looking for. My roommate and I have similar schedules and respect for personal space.
-                    It's been perfect.</p>
-                <p class="review-author">Sneha R.</p>
-                <div class="review-dots">
-
-                    <span class="dot" data-dot="0">
-                        <span class="dot-progress"></span>
-                    </span>
-                    <span class="dot" data-dot="1">
-                        <span class="dot-progress"></span>
-                    </span>
-                    <span class="dot active" data-dot="2">
-                        <span class="dot-progress"></span>
-                    </span>
-
-                </div>
-
-            </div>
-
-            <!-- Navigation Arrows -->
-            <div class="review-nav">
-                <!-- <button class="review-arrow" id="prevReview">←</button> -->
-                <button class="review-arrow" id="nextReview">→</button>
-            </div>
-        </div>
-    </section>
-
-    <section id="sec_6">
-        <div class="cta-overlay"></div>
-        <div class="cta-content">
-            <h2>Your Perfect <br>Roommate<br>is Just a <br>Click Away</h2>
-            <p>
-                Find compatible housemates<br> and create our<br>
-                ideal living <br>situation with <strong>HeyRoomie</strong>
-            </p>
-            <button id="ctaJoinBtn">Join Community</button>
-        </div>
-    </section>
-
-    <footer class="main-footer">
-        <hr>
-        <div class="footer-container">
-            <div class="footer-section brand">
-                <div class="footer-logo">
-                    <!-- Assuming you have an SVG or image for the house icon and "HeyRoomie" -->
-                    <!-- For now, using Font Awesome icon and text -->
-                    <i class="fas fa-home" style="font-size: 30px; margin-right: 10px;"></i>
-                    <span>HeyRoomie</span>
-                </div>
-                <p>Connecting you to your ideal living situation.</p>
-            </div>
-
-            <div class="footer-section heyroomie-links">
-                <!-- <h4>HeyRoomie</h4> -->
-                <ul>
-                    <!-- <li><a href="#">About Us</a></li> -->
-                    <!-- <li><a href="#">How It Works</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Success Stories</a></li> -->
+                    <li><a href="https://chat.whatsapp.com/K595Lc0UtRKKQmOtnclvcL" target="_blank">Bangalore
+                            Community</a></li>
+                    <li><a href="https://chat.whatsapp.com/GIlChXJoekYBRdAEBRScBp" target="_blank">Mumbai Community</a>
+                    </li>
+                    <li><a href="https://chat.whatsapp.com/GWHmsVPDFwE2mHrI8p7KvE" target="_blank">Delhi Community</a>
+                    </li>
+                    <li><a href="https://chat.whatsapp.com/EUWnq8OeubxCzxXGIgQmqO" target="_blank">Pune Community</a>
+                    </li>
                 </ul>
             </div>
+        </div>
 
-            <div class="footer-section support-links">
-                <!-- <h4>Support</h4> -->
-                <ul>
-                    <!-- <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Safety & Security</a></li> -->
-                    <li><a href="#">Help Center</a></li>
-                </ul>
+        <section id="sec_2">
+            <div id="img_1"></div>
+            <span class="typing-text">
+                <b>Where Living </b><br><b>Meets Belonging</b>
+            </span>
+        </section>
+
+        <section id="sec_3">
+            <aside id="left">
+                <p>Our Approach</p>
+                <h1>
+                    Great Roommates<br>
+                    Make Great
+                    <span class="highlight-circle">
+                        Home.
+                        <svg class="circle-sketch" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="150" cy="75" rx="100" ry="50" fill="none" stroke="#67295f" stroke-width="4" />
+                        </svg>
+                    </span>
+                </h1>
+                <div class="arrow-container">
+                    <img src="arrow.png" alt="arrow" class="arrow-img">
+                </div>
+            </aside>
+            <aside id="right">
+                <span>At HeyRoomie, we believe that a true home is more than just four walls; it's where connections
+                    flourish and memories are made. Everyone deserves a space that feels just right, and our smart,
+                    data-driven algorithm is here to make that happen. By matching you with great vibes and like-minded
+                    roommates, we're not just crafting homes, we're building a community where friendships thrive and
+                    every moment feels at home.</span>
+                <a href="mission.html">
+                    <button>How we do it</button>
+                </a>
+            </aside>
+        </section>
+
+        <section id="sec_4">
+            <aside></aside>
+            <div>
+                <p>At the core of HeyRoomie.</p>
+                <h1>Great Roommates Make Great Homes</h1>
+                <span>We strive to create a warm and inviting home for everyone by connecting you with the perfect
+                    roommate to share it with.</span>
             </div>
+        </section>
 
-            <div class="footer-section legal-links">
-                <!-- <h4>Legal</h4> -->
-                <ul>
-                    <li><a href="#">Terms of Service</a></li>
-                    <!-- <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Cookie Policy</a></li> -->
-                </ul>
-            </div>
-
-            <div class="footer-section social-media">
-                <div class="social-icons">
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <section id="sec_5">
+            <h2 class="reviews-header">What Our Users Say</h2>
+            <div class="review-container">
+                <div class="review-slide active" data-slide="0">
+                    <p class="review-text">"I was dreading the roommate hunt, but HeyRoomie made it so easy. Within a
+                        week, I found someone who shares my love for cooking and quiet evenings. We've been living
+                        together for six months now, and it feels like home.</p>
+                    <p class="review-author">Priya M.</p>
+                    <div class="review-dots">
+                        <span class="dot active" data-dot="0"><span class="dot-progress"></span></span>
+                        <span class="dot" data-dot="1"><span class="dot-progress"></span></span>
+                        <span class="dot" data-dot="2"><span class="dot-progress"></span></span>
+                    </div>
+                </div>
+                <div class="review-slide" data-slide="1">
+                    <p class="review-text">"Moving to a new city was scary, but HeyRoomie connected me with the perfect
+                        roommate. We clicked instantly, and now I have both a great living situation and a close friend.
+                        Best decision I made!</p>
+                    <p class="review-author">Arjun K.</p>
+                    <div class="review-dots">
+                        <span class="dot" data-dot="0"><span class="dot-progress"></span></span>
+                        <span class="dot active" data-dot="1"><span class="dot-progress"></span></span>
+                        <span class="dot" data-dot="2"><span class="dot-progress"></span></span>
+                    </div>
+                </div>
+                <div class="review-slide" data-slide="2">
+                    <p class="review-text">"Other platforms gave me random matches, but HeyRoomie actually understood
+                        what I was looking for. My roommate and I have similar schedules and respect for personal space.
+                        It's been perfect.</p>
+                    <p class="review-author">Sneha R.</p>
+                    <div class="review-dots">
+                        <span class="dot" data-dot="0"><span class="dot-progress"></span></span>
+                        <span class="dot" data-dot="1"><span class="dot-progress"></span></span>
+                        <span class="dot active" data-dot="2"><span class="dot-progress"></span></span>
+                    </div>
+                </div>
+                <div class="review-nav">
+                    <button class="review-arrow" id="nextReview">→</button>
                 </div>
             </div>
+        </section>
+
+        <section id="sec_6">
+            <div class="cta-overlay"></div>
+            <div class="cta-content">
+                <h2>Your Perfect <br>Roommate<br>is Just a <br>Click Away</h2>
+                <p>Find compatible housemates<br> and create our<br> ideal living <br>situation with
+                    <strong>HeyRoomie</strong>
+                </p>
+                <button id="ctaJoinBtn">Join Community</button>
+            </div>
+
+            <!-- Community Overlay - Inside Section 6 -->
+            <div id="communityOverlay" class="overlay">
+                <div class="overlay-content">
+                    <span id="closeOverlay" class="close">&times;</span>
+                    <h2>Join Your Community</h2>
+                    <ul>
+                        <li><a href="https://chat.whatsapp.com/K595Lc0UtRKKQmOtnclvcL" target="_blank">Bangalore
+                                Community</a></li>
+                        <li><a href="https://chat.whatsapp.com/GIlChXJoekYBRdAEBRScBp" target="_blank">Mumbai
+                                Community</a></li>
+                        <li><a href="https://chat.whatsapp.com/GWHmsVPDFwE2mHrI8p7KvE" target="_blank">Delhi
+                                Community</a></li>
+                        <li><a href="https://chat.whatsapp.com/EUWnq8OeubxCzxXGIgQmqO" target="_blank">Pune
+                                Community</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <hr style="border:none; border-top:1px solid #222; margin:0; opacity:0.4;">
+
+        <footer class="main-footer">
+            <hr>
+            <div class="footer-container">
+                <div class="footer-section brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-home" style="font-size: 30px; margin-right: 10px;"></i>
+                        <span>HeyRoomie</span>
+                    </div>
+                    <p>Connecting you to your ideal living situation.</p>
+                </div>
+                <div class="footer-section support-links">
+                    <ul>
+                        <li><a href="#" onclick="return false;">Help Center</a></li>
+                    </ul>
+                    <p><a href="mailto:support@heyroomie.in"
+                            style="color:#ffe598dd; text-decoration:none;">support@heyroomie.in</a></p>
+                </div>
+                <div class="footer-section legal-links">
+                    <ul>
+                        <li><a href="#" onclick="return false;">Terms of Service</a></li>
+                        <li>
+                            <a href="#" class="privacy-policy-link" id="openPolicyBtn" onclick="return false;">Privacy
+                                Policy & Community Guidelines</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-section social-media">
+                    <div class="social-icons">
+                        <!-- <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a> -->
+                        <a href="https://www.instagram.com/heyroomie.in" target="_blank" aria-label="Instagram"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2024 HeyRoomie. All rights reserved.
+            </div>
+        </footer>
+
+        <div id="communityOverlay" class="overlay">
+            <div class="overlay-content">
+                <span id="closeOverlay" class="close">&times;</span>
+                <h2>Join Your Community</h2>
+                <ul>
+                    <li><a href="https://chat.whatsapp.com/K595Lc0UtRKKQmOtnclvcL" target="_blank">Bangalore
+                            Community</a></li>
+                    <li><a href="https://chat.whatsapp.com/GIlChXJoekYBRdAEBRScBp" target="_blank">Mumbai Community</a>
+                    </li>
+                    <li><a href="https://chat.whatsapp.com/GWHmsVPDFwE2mHrI8p7KvE" target="_blank">Delhi Community</a>
+                    </li>
+                    <li><a href="https://chat.whatsapp.com/EUWnq8OeubxCzxXGIgQmqO" target="_blank">Pune Community</a>
+                    </li>
+                </ul>
+            </div>
         </div>
 
-        <div class="copyright">
-            &copy; 2024 HeyRoomie. All ideal reserved.
+        <div id="policyOverlay" class="overlay">
+            <div class="overlay-content">
+                <span id="closePolicy" class="close">&times;</span>
+                <h2>HeyRoomie Privacy Policy and Community Guidelines</h2>
+                <p style="text-align:center; color:#666;">Last Updated: October 14, 2025</p>
+
+                <h3>Welcome to HeyRoomie</h3>
+                <p>HeyRoomie is a vibrant community initiative designed to solve the everyday challenge of finding the
+                    perfect flatmate, flat, or PG roommate in busy Indian cities like Bangalore, Mumbai, Hyderabad, and
+                    more. We understand how tough it can be to connect with people who share your vibe, whether it's
+                    your love for chai, late-night study sessions, or a quiet living space. Our mission is to bring
+                    people together, turning the stress of housing into a journey of belonging with our tagline, "Where
+                    Living Meets Belonging."</p>
+
+                <p>We're starting this journey by building a community on WhatsApp, where you can join groups based on
+                    cities (e.g., Bangalore, Mumbai) and dive into sub-categories (e.g., Koramangala, Bandra) to chat,
+                    share tips, and find your ideal housing match. This is a space to connect, discuss, and support each
+                    other in making urban living easier and more enjoyable.</p>
+
+                <p>By joining our WhatsApp community or engaging with HeyRoomie, you agree to this Privacy Policy and
+                    Community Guidelines. If you disagree, please do not participate. We may update these documents,
+                    with changes posted here, and your continued participation signifies acceptance.</p>
+
+                <h3>Privacy Policy</h3>
+                <p>At HeyRoomie, we care about your privacy and are committed to keeping your personal information safe
+                    as you connect with others. This Privacy Policy explains how we handle your data in our WhatsApp
+                    community and future services. We follow India's Digital Personal Data Protection Act, 2023 (DPDP
+                    Act) and respect your rights. For questions, contact <strong>support@heyroomie.in</strong></p>
+
+                <h3>1. Information We Collect</h3>
+                <p>We collect data to help you connect and build your housing community. This includes:</p>
+                <ul>
+                    <li><strong>Account and Profile Data (Provided by You):</strong> Name and phone number (required for
+                        WhatsApp join). Optional details you share: Age range, gender, interests (e.g., "Veg Food,"
+                        "Night Owl"), housing preferences (e.g., flatmate type, budget range like ₹5k-50k), and location
+                        (e.g., Bangalore-Koramangala).</li>
+                    <li><strong>Community Data (Shared by You):</strong> Messages, photos, or files you post in WhatsApp
+                        groups (e.g., flat pics, move-in tips). Group interactions (e.g., who you chat with, topics
+                        discussed).</li>
+                    <li><strong>Usage Data (Automatically Collected):</strong> Basic info like join date, active hours,
+                        and device type (via WhatsApp analytics, anonymized).</li>
+                </ul>
+                <p>We do not collect sensitive details like exact addresses or financial data unless you voluntarily
+                    share them (and we encourage using private chats for such info).</p>
+
+                <h3>2. How We Use Your Information</h3>
+                <p>We use your data to:</p>
+                <ul>
+                    <li><strong>Connect you with others:</strong> Match you to relevant city/sub-category groups (e.g.,
+                        Mumbai-Bandra).</li>
+                    <li><strong>Support the community:</strong> Share housing advice, organize discussions, and
+                        highlight helpful tips.</li>
+                    <li><strong>Improve the experience:</strong> Understand group activity (anonymized) to grow the
+                        community.</li>
+                    <li><strong>Communicate:</strong> Send welcome messages or updates via WhatsApp (opt-out available).
+                    </li>
+                    <li><strong>Ensure safety:</strong> Moderate content with admins to keep discussions respectful.
+                    </li>
+                </ul>
+
+                <h3>3. How We Share Your Information</h3>
+                <p>We do not sell your data. Sharing is limited to:</p>
+                <ul>
+                    <li><strong>WhatsApp Admins:</strong> Our team moderates groups and may access messages to enforce
+                        guidelines.</li>
+                    <li><strong>Group Members:</strong> Data you share (e.g., name, messages) is visible to others in
+                        your group.</li>
+                    <li><strong>Legal:</strong> Shared with authorities if required (e.g., under DPDP Act for illegal
+                        activity).</li>
+                    <li><strong>Service Providers:</strong> WhatsApp for hosting, analytics (anonymized).</li>
+                </ul>
+                <p>Avoid sharing private details publicly; use direct chats for sensitive info.</p>
+
+                <h3>4. Data Security</h3>
+                <p>We rely on WhatsApp's end-to-end encryption for message security. Admins monitor for safety but do
+                    not store data long-term. Report issues to admins or <strong>support@heyroomie.in</strong>. We
+                    cannot guarantee absolute security.</p>
+
+                <h3>5. Your Rights and Choices</h3>
+                <p>Under DPDP Act:</p>
+                <ul>
+                    <li><strong>Access/Leave:</strong> View your shared data in groups; leave any time (group exit
+                        removes you).</li>
+                    <li><strong>Opt-Out:</strong> Mute notifications or leave groups to stop updates.</li>
+                    <li><strong>Delete:</strong> Request data removal (up to 30 days, subject to WhatsApp retention).
+                        Contact <strong>support@heyroomie.in</strong> for requests (response within 30 days).</li>
+                </ul>
+
+                <h3>6. Children's Privacy</h3>
+                <p>HeyRoomie is for 18+ only. No data collection from children.</p>
+
+                <h3>7. Changes to Policy</h3>
+                <p>Updates posted here with date. Major changes notified via WhatsApp or email.</p>
+
+                <h3>Community Guidelines</h3>
+                <p>HeyRoomie's WhatsApp community is a welcoming space to talk about housing—finding flatmates, flats,
+                    or PGs in cities like Bangalore, Mumbai, and their sub-areas (e.g., Koramangala, Bandra). We aim to
+                    create a supportive environment where everyone feels they belong. All members must follow these
+                    guidelines; violations may lead to warnings, message deletion, or removal. Report issues to group
+                    admins via <strong>support@heyroomie.in</strong></p>
+
+                <h3>1. Be Respectful and Inclusive</h3>
+                <ul>
+                    <li>Treat all members with kindness—no harassment, hate speech, or discrimination (e.g., based on
+                        gender, caste, religion).</li>
+                    <li>Use positive language; avoid stereotypes (e.g., no "student mess" jabs).</li>
+                    <li>No spam, self-promotion, or unrelated ads.</li>
+                </ul>
+
+                <h3>2. Keep It Relevant</h3>
+                <ul>
+                    <li>Discuss housing topics: flatmate preferences, flat availability, PG tips, move-in advice, polls
+                        (e.g., "Best budget PG in Hyderabad?").</li>
+                    <li>Stay on-topic for your group/sub-category (e.g., no Mumbai chats in Bangalore-Koramangala).</li>
+                    <li>No off-topic content (e.g., politics, sales pitches).</li>
+                </ul>
+
+                <h3>3. Be Honest and Safe</h3>
+                <ul>
+                    <li>Share accurate info (e.g., no fake flat listings).</li>
+                    <li>Avoid public personal details (e.g., full addresses, phone numbers)—use private chats.</li>
+                    <li>No scams, illegal offers, or harmful content.</li>
+                </ul>
+
+                <h3>4. Engage Positively</h3>
+                <ul>
+                    <li>Share helpful advice or questions (e.g., "Any good Koramangala flats?").</li>
+                    <li>Avoid arguments; report issues to admins.</li>
+                    <li>Polls: Keep fair and housing-related.</li>
+                </ul>
+
+                <h3>5. Enforcement</h3>
+                <ul>
+                    <li><strong>Moderation:</strong> Admins and AI (via WhatsApp tools) monitor; reports handled within
+                        24 hours.</li>
+                    <li><strong>Consequences:</strong> First offense: Warning/message removal. Repeat: Temporary mute (7
+                        days). Severe: Permanent ban.</li>
+                    <li><strong>Appeals:</strong> Email <strong>support@heyroomie.in</strong> with details.</li>
+                    <li><strong>Premium Members:</strong> Same rules apply; no special exemptions.</li>
+                </ul>
+
+                <h3>6. WhatsApp Group Management Details</h3>
+                <ul>
+                    <li><strong>Group Structure:</strong> Main city groups (e.g., Bangalore, Mumbai) with up to 1,024
+                        members each (WhatsApp limit). Sub-categories within each city (e.g., Bangalore-Koramangala,
+                        Mumbai-Bandra) with up to 256 members for focused discussions. New groups created as needed when
+                        limits are reached (e.g., Bangalore-2, Koramangala-2).</li>
+                    <li><strong>Joining Process:</strong> Link shared via heyroomie.in or social media (e.g., X posts).
+                        Admins approve joins to maintain quality; verification via phone number. Invitation-only for
+                        sub-categories after joining a city group.</li>
+                    <li><strong>Admin Roles:</strong> 2-5 admins per group, trained to moderate, answer queries, and
+                        manage member lists. Admins can mute (up to 7 days), remove, or add members, with logs kept for
+                        30 days. Escalation to <strong>community@heyroomie.in</strong> for complex issues.</li>
+                    <li><strong>Member Responsibilities:</strong> Introduce yourself upon joining (e.g., "Hi, I'm Priya
+                        from Koramangala looking for a flatmate!"). Respect group limits; avoid flooding with messages
+                        (max 10/day recommended). Report spam or violations to admins via WhatsApp or email.</li>
+                    <li><strong>Group Rules Enforcement:</strong> Daily checks by admins at 9:00 AM and 6:00 PM IST.
+                        Weekly summary shared (e.g., "50 new members, 3 warnings issued") in a pinned message. Inactive
+                        members (no activity in 30 days) may be removed to free space.</li>
+                </ul>
+
+                <p style="margin-top: 30px;"><strong>By joining, you agree to these guidelines. Updates posted here;
+                        check regularly.</strong></p>
+
+                <h3>Contact Us</h3>
+                <p>For privacy or community concerns, email <strong>support@heyroomie.in</strong>. Let's make housing a
+                    community effort!</p>
+
+                <p style="margin-top: 20px; color: #666; font-size: 13px;">This policy is governed by Indian law.</p>
+            </div>
         </div>
-    </footer>
     </div>
 
     <script>
-
-
         setTimeout(() => {
             document.getElementById('splashScreen').classList.add('hidden');
             document.getElementById('pageContent').classList.add('visible');
-        }, 3500); // matches handwriting + fill duration
+        }, 3500);
 
-        // Mobile menu functionality
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
         const closeMobileMenu = document.getElementById('closeMobileMenu');
 
         mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuBtn.classList.toggle('active');
             mobileMenu.classList.add('active');
             document.body.style.overflow = 'hidden';
         });
 
         closeMobileMenu.addEventListener('click', () => {
+            mobileMenuBtn.classList.remove('active');
             mobileMenu.classList.remove('active');
             document.body.style.overflow = 'auto';
         });
 
-        // Close mobile menu when clicking on menu items
         document.querySelectorAll('.mobile-menu-item a').forEach(link => {
             link.addEventListener('click', () => {
+                mobileMenuBtn.classList.remove('active');
                 mobileMenu.classList.remove('active');
                 document.body.style.overflow = 'auto';
             });
         });
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // CTA button opens community overlay
         document.getElementById('ctaJoinBtn').addEventListener('click', (e) => {
             e.preventDefault();
             document.getElementById('communityOverlay').style.display = 'flex';
         });
 
-        // Scroll animations with Hinge-style smooth movements
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -1910,12 +1857,10 @@
             });
         }, observerOptions);
 
-        // Observe sections for animations
         document.querySelectorAll('#sec_3, #sec_4').forEach(section => {
             observer.observe(section);
         });
 
-        // Dynamic navigation background based on current section
         const header = document.querySelector('header');
         const navLinks = document.querySelectorAll('nav a, #logo');
 
@@ -1925,7 +1870,6 @@
             'sec_4': { bg: 'rgba(255, 255, 255)', text: 'black' },
             'sec_5': { bg: 'rgba(255, 255, 255)', text: 'black' },
             'sec_6': { bg: 'rgba(255, 255, 255)', text: 'black' },
-
         };
 
         function updateNavbarForSection() {
@@ -1943,7 +1887,6 @@
             });
 
             const colors = sectionColors[currentSection] || sectionColors['sec_2'];
-
             header.style.background = colors.bg;
 
             navLinks.forEach(link => {
@@ -1961,27 +1904,43 @@
         window.addEventListener('scroll', updateNavbarForSection);
         updateNavbarForSection();
 
-        // Community overlay functionality
         const overlay = document.getElementById('communityOverlay');
         const openBtn = document.getElementById('openCommunity');
         const closeBtn = document.getElementById('closeOverlay');
 
+        // Header Join button
         openBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            overlay.style.display = 'flex';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            setTimeout(() => {
+                overlay.style.display = 'flex';
+            }, 300);
+        });
+
+        // CTA Join button in section 6
+        document.getElementById('ctaJoinBtn').addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            setTimeout(() => {
+                overlay.style.display = 'flex';
+            }, 300);
         });
 
         closeBtn.addEventListener('click', () => {
             overlay.style.display = 'none';
         });
 
+        // Close overlays when clicking outside
         window.addEventListener('click', (e) => {
             if (e.target === overlay) {
                 overlay.style.display = 'none';
             }
+            if (e.target === policyOverlay) {
+                policyOverlay.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
         });
 
-        // Parallax effect for hero section (disabled on mobile for performance)
         if (window.innerWidth > 768) {
             window.addEventListener('scroll', () => {
                 const scrolled = window.pageYOffset;
@@ -1994,7 +1953,6 @@
             });
         }
 
-        // Button hover effects
         document.querySelectorAll('button').forEach(button => {
             button.addEventListener('mouseenter', function (e) {
                 if (!this.classList.contains('mobile-menu-btn')) {
@@ -2011,34 +1969,27 @@
             });
         });
 
-        // Reviews carousel functionality
-        // Reviews carousel functionality
         let currentSlide = 0;
         const slides = document.querySelectorAll('.review-slide');
         const dots = document.querySelectorAll('.dot');
         const totalSlides = slides.length;
         let autoPlayInterval;
-        const autoPlayDuration = 5000; // 5 seconds
+        const autoPlayDuration = 5000;
 
         function showSlide(n, resetTimer = true) {
-            // Remove active class from all
             slides.forEach(slide => slide.classList.remove('active'));
             dots.forEach(dot => dot.classList.remove('active'));
 
-            // Wrap around
             if (n >= totalSlides) currentSlide = 0;
             else if (n < 0) currentSlide = totalSlides - 1;
             else currentSlide = n;
 
-            // Show current slide
             slides[currentSlide].classList.add('active');
 
-            // Update all dots for current slide
             document.querySelectorAll(`.dot[data-dot="${currentSlide}"]`).forEach(dot => {
                 dot.classList.add('active');
             });
 
-            // Restart auto-play timer if needed
             if (resetTimer) {
                 stopAutoPlay();
                 startAutoPlay();
@@ -2049,10 +2000,6 @@
             showSlide(currentSlide + 1);
         }
 
-        function prevSlide() {
-            showSlide(currentSlide - 1);
-        }
-
         function startAutoPlay() {
             autoPlayInterval = setInterval(nextSlide, autoPlayDuration);
         }
@@ -2061,16 +2008,10 @@
             clearInterval(autoPlayInterval);
         }
 
-        // Arrow button functionality
         document.getElementById('nextReview').addEventListener('click', () => {
             nextSlide();
         });
 
-        document.getElementById('prevReview').addEventListener('click', () => {
-            prevSlide();
-        });
-
-        // Dot click functionality
         document.querySelectorAll('.dot').forEach(dot => {
             dot.addEventListener('click', function () {
                 const slideIndex = parseInt(this.getAttribute('data-dot'));
@@ -2078,16 +2019,45 @@
             });
         });
 
-        // Pause on hover
         const reviewContainer = document.querySelector('.review-container');
         reviewContainer.addEventListener('mouseenter', stopAutoPlay);
         reviewContainer.addEventListener('mouseleave', startAutoPlay);
 
-        // Start auto-play
         startAutoPlay();
 
+        const policyOverlay = document.getElementById('policyOverlay');
+        const openPolicyBtn = document.getElementById('openPolicyBtn');
+        const closePolicyBtn = document.getElementById('closePolicy');
 
+        if (openPolicyBtn) {
+            openPolicyBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                setTimeout(() => {
+                    policyOverlay.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                }, 300);
+            });
+        }
 
+        if (closePolicyBtn) {
+            closePolicyBtn.addEventListener('click', () => {
+                policyOverlay.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+        }
+
+        // Close overlays when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === overlay) {
+                overlay.style.display = 'none';
+            }
+            if (e.target === policyOverlay) {
+                policyOverlay.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
     </script>
 </body>
 
